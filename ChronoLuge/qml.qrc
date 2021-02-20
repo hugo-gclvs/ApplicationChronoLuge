@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/view">
+        <file>boundary/presenter/view/main.qml</file>
+        <file>boundary/presenter/view/VisualiserTempsVitesse.ui.qml</file>
+        <file>boundary/presenter/view/AjouterDescente.ui.qml</file>
+        <file>boundary/presenter/view/VisualiserProfil.ui.qml</file>
+        <file>boundary/presenter/view/qtquickcontrols2.conf</file>
+        <file>boundary/presenter/view/Identification.ui.qml</file>
+        <file>boundary/presenter/view/Inscription.ui.qml</file>
+    </qresource>
+    <qresource prefix="/image">
+        <file>image/logo.png</file>
+        <file>image/profil.png</file>
+        <file>image/arrow-down.png</file>
+        <file>image/arrow-right.png</file>
+        <file>image/check.png</file>
+    </qresource>
+</RCC>
