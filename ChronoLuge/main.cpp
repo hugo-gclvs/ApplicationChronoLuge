@@ -5,7 +5,7 @@
 #include <QZXingFilter.h>
 #include <QIcon>
 
-//#include "controller/visualisertempsvitesse.h"
+#include "controller/visualisertempsvitesse.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,14 +16,16 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setWindowIcon(QIcon(":/image/image/logo.png"));
 
-    //PresenterVisualiserTempsVitesse presenterVisualiserTempsVitesse;
-    //VisualiserTempsVitesse controllerVisualiserTempsVitesse(&presenterVisualiserTempsVitesse);
+    qmlRegisterType<Descente>("Historique", 1, 0, "Descente");
+    VisualiserTempsVitesse controllerVisualiserTempsVitesse;
+
+    controllerVisualiserTempsVitesse.rechercherDescentes();
 
     QZXing::registerQMLTypes();
 
     QQmlApplicationEngine engine;
 
-    //engine.rootContext()->setContextProperty("test", &test);
+    engine.rootContext()->setContextProperty("controleur", &controllerVisualiserTempsVitesse);
 
     const QUrl url(QStringLiteral("qrc:/view/boundary/presenter/view/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

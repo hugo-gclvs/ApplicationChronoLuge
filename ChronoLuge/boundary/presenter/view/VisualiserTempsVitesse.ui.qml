@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
+import Historique 1.0
 
 Page {
     id: pageVisualiserTempsVitesse
@@ -46,14 +47,14 @@ Page {
                 property int nmbrDescente: 4
 
                 id: listView
-                model: nmbrDescente
+                model: controleur.liste
                 clip: true
 
                 delegate: ItemDelegate {
 
-                    property double vitesse: 12.45
-                    property string date: "2021-12-22"
-                    property string temps: "02:34:1" + index*2
+                    property double vitesse: 12//controleur.liste[0].vitesse
+                    property string date: "ffff"//controleur.liste[0].date
+                    property string temps: "aaa"//controleur.liste[0].temps
 
                     id: maDescente
                     width: parent.width
@@ -277,26 +278,6 @@ Page {
                                 PropertyChanges {target: flecheBas; opacity:0}
                             }
                         ]
-                        /*transitions: [
-                            Transition {
-                                from: "normal"
-                                to: "resized"
-                                NumberAnimation {
-                                    targets: [flecheBas, flecheDroite]
-                                    properties: "opacity"
-                                    duration: 500
-                                }
-                            },
-                            Transition {
-                                from: "resized"
-                                to: "normal"
-                                NumberAnimation {
-                                    targets: [flecheBas, flecheDroite]
-                                    properties: "opacity"
-                                    duration: 500
-                                }
-                            }
-                        ]*/
                     }
                 }
             }
@@ -305,3 +286,24 @@ Page {
 }
 
 
+
+/*transitions: [
+    Transition {
+        from: "normal"
+        to: "resized"
+        NumberAnimation {
+            targets: [flecheBas, flecheDroite]
+            properties: "opacity"
+            duration: 500
+        }
+    },
+    Transition {
+        from: "resized"
+        to: "normal"
+        NumberAnimation {
+            targets: [flecheBas, flecheDroite]
+            properties: "opacity"
+            duration: 500
+        }
+    }
+]*/

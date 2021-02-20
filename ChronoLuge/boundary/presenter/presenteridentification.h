@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QDebug>
 
+class VisualiserIdentification;
+
 class PresenterIdentification : public QObject
 {
     Q_OBJECT
@@ -13,6 +15,11 @@ public:
     Q_INVOKABLE void afficherMessage(const QString &msg) {
         qDebug() << msg;
     }
+
+    void setController(VisualiserIdentification *monController) { this->monController = monController; }
+
+private:
+    VisualiserIdentification *monController;
 
 signals:
 

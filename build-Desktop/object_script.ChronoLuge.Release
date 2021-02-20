@@ -161,7 +161,6 @@ release/QZXingFilter.o
 release/QZXingImageProvider.o
 release/win_iconv.o
 release/qrc_qml.o
-release/moc_comhttp.o
 release/moc_presenteridentification.o
 release/moc_presentervisualisertempsvitesse.o
 release/moc_visualiseridentification.o
@@ -169,6 +168,7 @@ release/moc_visualisertempsvitesse.o
 release/moc_descente.o
 release/moc_statistiques.o
 release/moc_utilisateur.o
+release/moc_comhttp.o
 release/moc_ImageHandler.o
 release/moc_QZXing.o
 release/moc_QZXingFilter.o

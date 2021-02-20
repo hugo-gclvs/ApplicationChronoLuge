@@ -2,7 +2,8 @@
 #define PRESENTERVISUALISERTEMPSVITESSE_H
 
 #include <QObject>
-#include "controller/visualisertempsvitesse.h"
+
+class VisualiserTempsVitesse;
 
 class PresenterVisualiserTempsVitesse : public QObject
 {

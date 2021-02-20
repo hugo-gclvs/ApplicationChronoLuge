@@ -22,8 +22,8 @@ ApplicationWindow {
 
     property int largeur: window.width
     property alias stack: stackView
-    property bool connecte: false
-    property bool inscrit: false
+    property bool connecte: true
+    property bool inscrit: true
 
     header: ToolBar {
         id: toolBar

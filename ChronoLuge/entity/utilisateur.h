@@ -7,12 +7,12 @@
 class Utilisateur : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString pseudo READ getPseudo)
+    /*Q_PROPERTY(QString pseudo READ getPseudo)
     Q_PROPERTY(QString mdp READ getPrenom)
     Q_PROPERTY(QString nom READ getNom)
     Q_PROPERTY(QString prenom READ getPrenom)
     Q_PROPERTY(int age READ getAge)
-    Q_PROPERTY(int pdp READ getPdp)
+    Q_PROPERTY(int pdp READ getPdp)*/
 
 public:
 
@@ -28,7 +28,7 @@ public:
         int getIdUtilisateur() const        { return idUtilisateur; }
 
     // Méthodes
-        void setStatistiques(Statistiques *mesStatistiques) { monProfil = mesStatistiques; }
+        void setStatistiques(Statistiques *statistiques) { mesStatistiques = statistiques; }
 
 private:
 
@@ -41,7 +41,7 @@ private:
         int pdp;
         int idUtilisateur;
 
-        Statistiques *monProfil;
+        Statistiques *mesStatistiques;
 
 signals:
 

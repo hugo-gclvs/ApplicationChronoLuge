@@ -3,40 +3,53 @@
 
 #include <QObject>
 #include <QtQml/QQmlListProperty>
+#include <QVector>
 
-#include "../entity/descente.h"
+#include "entity/descente.h"
 
-#include "../boundary/presenter/presentervisualisertempsvitesse.h"
+#include "boundary/presenter/presentervisualisertempsvitesse.h"
+#include "boundary/data/ComHTTP/comhttp.h"
+
+#include "controller/visualiseridentification.h"
+
+
+Q_DECLARE_METATYPE(QQmlListProperty< Descente  > )
 
 class VisualiserTempsVitesse : public QObject
 {
     Q_OBJECT
-    /*Q_PROPERTY(bool etatConnexion READ getEtatConnexion)
-    Q_PROPERTY(QQmlListProperty<Descente> historique READ getHistorique)*/
+
+    Q_PROPERTY(bool etatConnexion READ getEtatConnexion)
+    Q_PROPERTY(QQmlListProperty<Descente> liste READ getDescentes NOTIFY rien)
 
 public:
 
     // Constructeur
-        VisualiserTempsVitesse(PresenterVisualiserTempsVitesse *monPresenter, QObject *parent = nullptr);
+        explicit VisualiserTempsVitesse(QObject *parent = nullptr);
         ~VisualiserTempsVitesse() override;
 
     // Accesseurs
         bool getEtatConnexion() const                       { return etatConnexion; }
-        QQmlListProperty<Descente> getHistorique()          { return QQmlListProperty<Descente>(this, historique); }
+        QQmlListProperty<Descente> getDescentes()          { return QQmlListProperty<Descente>(this, mesDescentes); }
 
     // Méthodes
         bool lierDescente(int numLuge, int idUtilisateur);
-
+        bool rechercherDescentes();
+        bool initDescentes(QVector<QString> *descentes);
 
 private:
 
-    // Attributs
+        // Attributs
+        ComHTTP *communicationHTTP;
+
         PresenterVisualiserTempsVitesse *monPresenter;
-        QList<Descente *> historique;
+        VisualiserIdentification controllerIdentification;
+
+        QList<Descente *> mesDescentes;
         bool etatConnexion;
 
 signals:
-
+        void rien();
 };
 
 #endif // VISUALISERTEMPSVITESSE_H

@@ -13,10 +13,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        #boundary/presenter/presenteridentification.cpp \
-        #boundary/presenter/presentervisualisertempsvitesse.cpp \
-        #controller/visualiseridentification.cpp \
-        #controller/visualisertempsvitesse.cpp \
+        boundary/presenter/presenteridentification.cpp \
+        boundary/presenter/presentervisualisertempsvitesse.cpp \
+        controller/visualiseridentification.cpp \
+        controller/visualisertempsvitesse.cpp \
         entity/descente.cpp \
         entity/statistiques.cpp \
         entity/utilisateur.cpp \
@@ -24,10 +24,10 @@ SOURCES += \
         boundary/data/ComHTTP/comhttp.cpp
 
 HEADERS += \
-        #boundary/presenter/presenteridentification.h \
-        #boundary/presenter/presentervisualisertempsvitesse.h \
-        #controller/visualiseridentification.h \
-        #controller/visualisertempsvitesse.h \
+        boundary/presenter/presenteridentification.h \
+        boundary/presenter/presentervisualisertempsvitesse.h \
+        controller/visualiseridentification.h \
+        controller/visualisertempsvitesse.h \
         entity/descente.h \
         entity/statistiques.h \
         entity/utilisateur.h \

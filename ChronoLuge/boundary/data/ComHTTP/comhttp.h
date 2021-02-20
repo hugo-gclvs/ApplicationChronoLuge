@@ -1,7 +1,7 @@
 #ifndef COMHTTP_H
 #define COMHTTP_H
 
-#include <QWidget>
+#include <QObject>
 #include <QNetworkAccessManager>
 #include <QIODevice>
 #include <QNetworkReply>
@@ -14,23 +14,32 @@
 #include <QByteArray>
 #include <QJsonArray>
 
-class ComHTTP : public QWidget
+class VisualiserTempsVitesse;
+class VisualiserIdentification;
+
+class ComHTTP : public QObject
 {
     Q_OBJECT
 
 public:
-    ComHTTP(QWidget *parent = nullptr);
+    ComHTTP(QObject *parent = nullptr);
     ~ComHTTP();
 
     void lierDescente(int idUtilisateur, QString QRCode);
     void nouveauCompte(QString pseudo, QString mdp, QString email, QString nom, QString prenom, int age);
     void rechercherCompte(QString pseudo, QString mdp);
-    void rechercherHistorique(int idUtilisateur);
+    void rechercherDescentes(int idUtilisateur);
     void rechercherStatistiques(int idUtilisateur);
+
+    void setControllerTempsVitesse(VisualiserTempsVitesse *controller) { this->monControllerTempsVitesse = controller; }
+    void setControllerIdentification(VisualiserIdentification *controller) { this->monControllerIdentification = controller; }
 
 private:
     QNetworkAccessManager *managerHTTP;
     QNetworkRequest requete;
+
+    VisualiserTempsVitesse *monControllerTempsVitesse;
+    VisualiserIdentification *monControllerIdentification;
 
     void requeteGet();
     void requetePost(QByteArray maRequete);

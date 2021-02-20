@@ -161,7 +161,6 @@ debug/QZXingFilter.o
 debug/QZXingImageProvider.o
 debug/win_iconv.o
 debug/qrc_qml.o
-debug/moc_comhttp.o
 debug/moc_presenteridentification.o
 debug/moc_presentervisualisertempsvitesse.o
 debug/moc_visualiseridentification.o
@@ -169,6 +168,7 @@ debug/moc_visualisertempsvitesse.o
 debug/moc_descente.o
 debug/moc_statistiques.o
 debug/moc_utilisateur.o
+debug/moc_comhttp.o
 debug/moc_ImageHandler.o
 debug/moc_QZXing.o
 debug/moc_QZXingFilter.o

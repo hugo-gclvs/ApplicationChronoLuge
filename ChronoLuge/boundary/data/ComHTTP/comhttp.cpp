@@ -1,7 +1,10 @@
 #include "comhttp.h"
+#include "controller/visualisertempsvitesse.h"
 
-ComHTTP::ComHTTP(QWidget *parent) : QWidget(parent),
-    managerHTTP(new QNetworkAccessManager)
+ComHTTP::ComHTTP(QObject *parent) : QObject(parent),
+    managerHTTP(new QNetworkAccessManager),
+    monControllerTempsVitesse(nullptr),
+    monControllerIdentification(nullptr)
 {
     connect(managerHTTP, SIGNAL(finished(QNetworkReply*)), this, SLOT(lireReponse(QNetworkReply*)));
     requete.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
@@ -64,7 +67,7 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
     this->requetePost(data);
 }
 
-void ComHTTP::rechercherHistorique(int idUtilisateur)
+void ComHTTP::rechercherDescentes(int idUtilisateur)
 {
     QString monUrl("http://localhost/WampFile/PROJET/historique.php?idUtilisateur=");
 
@@ -102,7 +105,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         return;
     }
 
-    QVector<QString> maReponse;
+    QVector<QString> *maReponse = new QVector<QString>;
 
     QString jsonData = (QString)reponse->readAll();
     QJsonDocument doc = QJsonDocument::fromJson(jsonData.toUtf8());
@@ -114,13 +117,13 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
         if (JsonObj["requeteSrc"].toString() == "postConnexion") {
 
-            maReponse.push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["pseudo"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["mdp"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["nom"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["prenom"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["age"].toString());
-            maReponse.push_back(JsonObj.value(QString("data"))["pdp"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["pseudo"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["mdp"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["nom"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["prenom"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["age"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["pdp"].toString());
 
         }
         else if (JsonObj["requeteSrc"].toString() == "postInscription") {
@@ -130,15 +133,17 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         }
         else if (JsonObj["requeteSrc"].toString() == "getHistorique") {
 
-            qDebug() << JsonObj.value(QString("data"))["idUtilisateur"].toString();
-            maReponse.push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
+            qDebug() << "Descentes recus" << JsonObj.value(QString("data"))["idUtilisateur"].toString();
+            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
 
             for (int i = 1 ; i < JsonObj.value(QString("data"))["nmbrDescente"].toInt()+1 ;  i++) {
 
-                qDebug() << JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString();
-                maReponse.push_back(JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString());
+                //qDebug() << JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString();
+                maReponse->push_back(JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString());
 
             }
+
+            this->monControllerTempsVitesse->initDescentes(maReponse);
 
         }
         else if (JsonObj["requeteSrc"].toString() == "getStatistique") {
@@ -149,9 +154,9 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
         qDebug() << "Message: "  << JsonObj["message"].toString();
 
-        maReponse.push_back(JsonObj["statut"].toString());
-        maReponse.push_back(JsonObj["requeteSrc"].toString());
-        maReponse.push_back(JsonObj["message"].toString());
+        maReponse->push_back(JsonObj["statut"].toString());
+        maReponse->push_back(JsonObj["requeteSrc"].toString());
+        maReponse->push_back(JsonObj["message"].toString());
 
     }
 
