@@ -18,6 +18,10 @@ public:
     bool rechercherHistorique();
     bool rechercherStatistiques();
 
+    Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse() {
+        return monController;
+    }
+
 private:
     VisualiserTempsVitesse *monController;
 

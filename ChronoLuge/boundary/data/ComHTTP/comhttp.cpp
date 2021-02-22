@@ -7,6 +7,7 @@ ComHTTP::ComHTTP(QObject *parent) : QObject(parent),
     monControllerIdentification(nullptr)
 {
     connect(managerHTTP, SIGNAL(finished(QNetworkReply*)), this, SLOT(lireReponse(QNetworkReply*)));
+    connect(managerHTTP, &QNetworkAccessManager::finished, managerHTTP, &QNetworkAccessManager::deleteLater);
     requete.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 }
 
@@ -17,7 +18,7 @@ ComHTTP::~ComHTTP()
 
 void ComHTTP::lierDescente(int numLuge, QString QRCode)
 {
-    requete.setUrl(QUrl("http://localhost/WampFile/PROJET/lierDescente.php"));
+    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/lierDescente.php"));
 
     QJsonObject obj;
 
@@ -33,7 +34,7 @@ void ComHTTP::lierDescente(int numLuge, QString QRCode)
 
 void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString nom, QString prenom, int age)
 {
-    requete.setUrl(QUrl("http://localhost/WampFile/PROJET/identification.php"));
+    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
 
     QJsonObject obj;
 
@@ -53,7 +54,7 @@ void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString 
 
 void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 {
-    requete.setUrl(QUrl("http://localhost/WampFile/PROJET/identification.php"));
+    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
 
     QJsonObject obj;
 
@@ -69,7 +70,7 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 
 void ComHTTP::rechercherDescentes(int idUtilisateur)
 {
-    QString monUrl("http://localhost/WampFile/PROJET/historique.php?idUtilisateur=");
+    QString monUrl("https://chronoluge.000webhostapp.com/historique.php?idUtilisateur=");
 
     monUrl += QString::number(idUtilisateur);
     requete.setUrl(QUrl(monUrl));
@@ -79,7 +80,7 @@ void ComHTTP::rechercherDescentes(int idUtilisateur)
 
 void ComHTTP::rechercherStatistiques(int idUtilisateur)
 {
-    QString monUrl("http://localhost/WampFile/PROJET/statistique.php?idUtilisateur=");
+    QString monUrl("https://chronoluge.000webhostapp.com/statistique.php?idUtilisateur=");
 
     monUrl += QString::number(idUtilisateur);
     requete.setUrl(QUrl(monUrl));

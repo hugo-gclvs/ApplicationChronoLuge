@@ -14,18 +14,22 @@ int main(int argc, char *argv[])
 #endif
 
     QGuiApplication app(argc, argv);
+    QQmlApplicationEngine engine;
+    VisualiserTempsVitesse controllerVisualiserTempsVitesse;
+
     app.setWindowIcon(QIcon(":/image/image/logo.png"));
 
-    qmlRegisterType<Descente>("Historique", 1, 0, "Descente");
-    VisualiserTempsVitesse controllerVisualiserTempsVitesse;
+    qmlRegisterType<Descente>("Descente", 1, 0, "Descente");
+    qmlRegisterType<VisualiserTempsVitesse>("ControllerVisualiserTempsVitesse", 1, 0, "VisualiserTempsVitesse");
+    QZXing::registerQMLTypes();
+
+
 
     controllerVisualiserTempsVitesse.rechercherDescentes();
 
-    QZXing::registerQMLTypes();
 
-    QQmlApplicationEngine engine;
 
-    engine.rootContext()->setContextProperty("controleur", &controllerVisualiserTempsVitesse);
+    engine.rootContext()->setContextProperty("presenterVisualiserTempsVitesse", controllerVisualiserTempsVitesse.getPresenterVisualiserTempsVitesse());
 
     const QUrl url(QStringLiteral("qrc:/view/boundary/presenter/view/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

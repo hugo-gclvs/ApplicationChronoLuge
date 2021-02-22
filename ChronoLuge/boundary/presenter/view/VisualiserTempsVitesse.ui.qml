@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import Historique 1.0
+import Descente 1.0
+import ControllerVisualiserTempsVitesse 1.0
 
 Page {
     id: pageVisualiserTempsVitesse
@@ -44,27 +45,25 @@ Page {
 
             ListView {
 
-                property int nmbrDescente: 4
+                //property int nmbrDescente: 4
 
                 id: listView
-                model: controleur.liste
+                model: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().liste
                 clip: true
 
                 delegate: ItemDelegate {
 
-                    property double vitesse: 12//controleur.liste[0].vitesse
-                    property string date: "ffff"//controleur.liste[0].date
-                    property string temps: "aaa"//controleur.liste[0].temps
+                    property double vitesse: modelData.vitesse
+                    property string date: modelData.date
+                    property string temps: modelData.temps
 
                     id: maDescente
                     width: parent.width
                     height: 55
                     text: "<font color='#FFFFFF'>" + date + " / " + temps + "</font>"
                     font.bold: true
-                    //highlighted: ListView.isCurrentItem
-                    onClicked:
-                        listView.currentIndex = index
-                        //console.log("clicked:", modelData)
+                    font.pointSize: 12
+                    //onClicked: listView.currentIndex = index
 
                     background: Rectangle {
                         id: fond2

@@ -230,6 +230,7 @@ Makefile: ../ChronoLuge/ChronoLuge.pro C:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++
 		C:/Qt/5.14.2/mingw73_64/mkspecs/features/win32/default_pre.prf \
 		../ChronoLuge/boundary/data/QZXing/QZXing-components.pri \
 		../ChronoLuge/boundary/data/QZXing/QZXing.pri \
+		C:/Java/sdk/android_openssl/openssl.pri \
 		C:/Qt/5.14.2/mingw73_64/mkspecs/features/resolve_config.prf \
 		C:/Qt/5.14.2/mingw73_64/mkspecs/features/exclusive_builds_post.prf \
 		C:/Qt/5.14.2/mingw73_64/mkspecs/features/default_post.prf \
@@ -422,6 +423,7 @@ C:/Qt/5.14.2/mingw73_64/mkspecs/features/default_pre.prf:
 C:/Qt/5.14.2/mingw73_64/mkspecs/features/win32/default_pre.prf:
 ../ChronoLuge/boundary/data/QZXing/QZXing-components.pri:
 ../ChronoLuge/boundary/data/QZXing/QZXing.pri:
+C:/Java/sdk/android_openssl/openssl.pri:
 C:/Qt/5.14.2/mingw73_64/mkspecs/features/resolve_config.prf:
 C:/Qt/5.14.2/mingw73_64/mkspecs/features/exclusive_builds_post.prf:
 C:/Qt/5.14.2/mingw73_64/mkspecs/features/default_post.prf:

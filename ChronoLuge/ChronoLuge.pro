@@ -47,6 +47,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 include(boundary/data/QZXing/QZXing.pri)
+include(C:/Java/sdk/android_openssl/openssl.pri)
 
 DISTFILES += \
     ../build-Android/android-custom/AndroidManifest.xml \

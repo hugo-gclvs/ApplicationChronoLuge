@@ -20,7 +20,8 @@ class VisualiserTempsVitesse : public QObject
     Q_OBJECT
 
     Q_PROPERTY(bool etatConnexion READ getEtatConnexion)
-    Q_PROPERTY(QQmlListProperty<Descente> liste READ getDescentes NOTIFY rien)
+    Q_PROPERTY(QQmlListProperty<Descente> liste READ getDescentes NOTIFY listeChanged)
+    //Q_PROPERTY(int nmbrDescente READ getNmbrDescente)
 
 public:
 
@@ -28,9 +29,15 @@ public:
         explicit VisualiserTempsVitesse(QObject *parent = nullptr);
         ~VisualiserTempsVitesse() override;
 
+    /*Q_INVOKABLE int getNmbrDescentes() {
+            return this->nmbrDescente;
+    }*/
+
     // Accesseurs
-        bool getEtatConnexion() const                       { return etatConnexion; }
-        QQmlListProperty<Descente> getDescentes()          { return QQmlListProperty<Descente>(this, mesDescentes); }
+        bool getEtatConnexion() const                                               { return etatConnexion; }
+        QQmlListProperty<Descente> getDescentes()                                   { return QQmlListProperty<Descente>(this, mesDescentes); }
+        int getNmbrDescente() const                                                 { return nmbrDescente; }
+        PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()       { return monPresenter; }
 
     // Méthodes
         bool lierDescente(int numLuge, int idUtilisateur);
@@ -46,10 +53,11 @@ private:
         VisualiserIdentification controllerIdentification;
 
         QList<Descente *> mesDescentes;
+        int nmbrDescente;
         bool etatConnexion;
 
 signals:
-        void rien();
+        void listeChanged();
 };
 
 #endif // VISUALISERTEMPSVITESSE_H

@@ -1,42 +1,40 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hugog\\Desktop\\AppChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\hugog\\Desktop\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\hugog\\Desktop\\AppChronoLuge\\build-Android\\android-build\\res\\values\\libs.xml",
-                    "from": {
-                        "startLines": "9,30,13,2",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "301,1208,360,57",
-                        "endLines": "11,32,28,4",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "352,1475,1200,170"
-                    },
-                    "to": {
-                        "startLines": "2,5,8,24",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,109,379,1222",
-                        "endLines": "4,7,23,26",
-                        "endColumns": "12,12,12,12",
-                        "endOffsets": "104,374,1217,1333"
-                    }
-                },
                 {
                     "source": "C:\\Qt\\5.14.2\\android\\src\\android\\java\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "5,4,3,6",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "324,201,88,433",
-                        "endColumns": "107,121,111,97",
-                        "endOffsets": "427,318,195,526"
+                        "startLines": "-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1"
                     },
                     "to": {
-                        "startLines": "27,28,29,30",
+                        "startLines": "28,29,30,31",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "1338,1446,1568,1680",
+                        "startOffsets": "1414,1522,1644,1756",
                         "endColumns": "107,121,111,97",
-                        "endOffsets": "1441,1563,1675,1773"
+                        "endOffsets": "1517,1639,1751,1849"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hugog\\Desktop\\ApplicationChronoLuge\\build-Android\\android-build\\res\\values\\libs.xml",
+                    "from": {
+                        "startLines": "9,-1,-1,-1",
+                        "startColumns": "4,-1,-1,-1",
+                        "startOffsets": "301,-1,-1,-1",
+                        "endLines": "12,-1,-1,-1",
+                        "endColumns": "12,-1,-1,-1",
+                        "endOffsets": "428,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,6,9,25",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,185,455,1298",
+                        "endLines": "5,8,24,27",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "180,450,1293,1409"
                     }
                 }
             ]

@@ -4,7 +4,8 @@ VisualiserTempsVitesse::VisualiserTempsVitesse(QObject *parent) :
     QObject(parent),
     communicationHTTP(new ComHTTP),
     monPresenter(new PresenterVisualiserTempsVitesse),
-    controllerIdentification(new PresenterIdentification, communicationHTTP)
+    controllerIdentification(new PresenterIdentification, communicationHTTP),
+    nmbrDescente(0)
 {
     this->monPresenter->setController(this);
     this->communicationHTTP->setControllerTempsVitesse(this);
@@ -48,6 +49,8 @@ bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
             qDebug() << mesDescentes.at(i-1)->getVitesse();*/
 
         }
+
+        listeChanged();
 
         return true;
 

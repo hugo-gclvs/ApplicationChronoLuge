@@ -1,3 +1,7 @@
+armeabi-v7a/presenteridentification.obj
+armeabi-v7a/presentervisualisertempsvitesse.obj
+armeabi-v7a/visualiseridentification.obj
+armeabi-v7a/visualisertempsvitesse.obj
 armeabi-v7a/descente.obj
 armeabi-v7a/statistiques.obj
 armeabi-v7a/utilisateur.obj
@@ -156,6 +160,10 @@ armeabi-v7a/ReedSolomonEncoder.obj
 armeabi-v7a/QZXingFilter.obj
 armeabi-v7a/QZXingImageProvider.obj
 armeabi-v7a/qrc_qml.obj
+armeabi-v7a/moc_presenteridentification.obj
+armeabi-v7a/moc_presentervisualisertempsvitesse.obj
+armeabi-v7a/moc_visualiseridentification.obj
+armeabi-v7a/moc_visualisertempsvitesse.obj
 armeabi-v7a/moc_descente.obj
 armeabi-v7a/moc_statistiques.obj
 armeabi-v7a/moc_utilisateur.obj
