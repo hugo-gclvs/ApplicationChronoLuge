@@ -18,6 +18,7 @@ public:
 
     // Constructeur
         explicit Statistiques(int nmbrDescente, double vitesseMoye, double vitesseMin, double vitesseMax, QString tempsMoye, QString tempsMin, QString tempsMax);
+        ~Statistiques();
 
     // Accesseurs
         int getNmbrDescente() const         { return nmbrDescente;  }

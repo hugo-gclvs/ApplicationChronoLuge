@@ -17,7 +17,11 @@ public:
         explicit VisualiserIdentification(PresenterIdentification *monPresenter, ComHTTP *communicationHTTP, QObject *parent = nullptr);
 
     // Méthodes
-    int getIdUtilisateur() { return 1/*monUtilisateur->getIdUtilisateur()*/; }
+        int getIdUtilisateur() { return 1/*monUtilisateur->getIdUtilisateur()*/; }
+
+        void setStatistiques(int nmbrDescente, double vitesseMoy, double vitesseMin, double vitesseMax, QString tempsMoy, QString tempsMin, QString tempsMax) {
+            monUtilisateur->setStatistiques(new Statistiques(nmbrDescente, vitesseMoy, vitesseMin, vitesseMax, tempsMoy, tempsMin, tempsMax));
+        }
 
 private:
 

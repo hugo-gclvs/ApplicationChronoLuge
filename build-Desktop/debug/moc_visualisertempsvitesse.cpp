@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_VisualiserTempsVitesse_t {
-    QByteArrayData data[6];
-    char stringdata0[84];
+    QByteArrayData data[5];
+    char stringdata0[70];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,13 +35,12 @@ static const qt_meta_stringdata_VisualiserTempsVitesse_t qt_meta_stringdata_Visu
 QT_MOC_LITERAL(0, 0, 22), // "VisualiserTempsVitesse"
 QT_MOC_LITERAL(1, 23, 12), // "listeChanged"
 QT_MOC_LITERAL(2, 36, 0), // ""
-QT_MOC_LITERAL(3, 37, 13), // "etatConnexion"
-QT_MOC_LITERAL(4, 51, 5), // "liste"
-QT_MOC_LITERAL(5, 57, 26) // "QQmlListProperty<Descente>"
+QT_MOC_LITERAL(3, 37, 5), // "liste"
+QT_MOC_LITERAL(4, 43, 26) // "QQmlListProperty<Descente>"
 
     },
     "VisualiserTempsVitesse\0listeChanged\0"
-    "\0etatConnexion\0liste\0QQmlListProperty<Descente>"
+    "\0liste\0QQmlListProperty<Descente>"
 };
 #undef QT_MOC_LITERAL
 
@@ -52,7 +51,7 @@ static const uint qt_meta_data_VisualiserTempsVitesse[] = {
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
-       2,   20, // properties
+       1,   20, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -65,11 +64,9 @@ static const uint qt_meta_data_VisualiserTempsVitesse[] = {
     QMetaType::Void,
 
  // properties: name, type, flags
-       3, QMetaType::Bool, 0x00095001,
-       4, 0x80000000 | 5, 0x00495009,
+       3, 0x80000000 | 4, 0x00495009,
 
  // properties: notify_signal_id
-       0,
        0,
 
        0        // eod
@@ -96,7 +93,7 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
     } else if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 1:
+        case 0:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQmlListProperty<Descente> >(); break;
         }
     }
@@ -107,8 +104,7 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
-        case 0: *reinterpret_cast< bool*>(_v) = _t->getEtatConnexion(); break;
-        case 1: *reinterpret_cast< QQmlListProperty<Descente>*>(_v) = _t->getDescentes(); break;
+        case 0: *reinterpret_cast< QQmlListProperty<Descente>*>(_v) = _t->getDescentes(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -158,17 +154,17 @@ int VisualiserTempsVitesse::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 2;
+        _id -= 1;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 2;
+        _id -= 1;
     }
 #endif // QT_NO_PROPERTIES
     return _id;

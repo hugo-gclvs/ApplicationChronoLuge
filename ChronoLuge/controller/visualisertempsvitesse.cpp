@@ -4,8 +4,7 @@ VisualiserTempsVitesse::VisualiserTempsVitesse(QObject *parent) :
     QObject(parent),
     communicationHTTP(new ComHTTP),
     monPresenter(new PresenterVisualiserTempsVitesse),
-    controllerIdentification(new PresenterIdentification, communicationHTTP),
-    nmbrDescente(0)
+    controllerIdentification(new PresenterIdentification, communicationHTTP)
 {
     this->monPresenter->setController(this);
     this->communicationHTTP->setControllerTempsVitesse(this);
@@ -14,6 +13,17 @@ VisualiserTempsVitesse::VisualiserTempsVitesse(QObject *parent) :
 VisualiserTempsVitesse::~VisualiserTempsVitesse()
 {
 
+}
+
+bool VisualiserTempsVitesse::lierDescente(QString QRCode)
+{
+    // Récupération de l'idUtilisteur
+        int idUtilisateur = controllerIdentification.getIdUtilisateur();
+
+    // Envoi demande recherche descentes
+        communicationHTTP->lierDescente(idUtilisateur, QRCode);
+
+        return true;
 }
 
 bool VisualiserTempsVitesse::rechercherDescentes()
@@ -27,12 +37,23 @@ bool VisualiserTempsVitesse::rechercherDescentes()
         return true;
 }
 
+bool VisualiserTempsVitesse::rechercherStatistiques()
+{
+    // Récupération de l'idUtilisteur
+        int idUtilisateur = controllerIdentification.getIdUtilisateur();
+
+    // Envoi demande recherche descentes
+        communicationHTTP->rechercherStatistiques(idUtilisateur);
+
+        return true;
+}
+
 bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
 {
 
     if(descentes->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
 
-        qDebug() << "Init Descentes utilisateur: " << descentes->at(0);
+        qDebug() << "Initialisation des descentes de l'idUtilisateur: " << descentes->at(0).toInt();
         mesDescentes.clear();
 
         for(int i = 1 ; i < descentes->count() ; i++) {
@@ -51,6 +72,20 @@ bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
         }
 
         listeChanged();
+
+        return true;
+
+    } else
+        return false;
+}
+
+bool VisualiserTempsVitesse::initStatistiques(QVector<QString> *statistiques)
+{
+    if(statistiques->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
+
+        qDebug() << "Initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
+
+        //controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7));
 
         return true;
 

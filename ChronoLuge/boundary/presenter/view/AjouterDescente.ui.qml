@@ -38,6 +38,7 @@ Page {
                 onTagFound: {
                     //reponse.text=decoder.foundedFormat()
                     reponse.append(tag)
+                    presenterVisualiserTempsVitesse.lierDescente(tag)
                     zoneCamera.state = "qrcodeDetecte"
                     objectif.stop()
                 }

@@ -21,11 +21,25 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Descente>("Descente", 1, 0, "Descente");
     qmlRegisterType<VisualiserTempsVitesse>("ControllerVisualiserTempsVitesse", 1, 0, "VisualiserTempsVitesse");
-    QZXing::registerQMLTypes();
+    qmlRegisterType<QZXing>("QZXing", 3, 1, "QZXing");
 
 
+    //controllerVisualiserTempsVitesse.etatConnexion->setValue("etatConnexion", "nonconnecte");
+
+    /*if(controllerVisualiserTempsVitesse.etatConnexion->value("etatConnexion") == "connecte")
+        qDebug() << "connecté !!!!!";
+    else
+        qDebug() << "pas connecté !!!!!";*/
+
+    //controllerVisualiserTempsVitesse.etatInscription->setValue("etatInscription", "noninscrit");
+
+    /*if(controllerVisualiserTempsVitesse.etatInscription->value("etatInscription") == "inscrit")
+        qDebug() << "inscrit !!!!!";
+    else
+        qDebug() << "pas inscrit !!!!!";*/
 
     controllerVisualiserTempsVitesse.rechercherDescentes();
+    controllerVisualiserTempsVitesse.rechercherStatistiques();
 
 
 

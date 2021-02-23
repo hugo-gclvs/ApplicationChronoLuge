@@ -92,7 +92,10 @@ Page {
         }
     }
 
-    Component.onCompleted: (inscrit == true) ? console.log(
-                                                   "inscrit") : stack.push(
-                                                   "Inscription.ui.qml")
+    Component.onCompleted: {
+        if(inscrit == true)
+            console.log("Utilisateur inscrit !")
+        else
+            stack.push("Inscription.ui.qml")
+    }
 }

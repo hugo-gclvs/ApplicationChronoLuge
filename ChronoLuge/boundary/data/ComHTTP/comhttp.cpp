@@ -7,7 +7,7 @@ ComHTTP::ComHTTP(QObject *parent) : QObject(parent),
     monControllerIdentification(nullptr)
 {
     connect(managerHTTP, SIGNAL(finished(QNetworkReply*)), this, SLOT(lireReponse(QNetworkReply*)));
-    connect(managerHTTP, &QNetworkAccessManager::finished, managerHTTP, &QNetworkAccessManager::deleteLater);
+    //connect(managerHTTP, &QNetworkAccessManager::finished, managerHTTP, &QNetworkAccessManager::deleteLater);
     requete.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 }
 
@@ -16,14 +16,14 @@ ComHTTP::~ComHTTP()
 }
 
 
-void ComHTTP::lierDescente(int numLuge, QString QRCode)
+void ComHTTP::lierDescente(int idUtilisateur, QString QRCode)
 {
     requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/lierDescente.php"));
 
     QJsonObject obj;
 
-    obj["requeteDest"] = "postDescente";
-    obj["numLuge"] = numLuge;
+    obj["requeteDest"] = "postLierDescente";
+    obj["idUtilisateur"] = idUtilisateur;
     obj["QRCode"] = QRCode;
 
     QJsonDocument doc(obj);
@@ -114,7 +114,8 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
     if (JsonObj["statut"].toInt()) {
 
-        qDebug() << "Message: "  << JsonObj["message"].toString();
+        qDebug() << "Nouvelle reception...";
+        qDebug() << "Requete Source: "  << JsonObj["requeteSrc"].toString();
 
         if (JsonObj["requeteSrc"].toString() == "postConnexion") {
 
@@ -134,7 +135,6 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         }
         else if (JsonObj["requeteSrc"].toString() == "getHistorique") {
 
-            qDebug() << "Descentes recus" << JsonObj.value(QString("data"))["idUtilisateur"].toString();
             maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
 
             for (int i = 1 ; i < JsonObj.value(QString("data"))["nmbrDescente"].toInt()+1 ;  i++) {
@@ -147,10 +147,25 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             this->monControllerTempsVitesse->initDescentes(maReponse);
 
         }
-        else if (JsonObj["requeteSrc"].toString() == "getStatistique") {
+        else if (JsonObj["requeteSrc"].toString() == "postLierDescente") {
+
+            qDebug() << "Liaison effectuee";
 
         }
+        else if (JsonObj["requeteSrc"].toString() == "getStatistique") {
 
+            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["nombreDescente"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMoy"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMin"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMax"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["tempsMoy"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["tempsMin"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["tempsMax"].toString());
+
+            this->monControllerTempsVitesse->initStatistiques(maReponse);
+
+        }
     } else {
 
         qDebug() << "Message: "  << JsonObj["message"].toString();

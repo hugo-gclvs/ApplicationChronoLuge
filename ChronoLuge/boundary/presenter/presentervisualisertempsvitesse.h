@@ -14,7 +14,7 @@ public:
 
     void setController(VisualiserTempsVitesse *monController) { this->monController = monController; }
 
-    bool lierDescente();
+    Q_INVOKABLE bool lierDescente(QString QRCode);
     bool rechercherHistorique();
     bool rechercherStatistiques();
 

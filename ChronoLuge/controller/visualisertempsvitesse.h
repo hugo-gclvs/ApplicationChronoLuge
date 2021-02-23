@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QtQml/QQmlListProperty>
 #include <QVector>
+#include <QSettings>
 
 #include "entity/descente.h"
 
@@ -18,10 +19,7 @@ Q_DECLARE_METATYPE(QQmlListProperty< Descente  > )
 class VisualiserTempsVitesse : public QObject
 {
     Q_OBJECT
-
-    Q_PROPERTY(bool etatConnexion READ getEtatConnexion)
     Q_PROPERTY(QQmlListProperty<Descente> liste READ getDescentes NOTIFY listeChanged)
-    //Q_PROPERTY(int nmbrDescente READ getNmbrDescente)
 
 public:
 
@@ -33,16 +31,25 @@ public:
             return this->nmbrDescente;
     }*/
 
-    // Accesseurs
-        bool getEtatConnexion() const                                               { return etatConnexion; }
+    // Accesseurs                                           { return etatConnexion; }
         QQmlListProperty<Descente> getDescentes()                                   { return QQmlListProperty<Descente>(this, mesDescentes); }
-        int getNmbrDescente() const                                                 { return nmbrDescente; }
         PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()       { return monPresenter; }
 
     // Méthodes
-        bool lierDescente(int numLuge, int idUtilisateur);
+        bool lierDescente(QString QRCode);
         bool rechercherDescentes();
+        bool rechercherStatistiques();
         bool initDescentes(QVector<QString> *descentes);
+        bool initStatistiques(QVector<QString> *statistiques);
+
+        QSettings *etatConnexion = new QSettings("etatConnexion", "nonconnecte");
+        QSettings *etatInscription = new QSettings("etatInscription", "noninscrit");
+
+        /*QSettings getEtatConnexion() const;
+        void setEtatConnexion(const QString &value) { etatConnexion.setValue("etatConnexion", value); }
+
+        QSettings getEtatInscription() { return etatInscription.value("etatInscription"); }
+        void setEtatInscription(const QString &value) { etatInscription.setValue("etatInscription", value); }*/
 
 private:
 
@@ -53,8 +60,8 @@ private:
         VisualiserIdentification controllerIdentification;
 
         QList<Descente *> mesDescentes;
-        int nmbrDescente;
-        bool etatConnexion;
+
+
 
 signals:
         void listeChanged();

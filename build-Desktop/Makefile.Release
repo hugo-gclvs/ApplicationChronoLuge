@@ -1118,6 +1118,8 @@ release/moc_visualisertempsvitesse.cpp: ../ChronoLuge/controller/visualisertemps
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVector \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSettings \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsettings.h \
 		../ChronoLuge/entity/descente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDateTime \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdatetime.h \
@@ -1341,6 +1343,19 @@ release/moc_utilisateur.cpp: ../ChronoLuge/entity/utilisateur.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../ChronoLuge/entity/statistiques.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
@@ -1891,7 +1906,73 @@ release/presentervisualisertempsvitesse.o: ../ChronoLuge/boundary/presenter/pres
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qmetatype.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qobject_impl.h
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qobject_impl.h \
+		../ChronoLuge/controller/visualisertempsvitesse.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtQml/QQmlListProperty \
+		C:/Qt/5.14.2/mingw73_64/include/QtQml/qqmllist.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtQml/qtqmlglobal.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtQml/qtqml-config.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qtnetwork-config.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVector \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSettings \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsettings.h \
+		../ChronoLuge/entity/descente.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDateTime \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdatetime.h \
+		../ChronoLuge/boundary/data/ComHTTP/comhttp.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/QNetworkAccessManager \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qnetworkaccessmanager.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qnetworkrequest.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSharedDataPointer \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QUrl \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qurl.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVariant \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/QSslConfiguration \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qsslconfiguration.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qsslsocket.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qtcpsocket.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qabstractsocket.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qsslerror.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qsslcertificate.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcryptographichash.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qssl.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QFlags \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QMetaType \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QIODevice \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/QNetworkReply \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/qnetworkreply.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtNetwork/QNetworkRequest \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QUrlQuery \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QJsonObject \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonobject.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QJsonDocument \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsondocument.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QByteArray \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QJsonArray \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qjsonarray.h \
+		../ChronoLuge/controller/visualiseridentification.h \
+		../ChronoLuge/boundary/presenter/presenteridentification.h \
+		../ChronoLuge/entity/utilisateur.h \
+		../ChronoLuge/entity/statistiques.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\presentervisualisertempsvitesse.o ..\ChronoLuge\boundary\presenter\presentervisualisertempsvitesse.cpp
 
 release/visualiseridentification.o: ../ChronoLuge/controller/visualiseridentification.cpp ../ChronoLuge/controller/visualiseridentification.h \
@@ -2079,6 +2160,8 @@ release/visualisertempsvitesse.o: ../ChronoLuge/controller/visualisertempsvitess
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QVector \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSettings \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsettings.h \
 		../ChronoLuge/entity/descente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDateTime \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdatetime.h \
@@ -2296,6 +2379,19 @@ release/utilisateur.o: ../ChronoLuge/entity/utilisateur.cpp ../ChronoLuge/entity
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../ChronoLuge/entity/statistiques.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\utilisateur.o ..\ChronoLuge\entity\utilisateur.cpp
 
@@ -2633,6 +2729,7 @@ release/main.o: ../ChronoLuge/main.cpp C:/Qt/5.14.2/mingw73_64/include/QtGui/QGu
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qpixmap.h \
 		../ChronoLuge/controller/visualisertempsvitesse.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtQml/QQmlListProperty \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSettings \
 		../ChronoLuge/entity/descente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDateTime \
 		../ChronoLuge/boundary/presenter/presentervisualisertempsvitesse.h \
@@ -2759,6 +2856,8 @@ release/comhttp.o: ../ChronoLuge/boundary/data/ComHTTP/comhttp.cpp ../ChronoLuge
 		C:/Qt/5.14.2/mingw73_64/include/QtQml/qqmllist.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtQml/qtqmlglobal.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtQml/qtqml-config.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/QSettings \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qsettings.h \
 		../ChronoLuge/entity/descente.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QDateTime \
 		../ChronoLuge/boundary/presenter/presentervisualisertempsvitesse.h \

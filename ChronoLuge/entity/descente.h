@@ -7,9 +7,9 @@
 class Descente : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString date READ getDate)
-    Q_PROPERTY(QString temps READ getTemps)
-    Q_PROPERTY(double vitesse READ getVitesse)
+    Q_PROPERTY(QString date READ getDate CONSTANT)
+    Q_PROPERTY(QString temps READ getTemps CONSTANT)
+    Q_PROPERTY(double vitesse READ getVitesse CONSTANT)
 
 public:
 

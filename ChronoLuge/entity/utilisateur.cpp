@@ -4,6 +4,15 @@ Utilisateur::Utilisateur(QString pseudo, QString nom, QString prenom, int age, i
     pseudo(pseudo), nom(nom), prenom(prenom), age(age), pdp(pdp), idUtilisateur(idUtilisateur),
     mesStatistiques(nullptr)
 {
+}
 
+Utilisateur::~Utilisateur()
+{
+
+}
+
+void Utilisateur::setStatistiques(Statistiques *statistiques)
+{
+    this->mesStatistiques = statistiques;
 }
 

@@ -2,7 +2,8 @@
 #define UTILISATEUR_H
 
 #include <QObject>
-#include "statistiques.h"
+#include <QDebug>
+#include "entity/statistiques.h"
 
 class Utilisateur : public QObject
 {
@@ -18,6 +19,7 @@ public:
 
     // Constructeur
         explicit Utilisateur(QString pseudo, QString nom, QString prenom, int age, int pdp, int idUtilisateur);
+        ~Utilisateur();
 
     // Accesseurs
         QString getPseudo() const           { return pseudo; }
@@ -28,7 +30,7 @@ public:
         int getIdUtilisateur() const        { return idUtilisateur; }
 
     // Méthodes
-        void setStatistiques(Statistiques *statistiques) { mesStatistiques = statistiques; }
+        void setStatistiques(Statistiques *statistiques);
 
 private:
 

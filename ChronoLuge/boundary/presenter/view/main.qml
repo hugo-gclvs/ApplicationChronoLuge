@@ -104,7 +104,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         if(connecte == true) {
-            console.log("connecté")
+            console.log("Utilisateur connecté !")
         } else {
             stack.push("Identification.ui.qml")
             toolBar.state = "cacherHeader"

@@ -10,3 +10,8 @@ Statistiques::Statistiques(int nmbrDescente, double vitesseMoye, double vitesseM
     tempsMax(tempsMax)
 {
 }
+
+Statistiques::~Statistiques()
+{
+
+}
