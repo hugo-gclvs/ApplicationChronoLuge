@@ -20,30 +20,16 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/image/image/logo.png"));
 
     qmlRegisterType<Descente>("Descente", 1, 0, "Descente");
-    qmlRegisterType<VisualiserTempsVitesse>("ControllerVisualiserTempsVitesse", 1, 0, "VisualiserTempsVitesse");
-    qmlRegisterType<QZXing>("QZXing", 3, 1, "QZXing");
+    qmlRegisterType<VisualiserTempsVitesse>("ControllerVisualiserTempsVitesse", 1, 0, "ControllerVisualiserTempsVitesse");
+    qmlRegisterType<VisualiserIdentification>("ControllerIdentification", 1, 0, "ControllerIdentification");
+    QZXing::registerQMLTypes();
 
+    controllerVisualiserTempsVitesse.getControllerVisualiserIdentification()->getEtatConnexion()->setValue("etatConnexion", "nonconnecte");
+    //controllerVisualiserTempsVitesse.getControllerVisualiserIdentification()->getEtatInscription()->setValue("etatInscription", "noninscrit");
 
-    //controllerVisualiserTempsVitesse.etatConnexion->setValue("etatConnexion", "nonconnecte");
-
-    /*if(controllerVisualiserTempsVitesse.etatConnexion->value("etatConnexion") == "connecte")
-        qDebug() << "connecté !!!!!";
-    else
-        qDebug() << "pas connecté !!!!!";*/
-
-    //controllerVisualiserTempsVitesse.etatInscription->setValue("etatInscription", "noninscrit");
-
-    /*if(controllerVisualiserTempsVitesse.etatInscription->value("etatInscription") == "inscrit")
-        qDebug() << "inscrit !!!!!";
-    else
-        qDebug() << "pas inscrit !!!!!";*/
-
-    controllerVisualiserTempsVitesse.rechercherDescentes();
-    controllerVisualiserTempsVitesse.rechercherStatistiques();
-
-
-
+    engine.rootContext()->setContextProperty("presenterIdentification", controllerVisualiserTempsVitesse.getPresenterIdentification());
     engine.rootContext()->setContextProperty("presenterVisualiserTempsVitesse", controllerVisualiserTempsVitesse.getPresenterVisualiserTempsVitesse());
+
 
     const QUrl url(QStringLiteral("qrc:/view/boundary/presenter/view/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

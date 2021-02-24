@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PresenterIdentification_t {
-    QByteArrayData data[4];
-    char stringdata0[45];
+    QByteArrayData data[12];
+    char stringdata0[128];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,13 +33,23 @@ struct qt_meta_stringdata_PresenterIdentification_t {
 static const qt_meta_stringdata_PresenterIdentification_t qt_meta_stringdata_PresenterIdentification = {
     {
 QT_MOC_LITERAL(0, 0, 23), // "PresenterIdentification"
-QT_MOC_LITERAL(1, 24, 15), // "afficherMessage"
-QT_MOC_LITERAL(2, 40, 0), // ""
-QT_MOC_LITERAL(3, 41, 3) // "msg"
+QT_MOC_LITERAL(1, 24, 11), // "creerCompte"
+QT_MOC_LITERAL(2, 36, 0), // ""
+QT_MOC_LITERAL(3, 37, 6), // "pseudo"
+QT_MOC_LITERAL(4, 44, 3), // "mdp"
+QT_MOC_LITERAL(5, 48, 4), // "mail"
+QT_MOC_LITERAL(6, 53, 3), // "nom"
+QT_MOC_LITERAL(7, 57, 6), // "prenom"
+QT_MOC_LITERAL(8, 64, 3), // "age"
+QT_MOC_LITERAL(9, 68, 16), // "rechercherCompte"
+QT_MOC_LITERAL(10, 85, 16), // "getMonController"
+QT_MOC_LITERAL(11, 102, 25) // "VisualiserIdentification*"
 
     },
-    "PresenterIdentification\0afficherMessage\0"
-    "\0msg"
+    "PresenterIdentification\0creerCompte\0"
+    "\0pseudo\0mdp\0mail\0nom\0prenom\0age\0"
+    "rechercherCompte\0getMonController\0"
+    "VisualiserIdentification*"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +59,7 @@ static const uint qt_meta_data_PresenterIdentification[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,10 +67,14 @@ static const uint qt_meta_data_PresenterIdentification[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x02 /* Public */,
+       1,    6,   29,    2, 0x02 /* Public */,
+       9,    2,   42,    2, 0x02 /* Public */,
+      10,    0,   47,    2, 0x02 /* Public */,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
+    0x80000000 | 11,
 
        0        // eod
 };
@@ -71,7 +85,10 @@ void PresenterIdentification::qt_static_metacall(QObject *_o, QMetaObject::Call 
         auto *_t = static_cast<PresenterIdentification *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->afficherMessage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 0: _t->creerCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< QString(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6]))); break;
+        case 1: _t->rechercherCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 2: { VisualiserIdentification* _r = _t->getMonController();
+            if (_a[0]) *reinterpret_cast< VisualiserIdentification**>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     }
@@ -106,13 +123,13 @@ int PresenterIdentification::qt_metacall(QMetaObject::Call _c, int _id, void **_
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

@@ -56,9 +56,9 @@ static const uint qt_meta_data_Descente[] = {
        0,       // signalCount
 
  // properties: name, type, flags
-       1, QMetaType::QString, 0x00095001,
-       2, QMetaType::QString, 0x00095001,
-       3, QMetaType::Double, 0x00095001,
+       1, QMetaType::QString, 0x00095401,
+       2, QMetaType::QString, 0x00095401,
+       3, QMetaType::Double, 0x00095401,
 
        0        // eod
 };

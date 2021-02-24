@@ -39,7 +39,6 @@ Page {
                     //reponse.text=decoder.foundedFormat()
                     reponse.append(tag)
                     presenterVisualiserTempsVitesse.lierDescente(tag)
-                    zoneCamera.state = "qrcodeDetecte"
                     objectif.stop()
                 }
             }
@@ -64,6 +63,7 @@ Page {
             }
         }
 
+
         states: [
 
             State {
@@ -73,7 +73,26 @@ Page {
                     visible: false
                 }
                 PropertyChanges {
+                    target: zoneEchec
+                    visible: false
+                }
+                PropertyChanges {
                     target: zoneSucces
+                    visible: true
+                }
+            },
+            State {
+                name: "qrcodeNonDetecte"
+                PropertyChanges {
+                    target: zoneCamera
+                    visible: false
+                }
+                PropertyChanges {
+                    target: zoneSucces
+                    visible: false
+                }
+                PropertyChanges {
+                    target: zoneEchec
                     visible: true
                 }
             },
@@ -87,6 +106,10 @@ Page {
                     target: zoneSucces
                     visible: false
                 }
+                PropertyChanges {
+                    target: zoneEchec
+                    visible: false
+                }
             }
         ]
     }
@@ -94,6 +117,7 @@ Page {
     Frame {
         id: zoneSucces
         anchors.fill: parent
+        visible: false
         Rectangle {
             id: fondSucces
             x: 20
@@ -126,11 +150,55 @@ Page {
             Image {
                 id: check
                 anchors.centerIn: parent
-                width: parent.width / 1.5
-                height: parent.height / 1.5
+                width: 350
+                height: 350
                 clip: true
                 visible: true
                 source: "../../../../image/image/check.png"
+            }
+        }
+    }
+
+    Frame {
+        id: zoneEchec
+        anchors.fill: parent
+        Rectangle {
+            id: fondEchec
+            x: 20
+            y: 20
+            width: parent.width - 40
+            height: parent.height - 100
+            color: "white"
+            radius: 15
+            opacity: 0.7
+
+            TextArea {
+                id: echec
+                background: Rectangle {
+                    color: "white"
+                    radius: 7
+                }
+                text: "ECHEC DE L'AJOUT ! REESSAYEZ"
+                readOnly: true
+                //anchors.centerIn: parent
+                font.pixelSize: 16
+                font.bold: true
+                width: parent.width - 40
+                height: parent.height / 10
+                horizontalAlignment: TextEdit.AlignHCenter
+                wrapMode: Text.Wrap
+                x: 20
+                y: 20
+            }
+
+            Image {
+                id: uncheck
+                anchors.centerIn: parent
+                width: 350
+                height: 350
+                clip: true
+                visible: true
+                source: "../../../../image/image/uncheck.png"
             }
         }
     }
@@ -143,4 +211,14 @@ Page {
         anchors.bottom: parent.bottom
         onClicked: stackView.pop()
     }
+
+    Component.onCompleted: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostLierDescente.connect(gestionPostLierDescente)
+
+    function gestionPostLierDescente(etat) {
+        if (etat) {
+            zoneCamera.state = "qrcodeDetecte"
+        } else
+            zoneCamera.state = "qrcodeNonDetecte"
+    }
+
 }

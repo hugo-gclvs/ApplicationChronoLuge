@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QtQml/QQmlListProperty>
 #include <QVector>
-#include <QSettings>
 
 #include "entity/descente.h"
 
@@ -27,33 +26,24 @@ public:
         explicit VisualiserTempsVitesse(QObject *parent = nullptr);
         ~VisualiserTempsVitesse() override;
 
-    /*Q_INVOKABLE int getNmbrDescentes() {
-            return this->nmbrDescente;
-    }*/
-
-    // Accesseurs                                           { return etatConnexion; }
-        QQmlListProperty<Descente> getDescentes()                                   { return QQmlListProperty<Descente>(this, mesDescentes); }
-        PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()       { return monPresenter; }
+    // Accesseurs
+        QQmlListProperty<Descente> getDescentes()                                       { return QQmlListProperty<Descente>(this, mesDescentes); }
+        Q_INVOKABLE VisualiserIdentification *getControllerVisualiserIdentification()   { return &controllerIdentification; }
+        PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()           { return monPresenter; }
+        PresenterIdentification *getPresenterIdentification()                           { return controllerIdentification.getPresenterIdentification(); }
+        Q_INVOKABLE QString getEtatConnexion()                                          { return controllerIdentification.getEtatConnexion()->value("etatConnexion").toString(); }
+        Q_INVOKABLE QString getEtatInscription()                                        { return controllerIdentification.getEtatInscription()->value("etatInscription").toString(); }
 
     // Méthodes
         bool lierDescente(QString QRCode);
-        bool rechercherDescentes();
+        Q_INVOKABLE bool rechercherDescentes();
         bool rechercherStatistiques();
         bool initDescentes(QVector<QString> *descentes);
         bool initStatistiques(QVector<QString> *statistiques);
 
-        QSettings *etatConnexion = new QSettings("etatConnexion", "nonconnecte");
-        QSettings *etatInscription = new QSettings("etatInscription", "noninscrit");
-
-        /*QSettings getEtatConnexion() const;
-        void setEtatConnexion(const QString &value) { etatConnexion.setValue("etatConnexion", value); }
-
-        QSettings getEtatInscription() { return etatInscription.value("etatInscription"); }
-        void setEtatInscription(const QString &value) { etatInscription.setValue("etatInscription", value); }*/
-
 private:
 
-        // Attributs
+    // Attributs
         ComHTTP *communicationHTTP;
 
         PresenterVisualiserTempsVitesse *monPresenter;
@@ -61,10 +51,9 @@ private:
 
         QList<Descente *> mesDescentes;
 
-
-
 signals:
         void listeChanged();
+        void postLierDescente(const bool &etat);
 };
 
 #endif // VISUALISERTEMPSVITESSE_H

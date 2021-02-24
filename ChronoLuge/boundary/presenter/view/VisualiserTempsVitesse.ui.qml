@@ -282,6 +282,10 @@ Page {
             }
         }
     }
+
+    Component.onCompleted: {
+        presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().rechercherDescentes()
+    }
 }
 
 

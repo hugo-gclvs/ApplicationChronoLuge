@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
+import ControllerVisualiserTempsVitesse 1.0
 
 ApplicationWindow {
     id: window
@@ -95,6 +96,11 @@ ApplicationWindow {
 
     }
 
+    /*Connections {
+        target: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse()
+        onPostIdentification: console.log("Image failed to load:", errorMsg)
+    }*/
+
     StackView {
         id: stackView
         anchors.top: parent.top
@@ -103,9 +109,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        if(connecte == true) {
-            console.log("Utilisateur connecté !")
-        } else {
+        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatConnexion() != "connecte") {
             stack.push("Identification.ui.qml")
             toolBar.state = "cacherHeader"
         }

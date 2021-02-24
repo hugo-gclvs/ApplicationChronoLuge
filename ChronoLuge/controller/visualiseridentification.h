@@ -2,6 +2,7 @@
 #define VISUALISERIDENTIFICATION_H
 
 #include <QObject>
+#include <QSettings>
 
 #include "boundary/presenter/presenteridentification.h"
 #include "boundary/data/ComHTTP/comhttp.h"
@@ -11,24 +12,31 @@
 class VisualiserIdentification : public QObject
 {
     Q_OBJECT
+
 public:
 
     // Constructeur
         explicit VisualiserIdentification(PresenterIdentification *monPresenter, ComHTTP *communicationHTTP, QObject *parent = nullptr);
+        explicit VisualiserIdentification(QObject *parent = nullptr) : QObject(parent) {}
 
     // Méthodes
-        int getIdUtilisateur() { return 1/*monUtilisateur->getIdUtilisateur()*/; }
+        void creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age);
+        void rechercherCompte(QString pseudo, QString mdp);
 
-        void setStatistiques(int nmbrDescente, double vitesseMoy, double vitesseMin, double vitesseMax, QString tempsMoy, QString tempsMin, QString tempsMax) {
-            monUtilisateur->setStatistiques(new Statistiques(nmbrDescente, vitesseMoy, vitesseMin, vitesseMax, tempsMoy, tempsMin, tempsMax));
-        }
+        void initUtilisateur(QVector<QString> *utilisateur);
+        void setStatistiques(int nmbrDescente, double vitesseMoy, double vitesseMin, double vitesseMax, QString tempsMoy, QString tempsMin, QString tempsMax);
+
+        int getIdUtilisateur()                                      { return monUtilisateur->getIdUtilisateur(); }
+        PresenterIdentification *getPresenterIdentification()       { return monPresenter; }
+        QSettings *getEtatConnexion() const                         { return etatConnexion;}
+        QSettings *getEtatInscription() const                       { return etatInscription;}
 
 private:
 
-    // Attributs
+        // Attributs
 
         // Presenter
-            PresenterIdentification *monPresenter;
+        PresenterIdentification *monPresenter;
 
         // Entity
             Utilisateur *monUtilisateur;
@@ -36,7 +44,13 @@ private:
         // Data
             ComHTTP *communicationHTTP;
 
+        // Settings
+            QSettings *etatConnexion = new QSettings("etatConnexion", "nonconnecte");
+            QSettings *etatInscription = new QSettings("etatInscription", "noninscrit");
+
 signals:
+    void postConnexion(const bool &valeurReussite);
+    void postInscription(const bool &valeurReussite);
 
 };
 

@@ -18,11 +18,13 @@ class Utilisateur : public QObject
 public:
 
     // Constructeur
-        explicit Utilisateur(QString pseudo, QString nom, QString prenom, int age, int pdp, int idUtilisateur);
+        explicit Utilisateur(QString pseudo, QString mdp, QString mail = NULL, QString nom = NULL, QString prenom = NULL, int age = 0, int pdp = 0, int idUtilisateur = 0);
         ~Utilisateur();
 
     // Accesseurs
         QString getPseudo() const           { return pseudo; }
+        QString getMdp() const              { return mdp; }
+        QString getMail() const             { return mail; }
         QString getNom() const              { return nom; }
         QString getPrenom() const           { return prenom; }
         int getAge() const                  { return age; }
@@ -34,9 +36,10 @@ public:
 
 private:
 
-    // Attributs
+        // Attributs
         QString pseudo;
         QString mdp;
+        QString mail;
         QString nom;
         QString prenom;
         int age;

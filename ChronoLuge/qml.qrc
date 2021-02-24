@@ -14,5 +14,7 @@
         <file>image/arrow-down.png</file>
         <file>image/arrow-right.png</file>
         <file>image/check.png</file>
+	   <file>image/uncheck.png</file>
+
     </qresource>
 </RCC>

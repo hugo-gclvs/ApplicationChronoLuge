@@ -17,35 +17,74 @@ VisualiserTempsVitesse::~VisualiserTempsVitesse()
 
 bool VisualiserTempsVitesse::lierDescente(QString QRCode)
 {
-    // Récupération de l'idUtilisteur
-        int idUtilisateur = controllerIdentification.getIdUtilisateur();
+    // Vérification de l'identification du client
 
-    // Envoi demande recherche descentes
-        communicationHTTP->lierDescente(idUtilisateur, QRCode);
+        if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
-        return true;
+            // Récupération de l'idUtilisteur
+                int idUtilisateur = controllerIdentification.getIdUtilisateur();
+
+            // Envoi demande recherche descentes
+                communicationHTTP->lierDescente(idUtilisateur, QRCode);
+
+                return true;
+
+        } else {
+
+            qDebug() << "L'utilisateur doit s'identifier";
+            // L'interface QML gère l'affichage de l'identification
+
+            return false;
+
+        }
 }
 
 bool VisualiserTempsVitesse::rechercherDescentes()
 {
-    // Récupération de l'idUtilisteur
-        int idUtilisateur = controllerIdentification.getIdUtilisateur();
+    // Vérification de l'identification du client
 
-    // Envoi demande recherche descentes
-        communicationHTTP->rechercherDescentes(idUtilisateur);
+        if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
-        return true;
+            // Récupération de l'idUtilisteur
+                int idUtilisateur = controllerIdentification.getIdUtilisateur();
+
+            // Envoi demande recherche descentes
+                communicationHTTP->rechercherDescentes(idUtilisateur);
+
+                return true;
+
+        } else {
+
+            qDebug() << "L'utilisateur doit s'identifier";
+            // L'interface QML gère l'affichage de l'identification
+
+            return false;
+
+        }
 }
 
 bool VisualiserTempsVitesse::rechercherStatistiques()
 {
-    // Récupération de l'idUtilisteur
-        int idUtilisateur = controllerIdentification.getIdUtilisateur();
+    // Vérification de l'identification du client
 
-    // Envoi demande recherche descentes
-        communicationHTTP->rechercherStatistiques(idUtilisateur);
+        if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
-        return true;
+            // Récupération de l'idUtilisteur
+                int idUtilisateur = controllerIdentification.getIdUtilisateur();
+
+            // Envoi demande recherche descentes
+                communicationHTTP->rechercherStatistiques(idUtilisateur);
+
+                return true;
+
+        } else {
+
+            qDebug() << "L'utilisateur doit s'identifier";
+            // L'interface QML gère l'affichage de l'identification
+
+            return false;
+
+        }
 }
 
 bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
@@ -85,7 +124,7 @@ bool VisualiserTempsVitesse::initStatistiques(QVector<QString> *statistiques)
 
         qDebug() << "Initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
 
-        //controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7));
+        controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7));
 
         return true;
 

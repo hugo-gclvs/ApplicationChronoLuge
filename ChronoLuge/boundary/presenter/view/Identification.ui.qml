@@ -1,5 +1,7 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.5
+import QtQuick.Window 2.2
+import QtQuick.Controls 2.12
+import ControllerIdentification 1.0
 
 Page {
     id: pageIdentification
@@ -7,7 +9,7 @@ Page {
 
     Grid {
         columns: 1
-        rows: 4
+        rows: 5
         anchors.fill: parent
         rowSpacing: 20
 
@@ -34,9 +36,11 @@ Page {
 
             TextField {
                 anchors.centerIn: parent
-                id: champPseudo
+                id: champPseudoConnexion
                 width: parent.width / 2
                 height: 50
+                selectByMouse: true
+                maximumLength: 15
                 placeholderText: qsTr("PSEUDO")
                 background: Rectangle {
                     color: "#EBEBEB"
@@ -53,9 +57,10 @@ Page {
 
             TextField {
                 anchors.centerIn: parent
-                id: champMdp
+                id: champMdpConnexion
                 width: parent.width / 2
                 height: 50
+                echoMode: "Password"
                 placeholderText: qsTr("MDP")
                 background: Rectangle {
                     color: "#EBEBEB"
@@ -79,9 +84,10 @@ Page {
                 font.bold: true
                 text: "<font color='#EBEBEB'> CONNEXION </font>"
                 onClicked: {
-                    toolBar.state = "normal"
-                    stack.pop()
-                    stack.pop("test.ui.qml")
+                    if((champPseudoConnexion.length < 3) || (champMdpConnexion.length < 2))
+                        console.log("Un des champs est incorrecte.")
+                    else
+                        presenterIdentification.rechercherCompte(champPseudoConnexion.text, champMdpConnexion.text)
                 }
                 background: Rectangle {
                     color: "#6B6B6B"
@@ -90,12 +96,42 @@ Page {
                 }
             }
         }
+
+        Rectangle {
+            width: parent.width
+            color: "#00ffffff"
+            height: 1
+
+            Button {
+                id: boutonConnexionADMIN
+                width: parent.width / 2.5
+                height: 50
+                anchors.centerIn: parent
+                font.pixelSize: 20
+                font.bold: true
+                text: "<font color='#EBEBEB'> ADMIN </font>"
+                onClicked: presenterIdentification.rechercherCompte("admin", "123")
+                background: Rectangle {
+                    color: "#6B6B6B"
+                    opacity: 0.9
+                    radius: 10
+                }
+            }
+        }
+
     }
 
     Component.onCompleted: {
-        if(inscrit == true)
-            console.log("Utilisateur inscrit !")
-        else
+        presenterIdentification.getMonController().onPostConnexion.connect(gestionPostConnexion)
+        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() != "inscrit")
             stack.push("Inscription.ui.qml")
+    }
+
+    function gestionPostConnexion(valeurReussite) {
+        if (valeurReussite) {
+            toolBar.state = "normal"
+            stack.pop()
+        } else
+            console.log("Erreur lors de la connexion")
     }
 }

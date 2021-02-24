@@ -12,15 +12,14 @@ class PresenterVisualiserTempsVitesse : public QObject
 public:
     explicit PresenterVisualiserTempsVitesse(QObject *parent = nullptr);
 
-    void setController(VisualiserTempsVitesse *monController) { this->monController = monController; }
 
     Q_INVOKABLE bool lierDescente(QString QRCode);
+    Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse() { return monController; }
+
+    void setController(VisualiserTempsVitesse *monController) { this->monController = monController; }
+
     bool rechercherHistorique();
     bool rechercherStatistiques();
-
-    Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse() {
-        return monController;
-    }
 
 private:
     VisualiserTempsVitesse *monController;

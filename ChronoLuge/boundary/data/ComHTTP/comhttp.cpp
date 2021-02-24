@@ -122,15 +122,30 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["pseudo"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["mdp"].toString());
+            maReponse->push_back(JsonObj.value(QString("data"))["mail"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["nom"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["prenom"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["age"].toString());
             maReponse->push_back(JsonObj.value(QString("data"))["pdp"].toString());
 
+            qDebug() << "Succès de la connexion !";
+
+            // Initialisation de l'utilisateur et de la validation de connexion
+                this->monControllerIdentification->initUtilisateur(maReponse);
+                this->monControllerIdentification->getEtatConnexion()->setValue("etatConnexion", "connecte");
+
+            // Emission du signal comme quoi la connexion est valide
+                emit this->monControllerIdentification->postConnexion(true);
+
+            // Recherche de l'historique du nouvel utilisateur
+                rechercherDescentes(monControllerIdentification->getIdUtilisateur());
+
         }
         else if (JsonObj["requeteSrc"].toString() == "postInscription") {
 
-            qDebug() << "Message: "  << JsonObj["message"].toString();
+            this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
+            qDebug() << "Succès de l'inscription !";
+            emit this->monControllerIdentification->postInscription(true);
 
         }
         else if (JsonObj["requeteSrc"].toString() == "getHistorique") {
@@ -150,6 +165,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         else if (JsonObj["requeteSrc"].toString() == "postLierDescente") {
 
             qDebug() << "Liaison effectuee";
+            emit this->monControllerTempsVitesse->postLierDescente(true);
 
         }
         else if (JsonObj["requeteSrc"].toString() == "getStatistique") {
@@ -168,11 +184,21 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         }
     } else {
 
-        qDebug() << "Message: "  << JsonObj["message"].toString();
+        if (JsonObj["requeteSrc"].toString() == "postConnexion")
+            emit this->monControllerIdentification->postConnexion(false);
+        else if (JsonObj["requeteSrc"].toString() == "postInscription")
+            emit this->monControllerIdentification->postInscription(false);
+        else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
+            emit this->monControllerTempsVitesse->postLierDescente(false);
 
-        maReponse->push_back(JsonObj["statut"].toString());
-        maReponse->push_back(JsonObj["requeteSrc"].toString());
-        maReponse->push_back(JsonObj["message"].toString());
+
+        else {
+            qDebug() << "Message d'Erreur: "  << JsonObj["message"].toString();
+
+            maReponse->push_back(JsonObj["statut"].toString());
+            maReponse->push_back(JsonObj["requeteSrc"].toString());
+            maReponse->push_back(JsonObj["message"].toString());
+        }
 
     }
 

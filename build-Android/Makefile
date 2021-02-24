@@ -809,6 +809,7 @@ armeabi-v7a\qrc_qml.cpp: ..\ChronoLuge\qml.qrc \
 		..\ChronoLuge\image\profil.png \
 		..\ChronoLuge\image\logo.png \
 		..\ChronoLuge\image\arrow-down.png \
+		..\ChronoLuge\image\uncheck.png \
 		..\ChronoLuge\image\check.png
 	C:\Qt\5.14.2\android\bin\rcc.exe -name qml ..\ChronoLuge\qml.qrc -o armeabi-v7a\qrc_qml.cpp
 
@@ -1004,20 +1005,22 @@ armeabi-v7a\moc_visualiseridentification.cpp: ..\ChronoLuge\controller\visualise
 		C:\Qt\5.14.2\android\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h \
-		..\ChronoLuge\boundary\presenter\presenteridentification.h \
-		C:\Qt\5.14.2\android\include\QtCore\QDebug \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
+		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
 		C:\Qt\5.14.2\android\include\QtCore\qdebug.h \
 		C:\Qt\5.14.2\android\include\QtCore\qhash.h \
-		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
 		C:\Qt\5.14.2\android\include\QtCore\qtextstream.h \
 		C:\Qt\5.14.2\android\include\QtCore\qiodevice.h \
 		C:\Qt\5.14.2\android\include\QtCore\qlocale.h \
-		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
 		C:\Qt\5.14.2\android\include\QtCore\qshareddata.h \
 		C:\Qt\5.14.2\android\include\QtCore\qset.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
 		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
+		..\ChronoLuge\boundary\presenter\presenteridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QDebug \
 		..\ChronoLuge\boundary\data\ComHTTP\comhttp.h \
 		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkaccessmanager.h \
@@ -1179,6 +1182,8 @@ armeabi-v7a\moc_visualisertempsvitesse.cpp: ..\ChronoLuge\controller\visualisert
 		C:\Qt\5.14.2\android\include\QtCore\QJsonArray \
 		C:\Qt\5.14.2\android\include\QtCore\qjsonarray.h \
 		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
 		..\ChronoLuge\boundary\presenter\presenteridentification.h \
 		..\ChronoLuge\entity\utilisateur.h \
 		..\ChronoLuge\entity\statistiques.h \
@@ -1360,6 +1365,19 @@ armeabi-v7a\moc_utilisateur.cpp: ..\ChronoLuge\entity\utilisateur.h \
 		C:\Qt\5.14.2\android\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h \
+		C:\Qt\5.14.2\android\include\QtCore\QDebug \
+		C:\Qt\5.14.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.14.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.14.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.14.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.14.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.14.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.14.2\android\include\QtCore\qset.h \
+		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
 		..\ChronoLuge\entity\statistiques.h \
 		armeabi-v7a\moc_predefs.h \
 		C:\Qt\5.14.2\android\bin\moc.exe
@@ -1850,7 +1868,52 @@ armeabi-v7a\presenteridentification.obj: ..\ChronoLuge\boundary\presenter\presen
 		C:\Qt\5.14.2\android\include\QtCore\qset.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
 		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
-		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
+		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
+		..\ChronoLuge\boundary\data\ComHTTP\comhttp.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkAccessManager \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkaccessmanager.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkrequest.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSharedDataPointer \
+		C:\Qt\5.14.2\android\include\QtCore\QString \
+		C:\Qt\5.14.2\android\include\QtCore\QUrl \
+		C:\Qt\5.14.2\android\include\QtCore\qurl.h \
+		C:\Qt\5.14.2\android\include\QtCore\qurlquery.h \
+		C:\Qt\5.14.2\android\include\QtCore\QVariant \
+		C:\Qt\5.14.2\android\include\QtCore\QVector \
+		C:\Qt\5.14.2\android\include\QtNetwork\QSslConfiguration \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslconfiguration.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslerror.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslcertificate.h \
+		C:\Qt\5.14.2\android\include\QtCore\qcryptographichash.h \
+		C:\Qt\5.14.2\android\include\QtCore\qdatetime.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qssl.h \
+		C:\Qt\5.14.2\android\include\QtCore\QFlags \
+		C:\Qt\5.14.2\android\include\QtNetwork\QSslPreSharedKeyAuthenticator \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		C:\Qt\5.14.2\android\include\QtCore\QMetaType \
+		C:\Qt\5.14.2\android\include\QtCore\QIODevice \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkReply \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkreply.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkRequest \
+		C:\Qt\5.14.2\android\include\QtCore\QUrlQuery \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonObject \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonobject.h \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonvalue.h \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonDocument \
+		C:\Qt\5.14.2\android\include\QtCore\qjsondocument.h \
+		C:\Qt\5.14.2\android\include\QtCore\QByteArray \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonArray \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonarray.h \
+		..\ChronoLuge\entity\utilisateur.h \
+		..\ChronoLuge\entity\statistiques.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\presenteridentification.obj ..\ChronoLuge\boundary\presenter\presenteridentification.cpp
 
 armeabi-v7a\presentervisualisertempsvitesse.obj: ..\ChronoLuge\boundary\presenter\presentervisualisertempsvitesse.cpp ..\ChronoLuge\boundary\presenter\presentervisualisertempsvitesse.h \
@@ -1906,7 +1969,73 @@ armeabi-v7a\presentervisualisertempsvitesse.obj: ..\ChronoLuge\boundary\presente
 		C:\Qt\5.14.2\android\include\QtCore\qmetatype.h \
 		C:\Qt\5.14.2\android\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontainerfwd.h \
-		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h
+		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h \
+		..\ChronoLuge\controller\visualisertempsvitesse.h \
+		C:\Qt\5.14.2\android\include\QtQml\QQmlListProperty \
+		C:\Qt\5.14.2\android\include\QtQml\qqmllist.h \
+		C:\Qt\5.14.2\android\include\QtQml\qtqmlglobal.h \
+		C:\Qt\5.14.2\android\include\QtQml\qtqml-config.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtnetworkglobal.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtnetwork-config.h \
+		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.14.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.14.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.14.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.14.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.14.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.14.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.14.2\android\include\QtCore\qset.h \
+		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\5.14.2\android\include\QtCore\QVector \
+		..\ChronoLuge\entity\descente.h \
+		C:\Qt\5.14.2\android\include\QtCore\QDateTime \
+		C:\Qt\5.14.2\android\include\QtCore\qdatetime.h \
+		..\ChronoLuge\boundary\data\ComHTTP\comhttp.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkAccessManager \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkaccessmanager.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkrequest.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSharedDataPointer \
+		C:\Qt\5.14.2\android\include\QtCore\QString \
+		C:\Qt\5.14.2\android\include\QtCore\QUrl \
+		C:\Qt\5.14.2\android\include\QtCore\qurl.h \
+		C:\Qt\5.14.2\android\include\QtCore\qurlquery.h \
+		C:\Qt\5.14.2\android\include\QtCore\QVariant \
+		C:\Qt\5.14.2\android\include\QtNetwork\QSslConfiguration \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslconfiguration.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qabstractsocket.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslerror.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslcertificate.h \
+		C:\Qt\5.14.2\android\include\QtCore\qcryptographichash.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\qssl.h \
+		C:\Qt\5.14.2\android\include\QtCore\QFlags \
+		C:\Qt\5.14.2\android\include\QtNetwork\QSslPreSharedKeyAuthenticator \
+		C:\Qt\5.14.2\android\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		C:\Qt\5.14.2\android\include\QtCore\QMetaType \
+		C:\Qt\5.14.2\android\include\QtCore\QIODevice \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkReply \
+		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkreply.h \
+		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkRequest \
+		C:\Qt\5.14.2\android\include\QtCore\QDebug \
+		C:\Qt\5.14.2\android\include\QtCore\QUrlQuery \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonObject \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonobject.h \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonvalue.h \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonDocument \
+		C:\Qt\5.14.2\android\include\QtCore\qjsondocument.h \
+		C:\Qt\5.14.2\android\include\QtCore\QByteArray \
+		C:\Qt\5.14.2\android\include\QtCore\QJsonArray \
+		C:\Qt\5.14.2\android\include\QtCore\qjsonarray.h \
+		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
+		..\ChronoLuge\boundary\presenter\presenteridentification.h \
+		..\ChronoLuge\entity\utilisateur.h \
+		..\ChronoLuge\entity\statistiques.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\presentervisualisertempsvitesse.obj ..\ChronoLuge\boundary\presenter\presentervisualisertempsvitesse.cpp
 
 armeabi-v7a\visualiseridentification.obj: ..\ChronoLuge\controller\visualiseridentification.cpp ..\ChronoLuge\controller\visualiseridentification.h \
@@ -1963,20 +2092,22 @@ armeabi-v7a\visualiseridentification.obj: ..\ChronoLuge\controller\visualiseride
 		C:\Qt\5.14.2\android\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h \
-		..\ChronoLuge\boundary\presenter\presenteridentification.h \
-		C:\Qt\5.14.2\android\include\QtCore\QDebug \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
+		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
 		C:\Qt\5.14.2\android\include\QtCore\qdebug.h \
 		C:\Qt\5.14.2\android\include\QtCore\qhash.h \
-		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
 		C:\Qt\5.14.2\android\include\QtCore\qtextstream.h \
 		C:\Qt\5.14.2\android\include\QtCore\qiodevice.h \
 		C:\Qt\5.14.2\android\include\QtCore\qlocale.h \
-		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
 		C:\Qt\5.14.2\android\include\QtCore\qshareddata.h \
 		C:\Qt\5.14.2\android\include\QtCore\qset.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
 		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
 		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
+		..\ChronoLuge\boundary\presenter\presenteridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QDebug \
 		..\ChronoLuge\boundary\data\ComHTTP\comhttp.h \
 		C:\Qt\5.14.2\android\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\5.14.2\android\include\QtNetwork\qnetworkaccessmanager.h \
@@ -2136,6 +2267,8 @@ armeabi-v7a\visualisertempsvitesse.obj: ..\ChronoLuge\controller\visualisertemps
 		C:\Qt\5.14.2\android\include\QtCore\QJsonArray \
 		C:\Qt\5.14.2\android\include\QtCore\qjsonarray.h \
 		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
 		..\ChronoLuge\boundary\presenter\presenteridentification.h \
 		..\ChronoLuge\entity\utilisateur.h \
 		..\ChronoLuge\entity\statistiques.h
@@ -2311,6 +2444,19 @@ armeabi-v7a\utilisateur.obj: ..\ChronoLuge\entity\utilisateur.cpp ..\ChronoLuge\
 		C:\Qt\5.14.2\android\include\QtCore\qvarlengtharray.h \
 		C:\Qt\5.14.2\android\include\QtCore\qcontainerfwd.h \
 		C:\Qt\5.14.2\android\include\QtCore\qobject_impl.h \
+		C:\Qt\5.14.2\android\include\QtCore\QDebug \
+		C:\Qt\5.14.2\android\include\QtCore\qdebug.h \
+		C:\Qt\5.14.2\android\include\QtCore\qhash.h \
+		C:\Qt\5.14.2\android\include\QtCore\qmap.h \
+		C:\Qt\5.14.2\android\include\QtCore\qtextstream.h \
+		C:\Qt\5.14.2\android\include\QtCore\qiodevice.h \
+		C:\Qt\5.14.2\android\include\QtCore\qlocale.h \
+		C:\Qt\5.14.2\android\include\QtCore\qvariant.h \
+		C:\Qt\5.14.2\android\include\QtCore\qshareddata.h \
+		C:\Qt\5.14.2\android\include\QtCore\qset.h \
+		C:\Qt\5.14.2\android\include\QtCore\qcontiguouscache.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer.h \
+		C:\Qt\5.14.2\android\include\QtCore\qsharedpointer_impl.h \
 		..\ChronoLuge\entity\statistiques.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o armeabi-v7a\utilisateur.obj ..\ChronoLuge\entity\utilisateur.cpp
 
@@ -2658,6 +2804,7 @@ armeabi-v7a\main.obj: ..\ChronoLuge\main.cpp C:\Qt\5.14.2\android\include\QtGui\
 		C:\Qt\5.14.2\android\include\QtCore\QJsonDocument \
 		C:\Qt\5.14.2\android\include\QtCore\QJsonArray \
 		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
 		..\ChronoLuge\boundary\presenter\presenteridentification.h \
 		..\ChronoLuge\entity\utilisateur.h \
 		..\ChronoLuge\entity\statistiques.h
@@ -2778,6 +2925,8 @@ armeabi-v7a\comhttp.obj: ..\ChronoLuge\boundary\data\ComHTTP\comhttp.cpp ..\Chro
 		C:\Qt\5.14.2\android\include\QtCore\QDateTime \
 		..\ChronoLuge\boundary\presenter\presentervisualisertempsvitesse.h \
 		..\ChronoLuge\controller\visualiseridentification.h \
+		C:\Qt\5.14.2\android\include\QtCore\QSettings \
+		C:\Qt\5.14.2\android\include\QtCore\qsettings.h \
 		..\ChronoLuge\boundary\presenter\presenteridentification.h \
 		..\ChronoLuge\entity\utilisateur.h \
 		..\ChronoLuge\entity\statistiques.h
