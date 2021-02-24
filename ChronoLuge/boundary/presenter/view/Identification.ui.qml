@@ -110,9 +110,9 @@ Page {
                 font.pixelSize: 20
                 font.bold: true
                 text: "<font color='#EBEBEB'> ADMIN </font>"
-                onClicked: presenterIdentification.rechercherCompte("admin", "123")
+                onClicked: presenterIdentification.rechercherCompte("admin", "Azerty*123")
                 background: Rectangle {
-                    color: "#6B6B6B"
+                    color: "#970000"
                     opacity: 0.9
                     radius: 10
                 }

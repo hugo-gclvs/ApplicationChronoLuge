@@ -56,7 +56,6 @@ Page {
             font.pixelSize: 20
             font.bold: true
             text: "Scanner le QRCode de la Luge !"
-            onClicked: objectif.start()
             background: Rectangle {
                 color: "ivory"
                 radius: 7
@@ -180,7 +179,6 @@ Page {
                 }
                 text: "ECHEC DE L'AJOUT ! REESSAYEZ"
                 readOnly: true
-                //anchors.centerIn: parent
                 font.pixelSize: 16
                 font.bold: true
                 width: parent.width - 40

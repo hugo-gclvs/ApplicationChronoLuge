@@ -1,4 +1,4 @@
-#Wed Feb 24 18:00:48 CET 2021
+#Wed Feb 24 20:47:44 CET 2021
 base.0=C\:\\Users\\hugog\\Desktop\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
