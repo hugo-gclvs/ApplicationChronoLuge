@@ -1,6 +1,10 @@
 #ifndef COMHTTP_H
 #define COMHTTP_H
 
+/*
+ * Inclusion des bibliothèques
+*/
+
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QIODevice>
@@ -14,38 +18,57 @@
 #include <QByteArray>
 #include <QJsonArray>
 
+/*
+ * Inclusion des classes Controller
+*/
 class VisualiserTempsVitesse;
 class VisualiserIdentification;
 
+/**
+ * @brief Classe: CommunicationHTTP
+ * @author: Goncalves H
+ * @desc: Classe frontière entre les controllers et l'API REST
+ * @protocol: HTTP
+ */
 class ComHTTP : public QObject
 {
     Q_OBJECT
 
 public:
-    ComHTTP(QObject *parent = nullptr);
-    ~ComHTTP();
 
-    void lierDescente(int idUtilisateur, QString QRCode);
-    void nouveauCompte(QString pseudo, QString mdp, QString email, QString nom, QString prenom, int age);
-    void rechercherCompte(QString pseudo, QString mdp);
-    void rechercherDescentes(int idUtilisateur);
-    void rechercherStatistiques(int idUtilisateur);
+    // Constructeur - Destructeur
+        ComHTTP(QObject *parent = nullptr);
+        ~ComHTTP() {}
 
-    void setControllerTempsVitesse(VisualiserTempsVitesse *controller) { this->monControllerTempsVitesse = controller; }
-    void setControllerIdentification(VisualiserIdentification *controller) { this->monControllerIdentification = controller; }
+    // Méthodes publiques
+        void lierDescente(int idUtilisateur, QString QRCode);
+        void nouveauCompte(QString pseudo, QString mdp, QString email, QString nom, QString prenom, int age);
+        void rechercherCompte(QString pseudo, QString mdp);
+        void rechercherDescentes(int idUtilisateur);
+        void rechercherStatistiques(int idUtilisateur);
+
+        // Mutateur
+            void setControllerTempsVitesse(VisualiserTempsVitesse *controller)          { this->monControllerTempsVitesse = controller; }
+            void setControllerIdentification(VisualiserIdentification *controller)      { this->monControllerIdentification = controller; }
 
 private:
-    QNetworkAccessManager *managerHTTP;
-    QNetworkRequest requete;
 
-    VisualiserTempsVitesse *monControllerTempsVitesse;
-    VisualiserIdentification *monControllerIdentification;
+    // Attributs
+        QNetworkAccessManager *managerHTTP;
+        QNetworkRequest requete;
 
-    void requeteGet();
-    void requetePost(QByteArray maRequete);
+        // Mes controllers
+            VisualiserTempsVitesse *monControllerTempsVitesse;
+            VisualiserIdentification *monControllerIdentification;
+
+    // Méthodes privées
+        void requeteGet();
+        void requetePost(QByteArray maRequete);
 
 private slots:
-    void lireReponse(QNetworkReply *reponse);
+
+    // Slots
+        void lireReponse(QNetworkReply *reponse);
 
 };
 #endif // COMHTTP_H

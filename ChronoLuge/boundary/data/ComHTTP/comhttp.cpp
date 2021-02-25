@@ -1,116 +1,202 @@
 #include "comhttp.h"
 #include "controller/visualisertempsvitesse.h"
 
+/**
+ * @brief ComHTTP::ComHTTP
+ * @param parent
+ * @desc: Construction de la classe ComHTTP
+ * - Initialisation des différents attributs
+ * - Connection entre les différents signals et slots de la classe QNetworkAccessManager
+ * - Definition de l'entete de la communication
+ */
 ComHTTP::ComHTTP(QObject *parent) : QObject(parent),
     managerHTTP(new QNetworkAccessManager),
     monControllerTempsVitesse(nullptr),
     monControllerIdentification(nullptr)
 {
-    connect(managerHTTP, SIGNAL(finished(QNetworkReply*)), this, SLOT(lireReponse(QNetworkReply*)));
-    //connect(managerHTTP, &QNetworkAccessManager::finished, managerHTTP, &QNetworkAccessManager::deleteLater);
-    requete.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    // Connection entre les différents signals et slots de la classe QNetworkAccessManager
+        connect(this->managerHTTP, SIGNAL(finished(QNetworkReply*)), this, SLOT(lireReponse(QNetworkReply*)));
+
+    // Definition de l'entete de la communication
+        this->requete.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 }
 
-ComHTTP::~ComHTTP()
-{
-}
 
-
+/**
+ * @brief ComHTTP::lierDescente
+ * @param idUtilisateur
+ * @param QRCode
+ * @desc: Méthode de liaison d'une nouvelle descente
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Création d'objets JSON (requete de destination, idUtilisateur et QRCode (contenu)) à envoyé dans la requete
+ * - Appel de la méthode post la classe courante
+ */
 void ComHTTP::lierDescente(int idUtilisateur, QString QRCode)
 {
-    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/lierDescente.php"));
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/lierDescente.php"));
 
-    QJsonObject obj;
+    // Création d'objets JSON (requete de destination, idUtilisateur et QRCode (contenu)) à envoyé dans la requete
+        QJsonObject obj;
 
-    obj["requeteDest"] = "postLierDescente";
-    obj["idUtilisateur"] = idUtilisateur;
-    obj["QRCode"] = QRCode;
+        obj["requeteDest"]  = "postLierDescente";
+        obj["idUtilisateur"] = idUtilisateur;
+        obj["QRCode"] = QRCode;
 
-    QJsonDocument doc(obj);
-    QByteArray data = doc.toJson();
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
 
-    this->requetePost(data);
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
 }
 
+
+/**
+ * @brief ComHTTP::nouveauCompte
+ * @param pseudo
+ * @param mdp
+ * @param email
+ * @param nom
+ * @param prenom
+ * @param age
+ * @desc: Méthode de création d'un nouveau compte utilisateur
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Création d'objets JSON (requete de destination, pseudo, mdp, etc...) à envoyé dans la requete
+ * - Appel de la méthode post la classe courante
+ */
 void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString nom, QString prenom, int age)
 {
-    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
 
-    QJsonObject obj;
+    // Création d'objets JSON (requete de destination, pseudo, mdp, etc...) à envoyé dans la requete
+        QJsonObject obj;
 
-    obj["requeteDest"] = "postInscription";
-    obj["pseudo"] = pseudo;
-    obj["mdp"] = mdp;
-    obj["email"] = email;
-    obj["nom"] = nom;
-    obj["prenom"] = prenom;
-    obj["age"] = age;
+        obj["requeteDest"] = "postInscription";
+        obj["pseudo"] = pseudo;
+        obj["mdp"] = mdp;
+        obj["email"] = email;
+        obj["nom"] = nom;
+        obj["prenom"] = prenom;
+        obj["age"] = age;
 
-    QJsonDocument doc(obj);
-    QByteArray data = doc.toJson();
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
 
-    this->requetePost(data);
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
 }
 
+
+/**
+ * @brief ComHTTP::rechercherCompte
+ * @param pseudo
+ * @param mdp
+ * @desc: Méthode de recherche de compte: vérifier si l'identification est correcte
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
+ * - Appel de la méthode post la classe courante
+ */
 void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 {
-    requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/identification.php"));
 
-    QJsonObject obj;
+    // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
+        QJsonObject obj;
 
-    obj["requeteDest"] = "postConnexion";
-    obj["pseudo"] = pseudo;
-    obj["mdp"] = mdp;
+        obj["requeteDest"] = "postConnexion";
+        obj["pseudo"] = pseudo;
+        obj["mdp"] = mdp;
 
-    QJsonDocument doc(obj);
-    QByteArray data = doc.toJson();
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
 
-    this->requetePost(data);
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
 }
 
+
+/**
+ * @brief ComHTTP::rechercherDescentes
+ * @param idUtilisateur
+ * @desc: Méthode de recherche de descente: récuperer les descentes de l'utilisteur connecté
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Ajout de l'idUtilisateur dans l'URI
+ * - Appel de la méthode get la classe courante
+ */
 void ComHTTP::rechercherDescentes(int idUtilisateur)
 {
-    QString monUrl("https://chronoluge.000webhostapp.com/historique.php?idUtilisateur=");
+    // Définition de l'URL courrant de la requête (API REST) + Ajout de l'idUtilisateur dans l'URI
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/historique.php?idUtilisateur=" + QString::number(idUtilisateur)));
 
-    monUrl += QString::number(idUtilisateur);
-    requete.setUrl(QUrl(monUrl));
-
-    this->requeteGet();
+    // Appel de la méthode get la classe courante
+        this->requeteGet();
 }
 
+
+/**
+ * @brief ComHTTP::rechercherStatistiques
+ * @param idUtilisateur
+ * @desc: Méthode de recherche de statistiques: récuperer les statistiques de l'utilisteur connecté
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Ajout de l'idUtilisateur dans l'URI
+ * - Appel de la méthode get la classe courante
+ */
 void ComHTTP::rechercherStatistiques(int idUtilisateur)
 {
-    QString monUrl("https://chronoluge.000webhostapp.com/statistique.php?idUtilisateur=");
+    // Définition de l'URL courrant de la requête (API REST) + Ajout de l'idUtilisateur dans l'URI
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/statistique.php?idUtilisateur=" + QString::number(idUtilisateur)));
 
-    monUrl += QString::number(idUtilisateur);
-    requete.setUrl(QUrl(monUrl));
-
-    this->requeteGet();
+    // Appel de la méthode get la classe courante
+        this->requeteGet();
 }
 
+
+/**
+ * @brief ComHTTP::requeteGet
+ * desc: Méthode privé de la classe courrante: envoyer une requête get a l'API
+ * - Envoi de la requête get demander
+ */
 void ComHTTP::requeteGet()
 {
-    managerHTTP->get(requete);
+    // Envoi de la requête get demander
+        this->managerHTTP->get(requete);
 }
 
+
+/**
+ * @brief ComHTTP::requetePost
+ * desc: Méthode privé de la classe courrante: envoyer une requête post a l'API
+ * - Envoi de la requête post demander
+ */
 void ComHTTP::requetePost(QByteArray mesDonnees)
 {
-    managerHTTP->post(requete, mesDonnees);
+    // Envoi de la requête post demander
+        this->managerHTTP->post(requete, mesDonnees);
 }
 
 
+/**
+ * @brief ComHTTP::lireReponse
+ * @param reponse
+ * desc: Slot de réponse de la demande faite à l'API
+ * - Si erreur recontré, affichage de l'erreur en question + On quitte le slot
+ * - Création et initialisation des différentes variables utiles à la méthode
+ */
 void ComHTTP::lireReponse(QNetworkReply *reponse)
 {
-    if (reponse->error()) {
-        qDebug() << reponse->errorString();
-        return;
-    }
+    // Si erreur recontré, affichage de l'erreur en question + On quitte le slot
+        if (reponse->error()) {
+            qDebug() << reponse->errorString();
+            return;
+        }
 
-    QVector<QString> *maReponse = new QVector<QString>;
-
-    QString jsonData = (QString)reponse->readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(jsonData.toUtf8());
-    QJsonObject JsonObj= doc.object();
+    // Création et initialisation des différentes variables utiles à la méthode
+        QVector<QString> *maReponse = new QVector<QString>;
+        QString jsonData = (QString)reponse->readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(jsonData.toUtf8());
+        QJsonObject JsonObj= doc.object();
 
     if (JsonObj["statut"].toInt()) {
 
@@ -182,7 +268,8 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             this->monControllerTempsVitesse->initStatistiques(maReponse);
 
         }
-    } else {
+
+    } else if (!JsonObj["statut"].toInt()) {
 
         if (JsonObj["requeteSrc"].toString() == "postConnexion")
             emit this->monControllerIdentification->postConnexion(false);
@@ -190,8 +277,6 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             emit this->monControllerIdentification->postInscription(false);
         else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
             emit this->monControllerTempsVitesse->postLierDescente(false);
-
-
         else {
             qDebug() << "Message d'Erreur: "  << JsonObj["message"].toString();
 
@@ -200,11 +285,9 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             maReponse->push_back(JsonObj["message"].toString());
         }
 
-    }
-
-    //methodeRetourController(maReponse);
+    } else
+        qDebug() << "Reception invalide";
 
     reponse->deleteLater();
-
 }
 
