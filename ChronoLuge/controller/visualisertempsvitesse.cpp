@@ -31,7 +31,7 @@ bool VisualiserTempsVitesse::lierDescente(QString QRCode)
 
         } else {
 
-            qDebug() << "L'utilisateur doit s'identifier";
+            qDebug() << "/!\\ L'utilisateur doit s'identifier !";
             // L'interface QML gère l'affichage de l'identification
 
             return false;
@@ -55,7 +55,7 @@ bool VisualiserTempsVitesse::rechercherDescentes()
 
         } else {
 
-            qDebug() << "L'utilisateur doit s'identifier";
+            qDebug() << "/!\\ L'utilisateur doit s'identifier !";
             // L'interface QML gère l'affichage de l'identification
 
             return false;
@@ -79,7 +79,7 @@ bool VisualiserTempsVitesse::rechercherStatistiques()
 
         } else {
 
-            qDebug() << "L'utilisateur doit s'identifier";
+            qDebug() << "/!\\ L'utilisateur doit s'identifier !";
             // L'interface QML gère l'affichage de l'identification
 
             return false;
@@ -92,7 +92,7 @@ bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
 
     if(descentes->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
 
-        qDebug() << "Initialisation des descentes de l'idUtilisateur: " << descentes->at(0).toInt();
+        qDebug() << "...initialisation des descentes de l'idUtilisateur: " << descentes->at(0).toInt();
         mesDescentes.clear();
 
         for(int i = 1 ; i < descentes->count() ; i++) {
@@ -112,6 +112,8 @@ bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
 
         listeChanged();
 
+        qDebug() << "/!\\ Succès de l'initialisation des descentes de l'utilisateur !";
+
         return true;
 
     } else
@@ -122,9 +124,11 @@ bool VisualiserTempsVitesse::initStatistiques(QVector<QString> *statistiques)
 {
     if(statistiques->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
 
-        qDebug() << "Initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
+        qDebug() << "...initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
 
         controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7));
+
+        qDebug() << "/!\\ Succès de l'initialisation des statistiques de l'utilisateur !";
 
         return true;
 

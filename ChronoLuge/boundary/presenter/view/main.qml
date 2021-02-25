@@ -74,8 +74,8 @@ ApplicationWindow {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    if(stackView.currentItem.objectName != "pageProfil") {
-                        stackView.pop()
+                    if(stackView.currentItem !== "VisualiserProfil.ui.qml") {
+                        stackView.pop(StackView.Immediate)
                         stackView.push("VisualiserProfil.ui.qml")
                     }
                 }
@@ -110,7 +110,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatConnexion() != "connecte") {
-            stack.push("Identification.ui.qml")
+            stack.push("Identification.ui.qml", StackView.Immediate)
             toolBar.state = "cacherHeader"
         }
     }

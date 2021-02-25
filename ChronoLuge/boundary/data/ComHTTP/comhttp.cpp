@@ -181,8 +181,7 @@ void ComHTTP::requetePost(QByteArray mesDonnees)
  * @brief ComHTTP::lireReponse
  * @param reponse
  * desc: Slot de réponse de la demande faite à l'API
- * - Si erreur recontré, affichage de l'erreur en question + On quitte le slot
- * - Création et initialisation des différentes variables utiles à la méthode
+ * - Traitement de chaque réponses
  */
 void ComHTTP::lireReponse(QNetworkReply *reponse)
 {
@@ -201,8 +200,8 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
     // Vérification du statut de la réponse
         if (JsonObj["statut"].toInt())
         {
-            qDebug() << "Nouvelle reception...";
-            qDebug() << "Requete Source: "  << JsonObj["requeteSrc"].toString();
+            qDebug() << "----> Nouvelle reception...";
+            qDebug() << "----> Requete Source: "  << JsonObj["requeteSrc"].toString();
 
             // Traitement de la requete (récupération de la requete source, pour renvoi de la réponse)
                 if (JsonObj["requeteSrc"].toString() == "postConnexion")
@@ -217,7 +216,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                         maReponse->push_back(JsonObj.value("data")["age"].toString());
                         maReponse->push_back(JsonObj.value("data")["pdp"].toString());
 
-                    qDebug() << "Succès de la connexion !";
+                    qDebug() << "/!\\ Succès de la connexion !";
 
                     // Initialisation de l'utilisateur et de la validation de connexion
                         this->monControllerIdentification->initUtilisateur(maReponse);
@@ -232,7 +231,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postInscription")
                 {
-                    qDebug() << "Succès de l'inscription !";
+                    qDebug() << "/!\\ Succès de l'inscription !";
 
                     // Initialisation de la validation d'inscription
                         this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
@@ -256,7 +255,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
                 {
-                    qDebug() << "Liaison effectuee";
+                    qDebug() << "/!\\ Liaison effectuee !";
 
                     // Emission du signal comme quoi la laison est valide
                         emit this->monControllerTempsVitesse->postLierDescente(true);
@@ -291,7 +290,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     emit this->monControllerTempsVitesse->postLierDescente(false);
                 else
                 {
-                    qDebug() << "Message d'Erreur: "  << JsonObj["message"].toString();
+                    qDebug() << "/!\\ Message d'Erreur: "  << JsonObj["message"].toString();
 
                     maReponse->push_back(JsonObj["statut"].toString());
                     maReponse->push_back(JsonObj["requeteSrc"].toString());
@@ -300,7 +299,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
         } else
             // Traitement des erreurs (timeout)
-                qDebug() << "Reception invalide";
+                qDebug() << "/!\\ Reception invalide !";
 
     // Suppression du pointeur dynamique
         reponse->deleteLater();

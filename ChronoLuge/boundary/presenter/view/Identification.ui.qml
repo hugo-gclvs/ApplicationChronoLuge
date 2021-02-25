@@ -124,7 +124,7 @@ Page {
     Component.onCompleted: {
         presenterIdentification.getMonController().onPostConnexion.connect(gestionPostConnexion)
         if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() != "inscrit")
-            stack.push("Inscription.ui.qml")
+            stack.push("Inscription.ui.qml", StackView.Immediate)
     }
 
     function gestionPostConnexion(valeurReussite) {

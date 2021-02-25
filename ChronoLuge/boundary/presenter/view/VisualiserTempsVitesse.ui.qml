@@ -62,7 +62,7 @@ Page {
                     height: 55
                     text: "<font color='#FFFFFF'>" + date + " / " + temps + "</font>"
                     font.bold: true
-                    font.pointSize: 12
+                    font.pointSize: parent.width*0.025
                     //onClicked: listView.currentIndex = index
 
                     background: Rectangle {

@@ -213,9 +213,9 @@ Page {
     Component.onCompleted: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostLierDescente.connect(gestionPostLierDescente)
 
     function gestionPostLierDescente(etat) {
-        if (etat) {
+        if(etat)
             zoneCamera.state = "qrcodeDetecte"
-        } else
+        else if(!etat)
             zoneCamera.state = "qrcodeNonDetecte"
     }
 
