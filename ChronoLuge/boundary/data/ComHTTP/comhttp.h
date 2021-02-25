@@ -27,8 +27,8 @@ class VisualiserIdentification;
 /**
  * @brief Classe: CommunicationHTTP
  * @author: Goncalves H
- * @desc: Classe frontière entre les controllers et l'API REST
  * @protocol: HTTP
+ * @desc: Classe frontière entre les controllers et l'API REST
  */
 class ComHTTP : public QObject
 {

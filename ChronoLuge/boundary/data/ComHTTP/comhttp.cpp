@@ -198,96 +198,111 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
         QJsonDocument doc = QJsonDocument::fromJson(jsonData.toUtf8());
         QJsonObject JsonObj= doc.object();
 
-    if (JsonObj["statut"].toInt()) {
+    // Vérification du statut de la réponse
+        if (JsonObj["statut"].toInt())
+        {
+            qDebug() << "Nouvelle reception...";
+            qDebug() << "Requete Source: "  << JsonObj["requeteSrc"].toString();
 
-        qDebug() << "Nouvelle reception...";
-        qDebug() << "Requete Source: "  << JsonObj["requeteSrc"].toString();
+            // Traitement de la requete (récupération de la requete source, pour renvoi de la réponse)
+                if (JsonObj["requeteSrc"].toString() == "postConnexion")
+                {
+                    // Ajout des données reçus dans le vecteur "maReponse"
+                        maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
+                        maReponse->push_back(JsonObj.value("data")["pseudo"].toString());
+                        maReponse->push_back(JsonObj.value("data")["mdp"].toString());
+                        maReponse->push_back(JsonObj.value("data")["mail"].toString());
+                        maReponse->push_back(JsonObj.value("data")["nom"].toString());
+                        maReponse->push_back(JsonObj.value("data")["prenom"].toString());
+                        maReponse->push_back(JsonObj.value("data")["age"].toString());
+                        maReponse->push_back(JsonObj.value("data")["pdp"].toString());
 
-        if (JsonObj["requeteSrc"].toString() == "postConnexion") {
+                    qDebug() << "Succès de la connexion !";
 
-            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["pseudo"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["mdp"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["mail"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["nom"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["prenom"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["age"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["pdp"].toString());
+                    // Initialisation de l'utilisateur et de la validation de connexion
+                        this->monControllerIdentification->initUtilisateur(maReponse);
+                        this->monControllerIdentification->getEtatConnexion()->setValue("etatConnexion", "connecte");
 
-            qDebug() << "Succès de la connexion !";
+                    // Emission du signal comme quoi la connexion est valide
+                        emit this->monControllerIdentification->postConnexion(true);
 
-            // Initialisation de l'utilisateur et de la validation de connexion
-                this->monControllerIdentification->initUtilisateur(maReponse);
-                this->monControllerIdentification->getEtatConnexion()->setValue("etatConnexion", "connecte");
+                    // Recherche de l'historique de descente du nouvel utilisateur
+                        this->rechercherDescentes(monControllerIdentification->getIdUtilisateur());
 
-            // Emission du signal comme quoi la connexion est valide
-                emit this->monControllerIdentification->postConnexion(true);
+                }
+                else if (JsonObj["requeteSrc"].toString() == "postInscription")
+                {
+                    qDebug() << "Succès de l'inscription !";
 
-            // Recherche de l'historique du nouvel utilisateur
-                rechercherDescentes(monControllerIdentification->getIdUtilisateur());
+                    // Initialisation de la validation d'inscription
+                        this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
+
+                    // Emission du signal comme quoi l'inscription est valide
+                        emit this->monControllerIdentification->postInscription(true);
+
+                }
+                else if (JsonObj["requeteSrc"].toString() == "getHistorique")
+                {
+                    // Récupération et ajout de l'idUtilisateur dans le but de vérifié qu'il correspond à l'utilisateur courrant
+                        maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
+
+                    // Ajout de chaque descente dans le vector: chaque descente est un unique qstring (concaténation de chaque valeur de la descente)
+                        for (int i = 1 ; i < JsonObj.value("data")["nmbrDescente"].toInt()+1 ;  i++)
+                            maReponse->push_back(JsonObj.value("data")["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value("data")["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value("data")["descente"+QString::number(i)]["vitesse"].toString());
+
+                    // Appel de la méthode pour initialiser les descentes de l'utilisateur
+                        this->monControllerTempsVitesse->initDescentes(maReponse);
+
+                }
+                else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
+                {
+                    qDebug() << "Liaison effectuee";
+
+                    // Emission du signal comme quoi la laison est valide
+                        emit this->monControllerTempsVitesse->postLierDescente(true);
+
+                }
+                else if (JsonObj["requeteSrc"].toString() == "getStatistique")
+                {
+                    // Ajout des données reçus dans le vecteur "maReponse"
+                        maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
+                        maReponse->push_back(JsonObj.value("data")["nombreDescente"].toString());
+                        maReponse->push_back(JsonObj.value("data")["vitesseMoy"].toString());
+                        maReponse->push_back(JsonObj.value("data")["vitesseMin"].toString());
+                        maReponse->push_back(JsonObj.value("data")["vitesseMax"].toString());
+                        maReponse->push_back(JsonObj.value("data")["tempsMoy"].toString());
+                        maReponse->push_back(JsonObj.value("data")["tempsMin"].toString());
+                        maReponse->push_back(JsonObj.value("data")["tempsMax"].toString());
+
+                    // Appel de la méthode pour initialiser les statistiques de l'utilisateur
+                        this->monControllerTempsVitesse->initStatistiques(maReponse);
+
+                }
 
         }
-        else if (JsonObj["requeteSrc"].toString() == "postInscription") {
+        else if (!JsonObj["statut"].toInt())
+        {
+            // Traitement des echec par le status
+                if (JsonObj["requeteSrc"].toString() == "postConnexion")
+                    emit this->monControllerIdentification->postConnexion(false);
+                else if (JsonObj["requeteSrc"].toString() == "postInscription")
+                    emit this->monControllerIdentification->postInscription(false);
+                else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
+                    emit this->monControllerTempsVitesse->postLierDescente(false);
+                else
+                {
+                    qDebug() << "Message d'Erreur: "  << JsonObj["message"].toString();
 
-            this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
-            qDebug() << "Succès de l'inscription !";
-            emit this->monControllerIdentification->postInscription(true);
+                    maReponse->push_back(JsonObj["statut"].toString());
+                    maReponse->push_back(JsonObj["requeteSrc"].toString());
+                    maReponse->push_back(JsonObj["message"].toString());
+                }
 
-        }
-        else if (JsonObj["requeteSrc"].toString() == "getHistorique") {
+        } else
+            // Traitement des erreurs (timeout)
+                qDebug() << "Reception invalide";
 
-            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
-
-            for (int i = 1 ; i < JsonObj.value(QString("data"))["nmbrDescente"].toInt()+1 ;  i++) {
-
-                //qDebug() << JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString();
-                maReponse->push_back(JsonObj.value(QString("data"))["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value(QString("data"))["descente"+QString::number(i)]["vitesse"].toString());
-
-            }
-
-            this->monControllerTempsVitesse->initDescentes(maReponse);
-
-        }
-        else if (JsonObj["requeteSrc"].toString() == "postLierDescente") {
-
-            qDebug() << "Liaison effectuee";
-            emit this->monControllerTempsVitesse->postLierDescente(true);
-
-        }
-        else if (JsonObj["requeteSrc"].toString() == "getStatistique") {
-
-            maReponse->push_back(JsonObj.value(QString("data"))["idUtilisateur"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["nombreDescente"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMoy"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMin"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["vitesseMax"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["tempsMoy"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["tempsMin"].toString());
-            maReponse->push_back(JsonObj.value(QString("data"))["tempsMax"].toString());
-
-            this->monControllerTempsVitesse->initStatistiques(maReponse);
-
-        }
-
-    } else if (!JsonObj["statut"].toInt()) {
-
-        if (JsonObj["requeteSrc"].toString() == "postConnexion")
-            emit this->monControllerIdentification->postConnexion(false);
-        else if (JsonObj["requeteSrc"].toString() == "postInscription")
-            emit this->monControllerIdentification->postInscription(false);
-        else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
-            emit this->monControllerTempsVitesse->postLierDescente(false);
-        else {
-            qDebug() << "Message d'Erreur: "  << JsonObj["message"].toString();
-
-            maReponse->push_back(JsonObj["statut"].toString());
-            maReponse->push_back(JsonObj["requeteSrc"].toString());
-            maReponse->push_back(JsonObj["message"].toString());
-        }
-
-    } else
-        qDebug() << "Reception invalide";
-
-    reponse->deleteLater();
+    // Suppression du pointeur dynamique
+        reponse->deleteLater();
 }
 
