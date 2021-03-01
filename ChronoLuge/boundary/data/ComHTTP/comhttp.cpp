@@ -155,7 +155,7 @@ void ComHTTP::rechercherStatistiques(int idUtilisateur)
 
 /**
  * @brief ComHTTP::requeteGet
- * desc: Méthode privé de la classe courrante: envoyer une requête get a l'API
+ * @desc: Méthode privé de la classe courrante: envoyer une requête get a l'API
  * - Envoi de la requête get demander
  */
 void ComHTTP::requeteGet()
@@ -167,7 +167,7 @@ void ComHTTP::requeteGet()
 
 /**
  * @brief ComHTTP::requetePost
- * desc: Méthode privé de la classe courrante: envoyer une requête post a l'API
+ * @desc: Méthode privé de la classe courrante: envoyer une requête post a l'API
  * - Envoi de la requête post demander
  */
 void ComHTTP::requetePost(QByteArray mesDonnees)
@@ -180,7 +180,7 @@ void ComHTTP::requetePost(QByteArray mesDonnees)
 /**
  * @brief ComHTTP::lireReponse
  * @param reponse
- * desc: Slot de réponse de la demande faite à l'API
+ * @desc: Slot de réponse de la demande faite à l'API
  * - Traitement de chaque réponses
  */
 void ComHTTP::lireReponse(QNetworkReply *reponse)

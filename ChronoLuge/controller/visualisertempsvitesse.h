@@ -36,7 +36,7 @@ public:
 
     // Méthodes
         bool lierDescente(QString QRCode);
-        Q_INVOKABLE bool rechercherDescentes();
+        bool rechercherDescentes();
         bool rechercherStatistiques();
         bool initDescentes(QVector<QString> *descentes);
         bool initStatistiques(QVector<QString> *statistiques);

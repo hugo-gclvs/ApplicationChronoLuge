@@ -18,6 +18,7 @@ public:
     // Constructeur
         explicit VisualiserIdentification(PresenterIdentification *monPresenter, ComHTTP *communicationHTTP, QObject *parent = nullptr);
         explicit VisualiserIdentification(QObject *parent = nullptr) : QObject(parent) {}
+        ~VisualiserIdentification() {}
 
     // Méthodes
         void creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age);

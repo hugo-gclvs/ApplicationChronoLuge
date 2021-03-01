@@ -14,7 +14,7 @@ VisualiserIdentification::VisualiserIdentification(PresenterIdentification *monP
     //connect(this, SIGNAL(postInscription()), this, SLOT(postInscriptionSucces()));
 }
 
-void VisualiserIdentification::creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age)
+bool VisualiserIdentification::creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age)
 {
     // Vérification de la bonne saisie en créant une instance de utilisateur
         Utilisateur *userTemp = new Utilisateur(pseudo, mdp, mail, nom, prenom, age);
@@ -23,9 +23,11 @@ void VisualiserIdentification::creerCompte(QString pseudo, QString mdp, QString 
         communicationHTTP->nouveauCompte(userTemp->getPseudo(), userTemp->getMdp(), userTemp->getMail(), userTemp->getNom(), userTemp->getPrenom(), userTemp->getAge());
 
         userTemp->deleteLater();
+
+    return true;
 }
 
-void VisualiserIdentification::rechercherCompte(QString pseudo, QString mdp)
+bool VisualiserIdentification::rechercherCompte(QString pseudo, QString mdp)
 {
     // Vérification de la bonne saisie en créant une instance de utilisateur
         Utilisateur *userTemp = new Utilisateur(pseudo, mdp);
@@ -34,6 +36,8 @@ void VisualiserIdentification::rechercherCompte(QString pseudo, QString mdp)
         communicationHTTP->rechercherCompte(userTemp->getPseudo(), userTemp->getMdp());
 
         userTemp->deleteLater();
+
+    return true;
 }
 
 void VisualiserIdentification::initUtilisateur(QVector<QString> *utilisateur)

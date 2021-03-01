@@ -2,7 +2,7 @@
 #define COMHTTP_H
 
 /*
- * Inclusion des bibliothèques
+ * Inclusion des bibliothèques/classes
 */
 
 #include <QObject>
@@ -21,12 +21,13 @@
 /*
  * Inclusion des classes Controller
 */
+
 class VisualiserTempsVitesse;
 class VisualiserIdentification;
 
 /**
  * @brief Classe: CommunicationHTTP
- * @author: Goncalves H
+ * @author: GONCALVES H
  * @protocol: HTTP
  * @desc: Classe frontière entre les controllers et l'API REST
  */
@@ -37,7 +38,7 @@ class ComHTTP : public QObject
 public:
 
     // Constructeur - Destructeur
-        ComHTTP(QObject *parent = nullptr);
+        explicit ComHTTP(QObject *parent = nullptr);
         ~ComHTTP() {}
 
     // Méthodes publiques

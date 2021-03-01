@@ -1,29 +1,46 @@
 #ifndef PRESENTERIDENTIFICATION_H
 #define PRESENTERIDENTIFICATION_H
 
+/*
+ * Inclusion des bibliothèques/classes
+*/
+
 #include <QObject>
 #include <QDebug>
 
+/*
+ * Inclusion de la classe Controller Identification
+*/
+
 class VisualiserIdentification;
 
+/**
+ * @brief The PresenterIdentification class
+ * @author: GONCALVES H
+ * @desc: Classe frontière entre le controller visualiserIdentifaction et l'UI d'identification
+ */
 class PresenterIdentification : public QObject
 {
     Q_OBJECT
+
 public:
 
-    explicit PresenterIdentification(QObject *parent = nullptr);
-    ~PresenterIdentification();
+    // Constructeur - Destructeur
+        explicit PresenterIdentification(QObject *parent = nullptr)  : QObject(parent), monController(nullptr) {}
+        ~PresenterIdentification() {}
 
-    Q_INVOKABLE void creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, QString age);
-    Q_INVOKABLE void rechercherCompte(QString pseudo, QString mdp);
-    Q_INVOKABLE VisualiserIdentification *getMonController() const              { return monController; }
+    // Méthodes utilisable par l'UI
+        Q_INVOKABLE void creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, QString age);
+        Q_INVOKABLE void rechercherCompte(QString pseudo, QString mdp);
+        Q_INVOKABLE VisualiserIdentification *getMonController() const              { return monController; }
 
-    void setController(VisualiserIdentification *monController)     { this->monController = monController; }
+    // Mutateur
+        void setController(VisualiserIdentification *monController)     { this->monController = monController; }
 
 private:
-    VisualiserIdentification *monController;
 
-signals:
+    // Attributs
+        VisualiserIdentification *monController;
 
 };
 

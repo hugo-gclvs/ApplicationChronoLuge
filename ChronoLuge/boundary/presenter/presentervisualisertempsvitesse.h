@@ -1,30 +1,46 @@
 #ifndef PRESENTERVISUALISERTEMPSVITESSE_H
 #define PRESENTERVISUALISERTEMPSVITESSE_H
 
+/*
+ * Inclusion des bibliothèques/classes
+*/
+
 #include <QObject>
+
+/*
+ * Inclusion de la classe Controller VisualiserTempsVitesse
+*/
 
 class VisualiserTempsVitesse;
 
+/**
+ * @brief The PresenterVisualiserTempsVitesse class
+ * @author: GONCALVES H
+ * @desc: Classe frontière entre le controller VisualiserTempsVitesse et l'UI d'affichage des descentes (profil et liaison)
+ */
 class PresenterVisualiserTempsVitesse : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit PresenterVisualiserTempsVitesse(QObject *parent = nullptr);
 
+    // Constructeur - Destructeur
+        explicit PresenterVisualiserTempsVitesse(QObject *parent = nullptr) : QObject(parent), monController(nullptr) {}
+        ~PresenterVisualiserTempsVitesse() {}
 
-    Q_INVOKABLE bool lierDescente(QString QRCode);
-    Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse() { return monController; }
+    // Méthodes utilisable par l'UI
+        Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse()   { return monController; }
+        Q_INVOKABLE bool lierDescente(QString QRCode);
+        Q_INVOKABLE bool rechercherHistorique();
+        Q_INVOKABLE bool rechercherStatistiques();
 
-    void setController(VisualiserTempsVitesse *monController) { this->monController = monController; }
-
-    bool rechercherHistorique();
-    bool rechercherStatistiques();
+    // Mutateur
+        void setController(VisualiserTempsVitesse *monController)                   { this->monController = monController; }
 
 private:
-    VisualiserTempsVitesse *monController;
 
-signals:
+    // Attributs
+        VisualiserTempsVitesse *monController;
 
 };
 
