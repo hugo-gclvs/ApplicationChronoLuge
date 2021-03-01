@@ -17,7 +17,6 @@ SOURCES += \
         boundary/presenter/presentervisualisertempsvitesse.cpp \
         controller/visualiseridentification.cpp \
         controller/visualisertempsvitesse.cpp \
-        entity/descente.cpp \
         entity/statistiques.cpp \
         entity/utilisateur.cpp \
         main.cpp \

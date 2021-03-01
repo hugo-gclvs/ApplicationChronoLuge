@@ -37,19 +37,19 @@ QT_MOC_LITERAL(1, 23, 12), // "listeChanged"
 QT_MOC_LITERAL(2, 36, 0), // ""
 QT_MOC_LITERAL(3, 37, 16), // "postLierDescente"
 QT_MOC_LITERAL(4, 54, 4), // "etat"
-QT_MOC_LITERAL(5, 59, 37), // "getControllerVisualiserIdenti..."
-QT_MOC_LITERAL(6, 97, 25), // "VisualiserIdentification*"
-QT_MOC_LITERAL(7, 123, 16), // "getEtatConnexion"
-QT_MOC_LITERAL(8, 140, 18), // "getEtatInscription"
+QT_MOC_LITERAL(5, 59, 16), // "getEtatConnexion"
+QT_MOC_LITERAL(6, 76, 18), // "getEtatInscription"
+QT_MOC_LITERAL(7, 95, 37), // "getControllerVisualiserIdenti..."
+QT_MOC_LITERAL(8, 133, 25), // "VisualiserIdentification*"
 QT_MOC_LITERAL(9, 159, 5), // "liste"
 QT_MOC_LITERAL(10, 165, 26) // "QQmlListProperty<Descente>"
 
     },
     "VisualiserTempsVitesse\0listeChanged\0"
-    "\0postLierDescente\0etat\0"
+    "\0postLierDescente\0etat\0getEtatConnexion\0"
+    "getEtatInscription\0"
     "getControllerVisualiserIdentification\0"
-    "VisualiserIdentification*\0getEtatConnexion\0"
-    "getEtatInscription\0liste\0"
+    "VisualiserIdentification*\0liste\0"
     "QQmlListProperty<Descente>"
 };
 #undef QT_MOC_LITERAL
@@ -73,17 +73,17 @@ static const uint qt_meta_data_VisualiserTempsVitesse[] = {
 
  // methods: name, argc, parameters, tag, flags
        5,    0,   43,    2, 0x02 /* Public */,
-       7,    0,   44,    2, 0x02 /* Public */,
-       8,    0,   45,    2, 0x02 /* Public */,
+       6,    0,   44,    2, 0x02 /* Public */,
+       7,    0,   45,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    4,
 
  // methods: parameters
-    0x80000000 | 6,
     QMetaType::QString,
     QMetaType::QString,
+    0x80000000 | 8,
 
  // properties: name, type, flags
        9, 0x80000000 | 10, 0x00495009,
@@ -102,12 +102,12 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
         switch (_id) {
         case 0: _t->listeChanged(); break;
         case 1: _t->postLierDescente((*reinterpret_cast< const bool(*)>(_a[1]))); break;
-        case 2: { VisualiserIdentification* _r = _t->getControllerVisualiserIdentification();
+        case 2: { QString _r = _t->getEtatConnexion();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 3: { QString _r = _t->getEtatInscription();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 4: { VisualiserIdentification* _r = _t->getControllerVisualiserIdentification();
             if (_a[0]) *reinterpret_cast< VisualiserIdentification**>(_a[0]) = std::move(_r); }  break;
-        case 3: { QString _r = _t->getEtatConnexion();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 4: { QString _r = _t->getEtatInscription();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -126,14 +126,7 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
                 return;
             }
         }
-    } else if (_c == QMetaObject::RegisterPropertyMetaType) {
-        switch (_id) {
-        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 0:
-            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQmlListProperty<Descente> >(); break;
-        }
     }
-
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty) {
         auto *_t = static_cast<VisualiserTempsVitesse *>(_o);

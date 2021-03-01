@@ -72,8 +72,8 @@ static const uint qt_meta_data_PresenterIdentification[] = {
       10,    0,   47,    2, 0x02 /* Public */,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
+    QMetaType::Bool, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,    6,    7,    8,
+    QMetaType::Bool, QMetaType::QString, QMetaType::QString,    3,    4,
     0x80000000 | 11,
 
        0        // eod
@@ -85,8 +85,10 @@ void PresenterIdentification::qt_static_metacall(QObject *_o, QMetaObject::Call 
         auto *_t = static_cast<PresenterIdentification *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->creerCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< QString(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6]))); break;
-        case 1: _t->rechercherCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 0: { bool _r = _t->creerCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< QString(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 1: { bool _r = _t->rechercherCompte((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 2: { VisualiserIdentification* _r = _t->getMonController();
             if (_a[0]) *reinterpret_cast< VisualiserIdentification**>(_a[0]) = std::move(_r); }  break;
         default: ;

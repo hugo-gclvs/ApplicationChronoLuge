@@ -1,33 +1,46 @@
 #include "visualisertempsvitesse.h"
 
+/**
+ * @brief VisualiserTempsVitesse::VisualiserTempsVitesse
+ * @param parent
+ * @desc: Construction de la classe controller VisualiserTempsVitesse
+ * - Initialisation des différents attributs
+ * - Set des controller avec l'objet courrant
+ */
 VisualiserTempsVitesse::VisualiserTempsVitesse(QObject *parent) :
     QObject(parent),
     communicationHTTP(new ComHTTP),
     monPresenter(new PresenterVisualiserTempsVitesse),
     controllerIdentification(new PresenterIdentification, communicationHTTP)
 {
-    this->monPresenter->setController(this);
-    this->communicationHTTP->setControllerTempsVitesse(this);
+    // Set des controller avec l'objet courrant
+        this->monPresenter->setController(this);
+        this->communicationHTTP->setControllerTempsVitesse(this);
 }
 
-VisualiserTempsVitesse::~VisualiserTempsVitesse()
-{
 
-}
-
+/**
+ * @brief VisualiserTempsVitesse::lierDescente
+ * @param QRCode
+ * @return
+ * @desc: Méthode de liaison d'une nouvelle descente
+ * - Vérification de l'identification du client
+ * - Récupération de l'idUtilisteur
+ * - Envoi demande de liaison descentes
+ * - Si l'utilisateur n'est pas identifié l'interface QML gère l'affichage de l'identification
+ */
 bool VisualiserTempsVitesse::lierDescente(QString QRCode)
 {
     // Vérification de l'identification du client
-
         if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
             // Récupération de l'idUtilisteur
                 int idUtilisateur = controllerIdentification.getIdUtilisateur();
 
-            // Envoi demande recherche descentes
+            // Envoi demande de liaison descentes
                 communicationHTTP->lierDescente(idUtilisateur, QRCode);
 
-                return true;
+            return true;
 
         } else {
 
@@ -39,10 +52,19 @@ bool VisualiserTempsVitesse::lierDescente(QString QRCode)
         }
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::rechercherDescentes
+ * @return
+ * @desc: Méthode de recherche des descentes d'un utilisateur
+ * - Vérification de l'identification du client
+ * - Récupération de l'idUtilisteur
+ * - Envoi demande recherche descentes
+ * - Si l'utilisateur n'est pas identifié l'interface QML gère l'affichage de l'identification
+ */
 bool VisualiserTempsVitesse::rechercherDescentes()
 {
     // Vérification de l'identification du client
-
         if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
             // Récupération de l'idUtilisteur
@@ -51,7 +73,7 @@ bool VisualiserTempsVitesse::rechercherDescentes()
             // Envoi demande recherche descentes
                 communicationHTTP->rechercherDescentes(idUtilisateur);
 
-                return true;
+            return true;
 
         } else {
 
@@ -63,19 +85,28 @@ bool VisualiserTempsVitesse::rechercherDescentes()
         }
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::rechercherStatistiques
+ * @return
+ * @desc: Méthode de recherche des statistiques d'un utilisateur
+ * - Vérification de l'identification du client
+ * - Récupération de l'idUtilisteur
+ * - Envoi demande recherche statistiques
+ * - Si l'utilisateur n'est pas identifié l'interface QML gère l'affichage de l'identification
+ */
 bool VisualiserTempsVitesse::rechercherStatistiques()
 {
     // Vérification de l'identification du client
-
         if (controllerIdentification.getEtatConnexion()->value("etatConnexion").toString() == "connecte") {
 
             // Récupération de l'idUtilisteur
                 int idUtilisateur = controllerIdentification.getIdUtilisateur();
 
-            // Envoi demande recherche descentes
+            // Envoi demande recherche statistiques
                 communicationHTTP->rechercherStatistiques(idUtilisateur);
 
-                return true;
+            return true;
 
         } else {
 
@@ -87,51 +118,76 @@ bool VisualiserTempsVitesse::rechercherStatistiques()
         }
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::initDescentes
+ * @param descentes
+ * @return
+ * @desc: Méthode d'initialisation des descentes de l'utilisateur courant
+ * - Vérification que les descentes sont bien celle de l'utilisateur courant
+ * - Suppression des descentes de l'affichage
+ * - Création et initialisation d'une entité descente pour chaque nouvelle descente
+ * - Emission du signal listeChanged, pour prevenir la vue d'un changement
+ */
 bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
 {
+    // Vérification que les descentes sont bien celle de l'utilisateur courant
+        if(descentes->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
 
-    if(descentes->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
+            qDebug() << "...initialisation des descentes de l'idUtilisateur: " << descentes->at(0).toInt();
 
-        qDebug() << "...initialisation des descentes de l'idUtilisateur: " << descentes->at(0).toInt();
-        mesDescentes.clear();
+            // Suppression des descentes de l'affichage
+                mesDescentes.clear();
 
-        for(int i = 1 ; i < descentes->count() ; i++) {
+            // Création et inisialisation d'une entité descente pour chaque nouvelle descente
+                for(int i = 1 ; i < descentes->count() ; i++)
+                {
+                    // Split du string reçu
+                        QStringList splitInfoDescente = descentes->at(i).split(" ");
 
-            QStringList splitInfoDescente = descentes->at(i).split(" ");
+                    // Création et inisialisation d'une entité descente pour chaque nouvelle descente
+                        Descente * descente = new Descente(splitInfoDescente.at(0) + " " + splitInfoDescente.at(1), splitInfoDescente.at(2), splitInfoDescente.at(3).toDouble());
 
-            //qDebug() << splitInfoDescente.at(0) << " " << splitInfoDescente.at(1) << " " << splitInfoDescente.at(2) << " " << splitInfoDescente.at(3);
+                    // Copies de la descente dans le l'attribut QList
+                        mesDescentes.append(descente);
 
-            Descente * descente = new Descente(splitInfoDescente.at(0) + " " + splitInfoDescente.at(1), splitInfoDescente.at(2), splitInfoDescente.at(3).toDouble());
-            mesDescentes.append(descente);
+                }
 
-            /*qDebug() << mesDescentes.at(i-1)->getDate();
-            qDebug() << mesDescentes.at(i-1)->getTemps();
-            qDebug() << mesDescentes.at(i-1)->getVitesse();*/
+            // Emission du signal listeChanged, pour prevenir la vue d'un changement
+                emit listeChanged();
 
-        }
+            qDebug() << "/!\\ Succès de l'initialisation des descentes de l'utilisateur !";
 
-        listeChanged();
+            return true;
 
-        qDebug() << "/!\\ Succès de l'initialisation des descentes de l'utilisateur !";
+        } else
+            return false;
 
-        return true;
-
-    } else
-        return false;
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::initStatistiques
+ * @param statistiques
+ * @return
+ * @desc: Méthode d'initialisation des statistiques de l'utilisateur courant
+ * - Vérification que les statistiques sont bien celle de l'utilisateur courant
+ * - Set des nouvelles statistiques au controller identification
+ */
 bool VisualiserTempsVitesse::initStatistiques(QVector<QString> *statistiques)
 {
-    if(statistiques->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
+    // Vérification que les statistiques sont bien celle de l'utilisateur courant
+        if(statistiques->at(0).toInt() == controllerIdentification.getIdUtilisateur()) {
 
-        qDebug() << "...initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
+            qDebug() << "...initialisation des statistiques de l'idUtilisateur: " << statistiques->at(0).toInt();
 
-        controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7));
+            // Set des nouvelles statistiques au controller identification
+                if(controllerIdentification.setStatistiques(statistiques->at(1).toInt(), statistiques->at(2).toDouble(), statistiques->at(3).toDouble(), statistiques->at(4).toDouble(), statistiques->at(5), statistiques->at(6), statistiques->at(7))) {
+                    qDebug() << "/!\\ Succès de l'initialisation des statistiques de l'utilisateur !";
+                    return true;
+                } else
+                    return false;
 
-        qDebug() << "/!\\ Succès de l'initialisation des statistiques de l'utilisateur !";
-
-        return true;
-
-    } else
-        return false;
+        } else
+            return false;
 }
