@@ -44,13 +44,9 @@ Page {
             ScrollBar.vertical.interactive: true
 
             ListView {
-
-                //property int nmbrDescente: 4
-
                 id: listView
                 model: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().liste
                 clip: true
-
                 delegate: ItemDelegate {
 
                     property double vitesse: modelData.vitesse
@@ -62,9 +58,7 @@ Page {
                     height: 55
                     text: "<font color='#FFFFFF'>" + date + " / " + temps + "</font>"
                     font.bold: true
-                    font.pointSize: parent.width*0.025
-                    //onClicked: listView.currentIndex = index
-
+                    font.pointSize: parent.width * 0.025
                     background: Rectangle {
                         id: fond2
                         color: "#D4D4D4"
@@ -90,8 +84,8 @@ Page {
                             anchors.right: parent.right
                             anchors.rightMargin: 15
                             opacity: 1
-                            width:  35
-                            height:  35
+                            width: 35
+                            height: 35
                             clip: true
                             visible: true
                             source: "../../../../image/image/arrow-right.png"
@@ -115,8 +109,8 @@ Page {
                             id: fond3
                             color: "#eeeeee"
                             radius: 5
-                            width: parent.width-40
-                            height: parent.height-70
+                            width: parent.width - 40
+                            height: parent.height - 70
                             x: 20
                             y: 50
 
@@ -124,8 +118,8 @@ Page {
                                 id: fond4
                                 color: "#f7f7f7"
                                 radius: 10
-                                width: parent.width-30
-                                height: parent.height-30
+                                width: parent.width - 30
+                                height: parent.height - 30
                                 x: 15
                                 y: 15
 
@@ -143,8 +137,8 @@ Page {
 
                                     Rectangle {
                                         id: recTemps
-                                        width: parent.width/2-8
-                                        height: parent.height/2-8
+                                        width: parent.width / 2 - 8
+                                        height: parent.height / 2 - 8
                                         color: "#f2f3f2"
 
                                         Label {
@@ -171,13 +165,12 @@ Page {
                                             font.bold: false
                                             y: 25
                                         }
-
                                     }
 
                                     Rectangle {
                                         id: recDate
-                                        width: parent.width/2-8
-                                        height: parent.height/2-8
+                                        width: parent.width / 2 - 8
+                                        height: parent.height / 2 - 8
                                         color: "#f2f3f2"
 
                                         Label {
@@ -204,13 +197,12 @@ Page {
                                             font.bold: false
                                             y: 25
                                         }
-
                                     }
 
                                     Rectangle {
                                         id: recVitesse
-                                        width: parent.width/2-8
-                                        height: parent.height/2-8
+                                        width: parent.width / 2 - 8
+                                        height: parent.height / 2 - 8
                                         color: "#f2f3f2"
 
                                         Label {
@@ -237,44 +229,74 @@ Page {
                                             font.bold: false
                                             y: 25
                                         }
-
                                     }
-
                                 }
-
                             }
-
                         }
 
                         MouseArea {
-                           id: mouseArea
-                           anchors.fill: parent
-                           onClicked: {
-                               if (fond2.state === "normal")
-                                   fond2.state = "resized"
-                               else
-                                   fond2.state = "normal"
-                           }
+                            id: mouseArea
+                            anchors.fill: parent
+                            onClicked: {
+                                if (fond2.state === "normal")
+                                    fond2.state = "resized"
+                                else
+                                    fond2.state = "normal"
+                            }
                         }
 
                         states: [
 
                             State {
                                 name: "resized"
-                                PropertyChanges {target: ligne; visible: true}
-                                PropertyChanges {target: maDescente; height: 220; text: null}
-                                PropertyChanges {target: fond3; visible: true}
-                                PropertyChanges {target: fond4; visible: true}
-                                PropertyChanges {target: flecheDroite; opacity:0}
-                                PropertyChanges {target: flecheBas; opacity:1}
-                        },
+                                PropertyChanges {
+                                    target: ligne
+                                    visible: true
+                                }
+                                PropertyChanges {
+                                    target: maDescente
+                                    height: 220
+                                    text: null
+                                }
+                                PropertyChanges {
+                                    target: fond3
+                                    visible: true
+                                }
+                                PropertyChanges {
+                                    target: fond4
+                                    visible: true
+                                }
+                                PropertyChanges {
+                                    target: flecheDroite
+                                    opacity: 0
+                                }
+                                PropertyChanges {
+                                    target: flecheBas
+                                    opacity: 1
+                                }
+                            },
                             State {
                                 name: "normal"
-                                PropertyChanges {target: maDescente; height: 55}
-                                PropertyChanges {target: fond3; visible: false}
-                                PropertyChanges {target: fond4; visible: false}
-                                PropertyChanges {target: flecheDroite; opacity:1}
-                                PropertyChanges {target: flecheBas; opacity:0}
+                                PropertyChanges {
+                                    target: maDescente
+                                    height: 55
+                                }
+                                PropertyChanges {
+                                    target: fond3
+                                    visible: false
+                                }
+                                PropertyChanges {
+                                    target: fond4
+                                    visible: false
+                                }
+                                PropertyChanges {
+                                    target: flecheDroite
+                                    opacity: 1
+                                }
+                                PropertyChanges {
+                                    target: flecheBas
+                                    opacity: 0
+                                }
                             }
                         ]
                     }
@@ -287,26 +309,3 @@ Page {
         presenterVisualiserTempsVitesse.rechercherHistorique()
     }
 }
-
-
-
-/*transitions: [
-    Transition {
-        from: "normal"
-        to: "resized"
-        NumberAnimation {
-            targets: [flecheBas, flecheDroite]
-            properties: "opacity"
-            duration: 500
-        }
-    },
-    Transition {
-        from: "resized"
-        to: "normal"
-        NumberAnimation {
-            targets: [flecheBas, flecheDroite]
-            properties: "opacity"
-            duration: 500
-        }
-    }
-]*/

@@ -2,7 +2,6 @@ debug/presenteridentification.o
 debug/presentervisualisertempsvitesse.o
 debug/visualiseridentification.o
 debug/visualisertempsvitesse.o
-debug/descente.o
 debug/statistiques.o
 debug/utilisateur.o
 debug/main.o

@@ -3,7 +3,6 @@ import QtQuick.Controls 2.5
 
 Page {
     id: pageProfil
-    //anchors.fill: parent
     background: null
     title: qsTr("PROFIL")
 

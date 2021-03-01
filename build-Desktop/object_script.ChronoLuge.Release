@@ -2,7 +2,6 @@ release/presenteridentification.o
 release/presentervisualisertempsvitesse.o
 release/visualiseridentification.o
 release/visualisertempsvitesse.o
-release/descente.o
 release/statistiques.o
 release/utilisateur.o
 release/main.o

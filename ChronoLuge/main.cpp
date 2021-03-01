@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 
     // Enregistrement des types pour le QML
         qmlRegisterType<Descente>("Descente", 1, 0, "Descente");
+        //qmlRegisterType<Utilisateur>("Utilisateur", 1, 0, "Utilisateur");
+        //qmlRegisterType<Statistiques>("Statistiques", 1, 0, "Statistiques");
         qmlRegisterType<VisualiserTempsVitesse>("ControllerVisualiserTempsVitesse", 1, 0, "ControllerVisualiserTempsVitesse");
         qmlRegisterType<VisualiserIdentification>("ControllerIdentification", 1, 0, "ControllerIdentification");
         QZXing::registerQMLTypes();

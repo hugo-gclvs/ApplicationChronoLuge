@@ -6,7 +6,6 @@ import QtQuick.Controls 2.4
 
 Page {
     id: pageAjouterDescente
-    //anchors.fill: parent
     background: null
     title: qsTr("AJOUT D'UNE DESCENTE")
 
@@ -42,7 +41,6 @@ Page {
                     objectif.stop()
                 }
             }
-            //onDecodingStarted: titreSucces.text="Scan..."
         }
 
         Button {
@@ -135,7 +133,6 @@ Page {
                 }
                 text: "DESCENTE AJOUTEE !"
                 readOnly: true
-                //anchors.centerIn: parent
                 font.pixelSize: 16
                 font.bold: true
                 width: parent.width - 40

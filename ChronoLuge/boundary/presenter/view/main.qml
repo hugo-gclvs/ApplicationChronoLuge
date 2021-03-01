@@ -96,11 +96,6 @@ ApplicationWindow {
 
     }
 
-    /*Connections {
-        target: presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse()
-        onPostIdentification: console.log("Image failed to load:", errorMsg)
-    }*/
-
     StackView {
         id: stackView
         anchors.top: parent.top
