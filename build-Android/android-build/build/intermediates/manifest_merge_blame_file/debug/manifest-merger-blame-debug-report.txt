@@ -88,9 +88,9 @@
 52            android:label="ChronoLuge"
 52-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:250-276
 53            android:launchMode="singleTop"
-53-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:317-347
-54            android:screenOrientation="unspecified" >
-54-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-316
+53-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:314-344
+54            android:screenOrientation="portrait" >
+54-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-313
 55            <intent-filter>
 55-->C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:23:13-26:29
 56                <action android:name="android.intent.action.MAIN" />

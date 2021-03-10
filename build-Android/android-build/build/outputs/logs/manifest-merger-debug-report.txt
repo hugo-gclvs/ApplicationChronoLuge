@@ -88,11 +88,11 @@ ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-bu
 activity#org.qtproject.qt5.android.bindings.QtActivity
 ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:9-80:20
 	android:screenOrientation
-		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-316
+		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-313
 	android:label
 		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:250-276
 	android:launchMode
-		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:317-347
+		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:314-344
 	android:configChanges
 		ADDED from C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:19-188
 	android:name

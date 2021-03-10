@@ -79,7 +79,7 @@ Page {
                         opacity: 0.8
                         radius: 10
                         width: parent.width - 30
-                        height: parent.height - 300
+                        height: parent.height - 250
 
                         Grid {
                             id: gridProfil
@@ -112,7 +112,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -121,7 +121,7 @@ Page {
                                     text: nom
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -144,7 +144,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -153,7 +153,7 @@ Page {
                                     text: prenom
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -176,7 +176,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -185,7 +185,7 @@ Page {
                                     text: age
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -208,7 +208,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -217,7 +217,7 @@ Page {
                                     text: pseudo
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
                         }
@@ -229,7 +229,7 @@ Page {
                         opacity: 0.8
                         radius: 10
                         width: parent.width - 30
-                        height: parent.height - 200
+                        height: parent.height - 160
                         x: 15
                         y: 15
 
@@ -264,7 +264,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -273,7 +273,7 @@ Page {
                                     text: nmbrDescente
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -296,7 +296,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -305,7 +305,7 @@ Page {
                                     text: vitMoy
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -328,7 +328,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -337,7 +337,7 @@ Page {
                                     text: vitMin
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -360,7 +360,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -369,7 +369,7 @@ Page {
                                     text: vitMax
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -392,7 +392,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -401,7 +401,7 @@ Page {
                                     text: tempsMoy
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -424,7 +424,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -433,7 +433,7 @@ Page {
                                     text: tempsMin
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
 
@@ -456,7 +456,7 @@ Page {
                                     anchors.right: parent.right
                                     anchors.rightMargin: 40
                                     anchors.left: parent.left
-                                    y: 22
+                                    y: 17
                                     color: "#8A8A8A"
                                 }
 
@@ -465,7 +465,7 @@ Page {
                                     text: tempsMax
                                     color: "#8A8A8A"
                                     font.bold: false
-                                    y: 25
+                                    y: 21
                                 }
                             }
                         }
@@ -476,9 +476,23 @@ Page {
     }
 
     Button {
-        text: "Retour"
-        display: AbstractButton.TextOnly
-        height: 60
+        Rectangle {
+            color: "white"
+            anchors.fill: parent
+        }
+
+        Image {
+            id: flecheDroite2
+            width: 30
+            y: 10
+            x: 10
+            height: 30
+            opacity: 0.5
+            clip: true
+            visible: true
+            source: "../../../../image/image/arrow-left.png"
+        }
+        height: 50
         width: parent.width
         anchors.bottom: parent.bottom
         onClicked: stackView.pop()

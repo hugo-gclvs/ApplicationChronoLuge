@@ -35,7 +35,6 @@ Page {
             decoder {
                 enabledDecoders: QZXing.DecoderFormat_QR_CODE
                 onTagFound: {
-                    //reponse.text=decoder.foundedFormat()
                     reponse.append(tag)
                     presenterVisualiserTempsVitesse.lierDescente(tag)
                     objectif.stop()
@@ -199,9 +198,23 @@ Page {
     }
 
     Button {
-        text: "Retour"
-        display: AbstractButton.TextOnly
-        height: 60
+        Rectangle {
+            color: "white"
+            anchors.fill: parent
+        }
+
+        Image {
+            id: flecheDroite2
+            width: 30
+            y: 10
+            x: 10
+            height: 30
+            opacity: 0.5
+            clip: true
+            visible: true
+            source: "../../../../image/image/arrow-left.png"
+        }
+        height: 50
         width: parent.width
         anchors.bottom: parent.bottom
         onClicked: stackView.pop()

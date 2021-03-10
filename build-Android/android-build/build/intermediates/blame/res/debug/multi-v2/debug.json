@@ -319,30 +319,30 @@
                         "startOffsets": "-1,-1,-1,-1"
                     },
                     "to": {
-                        "startLines": "28,29,30,31",
+                        "startLines": "45,46,47,48",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "1414,1522,1644,1756",
+                        "startOffsets": "2456,2564,2686,2798",
                         "endColumns": "107,121,111,97",
-                        "endOffsets": "1517,1639,1751,1849"
+                        "endOffsets": "2559,2681,2793,2891"
                     }
                 },
                 {
                     "source": "C:\\Users\\hugog\\Desktop\\ApplicationChronoLuge\\build-Android\\android-build\\res\\values\\libs.xml",
                     "from": {
-                        "startLines": "9,-1,-1,-1",
-                        "startColumns": "4,-1,-1,-1",
-                        "startOffsets": "301,-1,-1,-1",
-                        "endLines": "12,-1,-1,-1",
-                        "endColumns": "12,-1,-1,-1",
-                        "endOffsets": "428,-1,-1,-1"
+                        "startLines": "9,47,16,-1",
+                        "startColumns": "4,4,4,-1",
+                        "startOffsets": "301,2114,517,-1",
+                        "endLines": "14,50,45,-1",
+                        "endColumns": "12,12,12,-1",
+                        "endOffsets": "509,2593,2106,-1"
                     },
                     "to": {
-                        "startLines": "2,6,9,25",
+                        "startLines": "2,8,12,42",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "55,185,455,1298",
-                        "endLines": "5,8,24,27",
+                        "startOffsets": "55,266,748,2340",
+                        "endLines": "7,11,41,44",
                         "endColumns": "12,12,12,12",
-                        "endOffsets": "180,450,1293,1409"
+                        "endOffsets": "261,743,2335,2451"
                     }
                 }
             ]

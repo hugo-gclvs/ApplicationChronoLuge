@@ -58,7 +58,7 @@ Page {
                     height: 55
                     text: "<font color='#FFFFFF'>" + date + " / " + temps + "</font>"
                     font.bold: true
-                    font.pointSize: parent.width * 0.04
+                    font.pointSize: parent.width * 0.05
                     background: Rectangle {
                         id: fond2
                         color: "#D4D4D4"

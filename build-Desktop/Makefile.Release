@@ -786,6 +786,7 @@ release/qrc_qml.cpp: ../ChronoLuge/qml.qrc \
 		../ChronoLuge/image/arrow-right.png \
 		../ChronoLuge/image/chargement.gif \
 		../ChronoLuge/image/profil.png \
+		../ChronoLuge/image/arrow-left.png \
 		../ChronoLuge/image/logo.png \
 		../ChronoLuge/image/arrow-down.png \
 		../ChronoLuge/image/uncheck.png \

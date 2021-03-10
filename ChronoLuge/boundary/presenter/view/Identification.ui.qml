@@ -11,7 +11,7 @@ Page {
         columns: 1
         rows: 5
         anchors.fill: parent
-        rowSpacing: 20
+        rowSpacing: 10
 
         Rectangle {
             id: recLogo
@@ -22,8 +22,8 @@ Page {
             Image {
                 id: logoIdentification
                 anchors.centerIn: parent
-                width: 230
-                height: 200
+                width: 170
+                height: 130
                 clip: true
                 source: "../../../../image/image/logo.png"
             }
@@ -38,7 +38,7 @@ Page {
                 anchors.centerIn: parent
                 id: champPseudoConnexion
                 width: parent.width / 1.3
-                height: 45
+                height: 40
                 selectByMouse: true
                 maximumLength: 15
                 placeholderText: qsTr("PSEUDO")
@@ -59,7 +59,7 @@ Page {
                 anchors.centerIn: parent
                 id: champMdpConnexion
                 width: parent.width / 1.3
-                height: 45
+                height: 40
                 echoMode: "Password"
                 placeholderText: qsTr("MDP")
                 background: Rectangle {
@@ -78,7 +78,7 @@ Page {
             Button {
                 id: boutonConnexion
                 width: parent.width / 1.5
-                height: 45
+                height: 40
                 anchors.centerIn: parent
                 font.pixelSize: 20
                 font.bold: true
@@ -96,7 +96,7 @@ Page {
 
                         State {
                             name: "chargement"
-                            PropertyChanges {target: recChargement; visible: true; text: "";}
+                            PropertyChanges {target: recChargement; visible: true;}
                             PropertyChanges {target: boutonConnexion; text: "";}
                     },
                         State {
@@ -134,18 +134,47 @@ Page {
         Rectangle {
             width: parent.width
             color: "#00ffffff"
-            height: 45
+            height: 40
 
 
             Button {
                 id: boutonConnexionADMIN
                 width: parent.width / 1.5
-                height: 45
+                height: 40
                 anchors.centerIn: parent
                 font.pixelSize: 20
                 font.bold: true
                 text: "<font color='#EBEBEB'> ADMIN </font>"
-                onClicked: presenterIdentification.rechercherCompte("admin", "Azerty*123")
+
+                Rectangle {
+                    id: recChargementAdmin
+                    width: animationChargementAdmin.width; height: animationChargementAdmin.height
+                    color: "transparent"
+                    anchors.centerIn: parent
+                    state: "normal"
+                    visible: false
+                    AnimatedImage { id: animationChargementAdmin; source: "../../../../image/image/chargement.gif" }
+
+                    states: [
+
+                        State {
+                            name: "chargement"
+                            PropertyChanges {target: recChargementAdmin; visible: true;}
+                            PropertyChanges {target: boutonConnexionADMIN; text: "";}
+                    },
+                        State {
+                            name: "normal"
+                            PropertyChanges {target: recChargementAdmin; visible: false}
+                            PropertyChanges {target: boutonConnexionADMIN; text: "<font color='#EBEBEB'> ADMIN </font>";}
+                        }
+                    ]
+
+                }
+
+                onClicked: {
+                    recChargementAdmin.state = "chargement"
+                    presenterIdentification.rechercherCompte("admin", "Azerty*123")
+                }
                 background: Rectangle {
                     color: "#970000"
                     opacity: 0.9

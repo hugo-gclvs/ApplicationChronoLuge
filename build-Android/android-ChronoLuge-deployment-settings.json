@@ -7,7 +7,7 @@
    "toolchain-prefix": "llvm",
    "tool-prefix": "llvm",
    "ndk-host": "windows-x86_64",
-   "architectures": {"armeabi-v7a":"arm-linux-androideabi"},
+   "architectures": {"armeabi-v7a":"arm-linux-androideabi", "arm64-v8a":"aarch64-linux-android"},
    "android-package-source-directory": "C:/Users/hugog/Desktop/ApplicationChronoLuge/ChronoLuge/../build-Android/android-custom",
    "android-extra-libs": "C:/Java/sdk/android_openssl/no-asm/latest/arm/libcrypto_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/arm/libssl_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/arm64/libcrypto_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/arm64/libssl_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/x86/libcrypto_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/x86/libssl_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/x86_64/libcrypto_1_1.so,C:/Java/sdk/android_openssl/no-asm/latest/x86_64/libssl_1_1.so",
    "qml-root-path": "C:/Users/hugog/Desktop/ApplicationChronoLuge/ChronoLuge",
