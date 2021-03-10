@@ -146,7 +146,7 @@ bool VisualiserTempsVitesse::initDescentes(QVector<QString> *descentes)
                         QStringList splitInfoDescente = descentes->at(i).split(" ");
 
                     // Création et inisialisation d'une entité descente pour chaque nouvelle descente
-                        Descente * descente = new Descente(splitInfoDescente.at(0) + " " + splitInfoDescente.at(1), splitInfoDescente.at(2), splitInfoDescente.at(3).toDouble());
+                        Descente * descente = new Descente(splitInfoDescente.at(0) + " à " + splitInfoDescente[1].replace(":", "h"), splitInfoDescente.at(2), splitInfoDescente.at(3).toDouble());
 
                     // Copies de la descente dans le l'attribut QList
                         mesDescentes.append(descente);

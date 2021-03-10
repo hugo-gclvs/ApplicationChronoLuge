@@ -146,8 +146,8 @@ Page {
             Image {
                 id: check
                 anchors.centerIn: parent
-                width: 350
-                height: 350
+                width: 280
+                height: 280
                 clip: true
                 visible: true
                 source: "../../../../image/image/check.png"
@@ -189,8 +189,8 @@ Page {
             Image {
                 id: uncheck
                 anchors.centerIn: parent
-                width: 350
-                height: 350
+                width: 280
+                height: 280
                 clip: true
                 visible: true
                 source: "../../../../image/image/uncheck.png"

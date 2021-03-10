@@ -37,8 +37,8 @@ Page {
             TextField {
                 anchors.centerIn: parent
                 id: champPseudoConnexion
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 45
                 selectByMouse: true
                 maximumLength: 15
                 placeholderText: qsTr("PSEUDO")
@@ -58,8 +58,8 @@ Page {
             TextField {
                 anchors.centerIn: parent
                 id: champMdpConnexion
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 45
                 echoMode: "Password"
                 placeholderText: qsTr("MDP")
                 background: Rectangle {
@@ -73,39 +73,74 @@ Page {
         Rectangle {
             width: parent.width
             color: "#00ffffff"
-            height: 150
+            height: 100
 
             Button {
                 id: boutonConnexion
-                width: parent.width / 2.5
-                height: 50
+                width: parent.width / 1.5
+                height: 45
                 anchors.centerIn: parent
                 font.pixelSize: 20
                 font.bold: true
+
+                Rectangle {
+                    id: recChargement
+                    width: animationChargement.width; height: animationChargement.height
+                    color: "transparent"
+                    anchors.centerIn: parent
+                    state: "normal"
+                    visible: false
+                    AnimatedImage { id: animationChargement; source: "../../../../image/image/chargement.gif" }
+
+                    states: [
+
+                        State {
+                            name: "chargement"
+                            PropertyChanges {target: recChargement; visible: true; text: "";}
+                            PropertyChanges {target: boutonConnexion; text: "";}
+                    },
+                        State {
+                            name: "normal"
+                            PropertyChanges {target: recChargement; visible: false}
+                            PropertyChanges {target: boutonConnexion; text: "<font color='#EBEBEB'> CONNEXION </font>";}
+                        }
+                    ]
+
+                }
+
                 text: "<font color='#EBEBEB'> CONNEXION </font>"
                 onClicked: {
                     if((champPseudoConnexion.length < 3) || (champMdpConnexion.length < 2))
                         console.log("Un des champs est incorrecte.")
-                    else
+                    else {
+                        //console.log(recChargement.state)
+                        recChargement.state = "chargement"
+                        //console.log(recChargement.state)
                         presenterIdentification.rechercherCompte(champPseudoConnexion.text, champMdpConnexion.text)
+                    }
                 }
                 background: Rectangle {
+                    id: test
                     color: "#6B6B6B"
                     opacity: 0.9
                     radius: 10
                 }
+
+
+
             }
         }
 
         Rectangle {
             width: parent.width
             color: "#00ffffff"
-            height: 1
+            height: 45
+
 
             Button {
                 id: boutonConnexionADMIN
-                width: parent.width / 2.5
-                height: 50
+                width: parent.width / 1.5
+                height: 45
                 anchors.centerIn: parent
                 font.pixelSize: 20
                 font.bold: true
@@ -121,6 +156,8 @@ Page {
 
     }
 
+
+
     Component.onCompleted: {
         presenterIdentification.getMonController().onPostConnexion.connect(gestionPostConnexion)
         if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() != "inscrit")
@@ -131,7 +168,9 @@ Page {
         if (valeurReussite) {
             toolBar.state = "normal"
             stack.pop()
-        } else
+        } else {
             console.log("Erreur lors de la connexion")
+            recChargement.state = "normal"
+        }
     }
 }
