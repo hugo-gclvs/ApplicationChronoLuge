@@ -198,8 +198,9 @@ QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
         case 1:
             return QString::number(controllerIdentification.getMesStatistiques()->getNmbrDescente());
         case 2:
-            qDebug() << controllerIdentification.getMesStatistiques()->getVitesseMoye();
+            //qDebug() << controllerIdentification.getMesStatistiques()->getVitesseMoye();
             //return QString::number(controllerIdentification.getMesStatistiques()->getVitesseMoye());
+            return "test";
         break;
         case 3:
             return QString::number(controllerIdentification.getMesStatistiques()->getVitesseMin());

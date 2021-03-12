@@ -193,7 +193,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
     // Création et initialisation des différentes variables utiles à la méthode
         QVector<QString> *maReponse = new QVector<QString>;
-        QString jsonData = (QString)reponse->readAll();
+        QString jsonData = QString(reponse->readAll());
         QJsonDocument doc = QJsonDocument::fromJson(jsonData.toUtf8());
         QJsonObject JsonObj= doc.object();
 

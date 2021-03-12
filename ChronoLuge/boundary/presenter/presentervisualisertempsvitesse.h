@@ -6,6 +6,11 @@
 */
 
 #include <QObject>
+#include "string.h"
+
+using namespace std;
+
+
 
 /*
  * Inclusion de la classe Controller VisualiserTempsVitesse

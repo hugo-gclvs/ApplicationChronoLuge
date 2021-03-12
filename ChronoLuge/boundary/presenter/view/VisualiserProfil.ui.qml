@@ -13,8 +13,8 @@ Page {
     property string pseudo: "Hugoreo"
     property int nmbrDescente: 4
     property string vitMoy: presenterVisualiserTempsVitesse.getMesStatistiques(2)
-    property double vitMin: 9.32
-    property double vitMax: 25.89
+    property string vitMin: 9.32
+    property string vitMax: 25.89
     property string tempsMoy: "02:32:24"
     property string tempsMin: "01:52:06"
     property string tempsMax: "04:38:14"
