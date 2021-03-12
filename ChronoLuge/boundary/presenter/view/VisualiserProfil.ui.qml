@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
+import ControllerVisualiserTempsVitesse 1.0
 
 Page {
     id: pageProfil
@@ -11,7 +12,7 @@ Page {
     property int age: 19
     property string pseudo: "Hugoreo"
     property int nmbrDescente: 4
-    property double vitMoy: 16.65
+    property string vitMoy: presenterVisualiserTempsVitesse.getMesStatistiques(2)
     property double vitMin: 9.32
     property double vitMax: 25.89
     property string tempsMoy: "02:32:24"

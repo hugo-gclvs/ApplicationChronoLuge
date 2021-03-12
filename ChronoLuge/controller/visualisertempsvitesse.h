@@ -41,6 +41,7 @@ public:
             QQmlListProperty<Descente> getDescentes()                                       { return QQmlListProperty<Descente>(this, mesDescentes); }
             PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()           { return monPresenter; }
             PresenterIdentification *getPresenterIdentification()                           { return controllerIdentification.getPresenterIdentification(); }
+            QString getMesStatistiques(int maStat);
 
         // Méthodes utilisable par l'UI
             Q_INVOKABLE QString getEtatConnexion()                                          { return controllerIdentification.getEtatConnexion()->value("etatConnexion").toString(); }

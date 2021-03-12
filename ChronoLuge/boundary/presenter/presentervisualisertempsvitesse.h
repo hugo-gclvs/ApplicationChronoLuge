@@ -26,13 +26,14 @@ public:
 
     // Constructeur - Destructeur
         explicit PresenterVisualiserTempsVitesse(QObject *parent = nullptr) : QObject(parent), monController(nullptr) {}
-        ~PresenterVisualiserTempsVitesse() {}
+        ~PresenterVisualiserTempsVitesse() override {}
 
     // Méthodes utilisable par l'UI
         Q_INVOKABLE VisualiserTempsVitesse *getControllerVisualiserTempsVitesse()   { return monController; }
         Q_INVOKABLE bool lierDescente(QString QRCode);
         Q_INVOKABLE bool rechercherHistorique();
         Q_INVOKABLE bool rechercherStatistiques();
+        Q_INVOKABLE QString getMesStatistiques(int maStat);
 
     // Mutateur
         void setController(VisualiserTempsVitesse *monController)                   { this->monController = monController; }

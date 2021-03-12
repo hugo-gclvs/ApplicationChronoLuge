@@ -39,7 +39,7 @@ public:
 
     // Constructeur - Destructeur
         explicit ComHTTP(QObject *parent = nullptr);
-        ~ComHTTP() {}
+        ~ComHTTP() override {}
 
     // Méthodes publiques
         void lierDescente(int idUtilisateur, QString QRCode);

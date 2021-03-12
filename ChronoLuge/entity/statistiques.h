@@ -28,7 +28,7 @@ public:
 
     // Constructeur - Destructeur
         explicit Statistiques(int nmbrDescente, double vitesseMoye, double vitesseMin, double vitesseMax, QString tempsMoye, QString tempsMin, QString tempsMax);
-        ~Statistiques() {}
+        ~Statistiques() override {}
 
     // Accesseurs
         int getNmbrDescente() const             { return nmbrDescente;  }

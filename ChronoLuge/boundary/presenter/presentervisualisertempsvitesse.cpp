@@ -39,3 +39,8 @@ bool PresenterVisualiserTempsVitesse::rechercherStatistiques()
         return true;
     return false;
 }
+
+QString PresenterVisualiserTempsVitesse::getMesStatistiques(int maStat)
+{
+    return monController->getMesStatistiques(maStat);
+}

@@ -25,7 +25,7 @@ public:
     // Constructeurs - Destructeur
         explicit VisualiserIdentification(PresenterIdentification *monPresenter, ComHTTP *communicationHTTP, QObject *parent = nullptr);
         explicit VisualiserIdentification(QObject *parent = nullptr) : QObject(parent) {}
-        ~VisualiserIdentification() {}
+        ~VisualiserIdentification() override {}
 
     // Méthodes
         bool creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age);
@@ -40,6 +40,8 @@ public:
             PresenterIdentification *getPresenterIdentification() const     { return this->monPresenter; }
             QSettings *getEtatConnexion() const                             { return this->etatConnexion;}
             QSettings *getEtatInscription() const                           { return this->etatInscription;}
+
+            Statistiques *getMesStatistiques()                              { return  monUtilisateur->getMesStatistiques(); }
 
 private:
 

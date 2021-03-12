@@ -26,7 +26,7 @@ public:
     // Constructeurs - Desctructeur
         explicit Descente(QString date, QString temps, double vitesse)      : date(date), temps(temps), vitesse(vitesse) {}
         explicit Descente(QObject *parent = nullptr)                        : QObject(parent) {}
-        ~Descente() {}
+        ~Descente() override {}
 
     // Accesseurs
         QString getDate() const             { return date; }
