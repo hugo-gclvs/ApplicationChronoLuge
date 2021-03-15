@@ -7,17 +7,17 @@ Page {
     background: null
     title: qsTr("PROFIL")
 
-    property string nom: "Goncalves"
-    property string prenom: "Hugo"
-    property int age: 19
-    property string pseudo: "Hugoreo"
-    property int nmbrDescente: 4
+    property string nom: presenterVisualiserTempsVitesse.getMonUtilisateur(1)
+    property string prenom: presenterVisualiserTempsVitesse.getMonUtilisateur(2)
+    property string age: presenterVisualiserTempsVitesse.getMonUtilisateur(3)
+    property string pseudo: presenterVisualiserTempsVitesse.getMonUtilisateur(4)
+    property string nmbrDescente: presenterVisualiserTempsVitesse.getMesStatistiques(1)
     property string vitMoy: presenterVisualiserTempsVitesse.getMesStatistiques(2)
-    property string vitMin: 9.32
-    property string vitMax: 25.89
-    property string tempsMoy: "02:32:24"
-    property string tempsMin: "01:52:06"
-    property string tempsMax: "04:38:14"
+    property string vitMin: presenterVisualiserTempsVitesse.getMesStatistiques(3)
+    property string vitMax: presenterVisualiserTempsVitesse.getMesStatistiques(4)
+    property string tempsMoy: presenterVisualiserTempsVitesse.getMesStatistiques(5)
+    property string tempsMin: presenterVisualiserTempsVitesse.getMesStatistiques(6)
+    property string tempsMax: presenterVisualiserTempsVitesse.getMesStatistiques(7)
 
     Grid {
         columns: 1

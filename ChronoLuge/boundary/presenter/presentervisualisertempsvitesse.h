@@ -39,6 +39,7 @@ public:
         Q_INVOKABLE bool rechercherHistorique();
         Q_INVOKABLE bool rechercherStatistiques();
         Q_INVOKABLE QString getMesStatistiques(int maStat);
+        Q_INVOKABLE QString getMonUtilisateur(int monUtilisateur);
 
     // Mutateur
         void setController(VisualiserTempsVitesse *monController)                   { this->monController = monController; }

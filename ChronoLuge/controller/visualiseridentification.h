@@ -41,7 +41,8 @@ public:
             QSettings *getEtatConnexion() const                             { return this->etatConnexion;}
             QSettings *getEtatInscription() const                           { return this->etatInscription;}
 
-            Statistiques *getMesStatistiques()                              { return  monUtilisateur->getMesStatistiques(); }
+            Statistiques *getMesStatistiques()                              { return monUtilisateur->getMesStatistiques(); }
+            Utilisateur *getMonUtilisatateur()                              { return monUtilisateur; }
 
 private:
 

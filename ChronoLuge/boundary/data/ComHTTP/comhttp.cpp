@@ -228,6 +228,9 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     // Recherche de l'historique de descente du nouvel utilisateur
                         this->rechercherDescentes(monControllerIdentification->getIdUtilisateur());
 
+                    // Recherche des statistiques du nouvel utilisateur
+                        this->rechercherStatistiques(monControllerIdentification->getIdUtilisateur());
+
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postInscription")
                 {

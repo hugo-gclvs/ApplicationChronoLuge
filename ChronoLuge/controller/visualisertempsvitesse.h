@@ -42,6 +42,7 @@ public:
             PresenterVisualiserTempsVitesse *getPresenterVisualiserTempsVitesse()           { return monPresenter; }
             PresenterIdentification *getPresenterIdentification()                           { return controllerIdentification.getPresenterIdentification(); }
             QString getMesStatistiques(int maStat);
+            QString getMonUtilisateur(int monUtilisateur);
 
         // Méthodes utilisable par l'UI
             Q_INVOKABLE QString getEtatConnexion()                                          { return controllerIdentification.getEtatConnexion()->value("etatConnexion").toString(); }

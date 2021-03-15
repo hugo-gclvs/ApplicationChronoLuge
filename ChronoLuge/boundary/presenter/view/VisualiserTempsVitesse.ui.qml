@@ -307,5 +307,6 @@ Page {
 
     Component.onCompleted: {
         presenterVisualiserTempsVitesse.rechercherHistorique()
+        presenterVisualiserTempsVitesse.rechercherStatistiques()
     }
 }

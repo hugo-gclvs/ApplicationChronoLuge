@@ -203,6 +203,6 @@ Page {
         if (valeurReussite)
             stack.pop()
         else
-            console.log("bg mon reuf")
+            console.log("Erreur Inscription")
     }
 }

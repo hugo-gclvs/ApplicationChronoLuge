@@ -198,10 +198,7 @@ QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
         case 1:
             return QString::number(controllerIdentification.getMesStatistiques()->getNmbrDescente());
         case 2:
-            //qDebug() << controllerIdentification.getMesStatistiques()->getVitesseMoye();
-            //return QString::number(controllerIdentification.getMesStatistiques()->getVitesseMoye());
-            return "test";
-        break;
+            return QString::number(controllerIdentification.getMesStatistiques()->getVitesseMoye());
         case 3:
             return QString::number(controllerIdentification.getMesStatistiques()->getVitesseMin());
         case 4:
@@ -213,5 +210,18 @@ QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
         case 7:
             return controllerIdentification.getMesStatistiques()->getTempsMax();
     }
-    return "oui";
+}
+
+QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
+{
+    switch (monUtilisateur) {
+        case 1:
+            return controllerIdentification.getMonUtilisatateur()->getNom();
+        case 2:
+            return controllerIdentification.getMonUtilisatateur()->getPrenom();
+        case 3:
+            return QString::number(controllerIdentification.getMonUtilisatateur()->getAge());
+        case 4:
+            return controllerIdentification.getMonUtilisatateur()->getPseudo();
+    }
 }

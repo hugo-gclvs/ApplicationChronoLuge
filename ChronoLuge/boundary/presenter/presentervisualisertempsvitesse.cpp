@@ -44,3 +44,8 @@ QString PresenterVisualiserTempsVitesse::getMesStatistiques(int maStat)
 {
     return monController->getMesStatistiques(maStat);
 }
+
+QString PresenterVisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
+{
+    return monController->getMonUtilisateur(monUtilisateur);
+}
