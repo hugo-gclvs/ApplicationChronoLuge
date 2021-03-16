@@ -35,13 +35,25 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconPseudo
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/user.png"
+                }
+
                 anchors.centerIn: parent
                 id: champPseudoConnexion
-                width: parent.width / 1.3
-                height: 40
+                width: parent.width / 2
+                height: 50
                 selectByMouse: true
                 maximumLength: 15
-                placeholderText: qsTr("PSEUDO")
+                leftPadding: 50
+                placeholderText: qsTr("Pseudo")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -56,12 +68,24 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconMdp
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/padlock.png"
+                }
+
                 anchors.centerIn: parent
                 id: champMdpConnexion
                 width: parent.width / 1.3
                 height: 40
+                leftPadding: 48
                 echoMode: "Password"
-                placeholderText: qsTr("MDP")
+                placeholderText: qsTr("Mot De Passe")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent

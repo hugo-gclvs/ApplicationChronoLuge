@@ -32,7 +32,7 @@ MOVE          = cmd /c move
 TAR           = 
 COMPRESS      = 
 DISTNAME      = ChronoLuge1.0.0
-DISTDIR = C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\.tmp\ChronoLuge1.0.0
+DISTDIR = C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\.tmp\ChronoLuge1.0.0
 SUBTARGETS    =  \
 		armeabi-v7a \
 		arm64-v8a
@@ -220,7 +220,7 @@ Makefile: ..\ChronoLuge\ChronoLuge.pro C:\Qt\5.14.2\android\mkspecs\android-clan
 		C:\Qt\5.14.2\android\mkspecs\features\android\default_pre.prf \
 		..\ChronoLuge\boundary\data\QZXing\QZXing-components.pri \
 		..\ChronoLuge\boundary\data\QZXing\QZXing.pri \
-		C:\Java\sdk\android_openssl\openssl.pri \
+		C:\Java\Sdk\android_openssl\openssl.pri \
 		C:\Qt\5.14.2\android\mkspecs\features\resolve_config.prf \
 		C:\Qt\5.14.2\android\mkspecs\features\android\resolve_config.prf \
 		C:\Qt\5.14.2\android\mkspecs\features\exclusive_builds_post.prf \
@@ -411,7 +411,7 @@ C:\Qt\5.14.2\android\mkspecs\features\default_pre.prf:
 C:\Qt\5.14.2\android\mkspecs\features\android\default_pre.prf:
 ..\ChronoLuge\boundary\data\QZXing\QZXing-components.pri:
 ..\ChronoLuge\boundary\data\QZXing\QZXing.pri:
-C:\Java\sdk\android_openssl\openssl.pri:
+C:\Java\Sdk\android_openssl\openssl.pri:
 C:\Qt\5.14.2\android\mkspecs\features\resolve_config.prf:
 C:\Qt\5.14.2\android\mkspecs\features\android\resolve_config.prf:
 C:\Qt\5.14.2\android\mkspecs\features\exclusive_builds_post.prf:
@@ -480,16 +480,16 @@ arm64-v8a-mocables:
 mocables: armeabi-v7a-mocables arm64-v8a-mocables
 
 android-build-distclean:
-	rmdir /s /q C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build
+	rmdir /s /q C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build
 
 aab: apk_install_target
-	C:\Qt\5.14.2\android\bin\androiddeployqt.exe --input C:/Users/hugog/Desktop/ApplicationChronoLuge/build-Android/android-ChronoLuge-deployment-settings.json --output C:/Users/hugog/Desktop/ApplicationChronoLuge/build-Android/android-build --aab --apk C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\ChronoLuge.apk
+	C:\Qt\5.14.2\android\bin\androiddeployqt.exe --input C:/Users/GoncalvesH/Projet/ApplicationChronoLuge/build-Android/android-ChronoLuge-deployment-settings.json --output C:/Users/GoncalvesH/Projet/ApplicationChronoLuge/build-Android/android-build --aab --apk C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\ChronoLuge.apk
 
 apk: apk_install_target
-	C:\Qt\5.14.2\android\bin\androiddeployqt.exe --input C:/Users/hugog/Desktop/ApplicationChronoLuge/build-Android/android-ChronoLuge-deployment-settings.json --output C:/Users/hugog/Desktop/ApplicationChronoLuge/build-Android/android-build --apk C:\Users\hugog\Desktop\ApplicationChronoLuge\build-Android\android-build\ChronoLuge.apk
+	C:\Qt\5.14.2\android\bin\androiddeployqt.exe --input C:/Users/GoncalvesH/Projet/ApplicationChronoLuge/build-Android/android-ChronoLuge-deployment-settings.json --output C:/Users/GoncalvesH/Projet/ApplicationChronoLuge/build-Android/android-build --apk C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\ChronoLuge.apk
 
 apk_install_target: first
-	$(MAKE) -f $(MAKEFILE) INSTALL_ROOT=C:/Users/hugog/Desktop/ApplicationChronoLuge/build-Android/android-build install
+	$(MAKE) -f $(MAKEFILE) INSTALL_ROOT=C:/Users/GoncalvesH/Projet/ApplicationChronoLuge/build-Android/android-build install
 
 check: first
 

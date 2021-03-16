@@ -210,6 +210,7 @@ QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
         case 7:
             return controllerIdentification.getMesStatistiques()->getTempsMax();
     }
+    return "ERREUR";
 }
 
 QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
@@ -224,4 +225,5 @@ QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
         case 4:
             return controllerIdentification.getMonUtilisatateur()->getPseudo();
     }
+    return "ERREUR";
 }

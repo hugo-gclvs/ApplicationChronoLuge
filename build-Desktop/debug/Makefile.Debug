@@ -784,11 +784,15 @@ debug/qrc_qml.cpp: ../../ChronoLuge/qml.qrc \
 		../../ChronoLuge/boundary/presenter/view/main.qml \
 		../../ChronoLuge/image/arrow-right.png \
 		../../ChronoLuge/image/chargement.gif \
+		../../ChronoLuge/image/padlock.png \
 		../../ChronoLuge/image/profil.png \
 		../../ChronoLuge/image/arrow-left.png \
+		../../ChronoLuge/image/idcard.png \
+		../../ChronoLuge/image/mail.png \
 		../../ChronoLuge/image/logo.png \
 		../../ChronoLuge/image/arrow-down.png \
 		../../ChronoLuge/image/uncheck.png \
+		../../ChronoLuge/image/user.png \
 		../../ChronoLuge/image/check.png
 	C:\Qt\5.14.2\mingw73_64\bin\rcc.exe -name qml ..\..\ChronoLuge\qml.qrc -o debug\qrc_qml.cpp
 

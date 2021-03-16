@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hugog\\Desktop\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rCN\\values-zh-rCN.xml",
+            "outputFile": "C:\\Users\\GoncalvesH\\Projet\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rCN\\values-zh-rCN.xml",
             "map": [
                 {
                     "source": "C:\\Qt\\5.14.2\\android\\src\\android\\java\\res\\values-zh-rCN\\strings.xml",

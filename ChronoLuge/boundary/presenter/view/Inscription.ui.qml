@@ -11,7 +11,7 @@ Page {
         columns: 1
         rows: 8
         anchors.fill: parent
-        rowSpacing: 20
+        rowSpacing: 10
 
         Rectangle {
             id: recLogo
@@ -22,8 +22,8 @@ Page {
             Image {
                 id: logoIdentification
                 anchors.centerIn: parent
-                width: 230
-                height: 200
+                width: 170
+                height: 130
                 clip: true
                 source: "../../../../image/image/logo.png"
             }
@@ -35,13 +35,25 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconPseudoInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/user.png"
+                }
+
                 anchors.centerIn: parent
                 id: champPseudo
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
                 selectByMouse: true
                 maximumLength: 15
-                placeholderText: qsTr("PSEUDO")
+                leftPadding: 50
+                placeholderText: qsTr("Pseudo")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -56,12 +68,24 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconMdpInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/padlock.png"
+                }
+
                 anchors.centerIn: parent
                 id: champMdp
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
+                leftPadding: 48
                 echoMode: "Password"
-                placeholderText: qsTr("MDP")
+                placeholderText: qsTr("Mot De Passe")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -76,14 +100,26 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconMailInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/mail.png"
+                }
+
                 anchors.centerIn: parent
                 id: champMail
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
                 selectByMouse: true
                 maximumLength: 255
                 inputMethodHints: Qt.ImhEmailCharactersOnly
-                placeholderText: qsTr("MAIL")
+                leftPadding: 48
+                placeholderText: qsTr("E-Mail")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -98,13 +134,25 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconNomInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/idcard.png"
+                }
+
                 anchors.centerIn: parent
                 id: champNom
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
                 maximumLength: 20
                 selectByMouse: true
-                placeholderText: qsTr("NOM")
+                leftPadding: 48
+                placeholderText: qsTr("Nom")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -119,13 +167,25 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconPrenomInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/idcard.png"
+                }
+
                 anchors.centerIn: parent
                 id: champPrenom
                 maximumLength: 20
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
                 selectByMouse: true
-                placeholderText: qsTr("PRENOM")
+                leftPadding: 48
+                placeholderText: qsTr("Prenom")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent
@@ -140,11 +200,23 @@ Page {
             height: 40
 
             TextField {
+
+                Image {
+                    id: iconAgeInsc
+                    x: 10
+                    y: 5
+                    width: 30
+                    height: 30
+                    clip: true
+                    source: "../../../../image/image/idcard.png"
+                }
+
                 anchors.centerIn: parent
                 id: champAge
-                width: parent.width / 2
-                height: 50
-                placeholderText: qsTr("AGE")
+                width: parent.width / 1.3
+                height: 40
+                leftPadding: 48
+                placeholderText: qsTr("Age")
                 background: Rectangle {
                     color: "#EBEBEB"
                     anchors.fill: parent

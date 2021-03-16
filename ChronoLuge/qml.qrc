@@ -15,7 +15,11 @@
         <file>image/arrow-right.png</file>
         <file>image/arrow-left.png</file>
         <file>image/check.png</file>
-	   <file>image/uncheck.png</file>
-	   <file>image/chargement.gif</file>
+	<file>image/uncheck.png</file>
+	<file>image/chargement.gif</file>
+	<file>image/idcard.png</file>
+	<file>image/mail.png</file>
+	<file>image/padlock.png</file>
+	<file>image/user.png</file>
     </qresource>
 </RCC>
