@@ -801,6 +801,7 @@ arm64-v8a\qrc_qml.cpp: ..\ChronoLuge\qml.qrc \
 		..\ChronoLuge\boundary\presenter\view\Inscription.ui.qml \
 		..\ChronoLuge\boundary\presenter\view\qtquickcontrols2.conf \
 		..\ChronoLuge\boundary\presenter\view\Identification.ui.qml \
+		..\ChronoLuge\boundary\presenter\view\ListeImgPP.qml \
 		..\ChronoLuge\boundary\presenter\view\main.qml \
 		..\ChronoLuge\image\arrow-right.png \
 		..\ChronoLuge\image\chargement.gif \

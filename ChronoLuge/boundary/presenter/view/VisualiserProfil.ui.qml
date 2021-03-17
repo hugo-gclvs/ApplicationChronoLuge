@@ -47,6 +47,7 @@ Page {
                 y: parent.height - 25
                 MouseArea {
                     anchors.fill: parent
+                    onClicked: popupModifPdP.open()
                 }
             }
         }
@@ -474,6 +475,39 @@ Page {
                 }
             }
         }
+    }
+
+    ListeImgPP {
+        id: testtt
+    }
+
+    Popup {
+        id: popupModifPdP
+        anchors.centerIn: parent
+        width: parent.width/1.1
+        height: parent.height/1.1
+        modal: true
+        focus: true
+        background: Rectangle {
+            border.color: "#b2b2b2"
+            border.width: 2
+            color: "#e3e3e3"
+            radius: 5
+
+            ListView {
+                anchors.fill: parent
+                model: testtt
+                clip: true
+                delegate: Row {
+                    Text { text: "Fruit: " + name }
+                    Text { text: "Cost: $" + cost }
+                }
+            }
+
+        }
+
+        closePolicy: Popup.CloseOnPressOutside
+
     }
 
     Button {

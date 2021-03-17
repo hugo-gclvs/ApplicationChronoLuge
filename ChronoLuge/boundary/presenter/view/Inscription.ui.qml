@@ -301,7 +301,10 @@ Page {
                 font.pixelSize: 20
                 font.bold: true
                 text: "<font color='#EBEBEB'> Déjà Inscrit ? </font>"
-                onClicked: stack.pop()
+                onClicked: {
+                    //presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription().setValue("etatInscription", "inscrit");
+                    stack.pop()
+                }
                 background: Rectangle {
                     color: "transparent"
                     opacity: 0.9

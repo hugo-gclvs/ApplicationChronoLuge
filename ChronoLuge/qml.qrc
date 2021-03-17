@@ -7,6 +7,7 @@
         <file>boundary/presenter/view/qtquickcontrols2.conf</file>
         <file>boundary/presenter/view/Identification.ui.qml</file>
         <file>boundary/presenter/view/Inscription.ui.qml</file>
+        <file>boundary/presenter/view/ListeImgPP.qml</file>
     </qresource>
     <qresource prefix="/image">
         <file>image/logo.png</file>

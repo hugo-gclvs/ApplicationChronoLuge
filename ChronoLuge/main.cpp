@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
     // Set des etats de connexion et d'inscription si necessaire
         controllerVisualiserTempsVitesse.getControllerVisualiserIdentification()->getEtatConnexion()->setValue("etatConnexion", "nonconnecte");
-        controllerVisualiserTempsVitesse.getControllerVisualiserIdentification()->getEtatInscription()->setValue("etatInscription", "noninscrit");
+        //controllerVisualiserTempsVitesse.getControllerVisualiserIdentification()->getEtatInscription()->setValue("etatInscription", "inscrit");
 
     // Ajout des propriétés "presenter" au QML
         engine.rootContext()->setContextProperty("presenterIdentification", controllerVisualiserTempsVitesse.getPresenterIdentification());
