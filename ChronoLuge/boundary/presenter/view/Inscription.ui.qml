@@ -9,7 +9,7 @@ Page {
 
     Grid {
         columns: 1
-        rows: 8
+        rows: 9
         anchors.fill: parent
         rowSpacing: 10
 
@@ -233,15 +233,41 @@ Page {
         Rectangle {
             width: parent.width
             color: "#00ffffff"
-            height: 110
+            height: 80
 
             Button {
                 id: boutonInscription
-                width: parent.width / 2.5
-                height: 50
+                width: parent.width / 1.5
+                height: 40
                 anchors.centerIn: parent
                 font.pixelSize: 20
                 font.bold: true
+
+                Rectangle {
+                    id: recChargementInsc
+                    width: animationChargementInsc.width; height: animationChargementInsc.height
+                    color: "transparent"
+                    anchors.centerIn: parent
+                    state: "normal"
+                    visible: false
+                    AnimatedImage { id: animationChargementInsc; source: "../../../../image/image/chargement.gif" }
+
+                    states: [
+
+                        State {
+                            name: "chargement"
+                            PropertyChanges {target: recChargementInsc; visible: true;}
+                            PropertyChanges {target: boutonInscription; text: "";}
+                    },
+                        State {
+                            name: "normal"
+                            PropertyChanges {target: recChargementInsc; visible: false}
+                            PropertyChanges {target: boutonInscription; text: "<font color='#EBEBEB'> S'INSCRIRE </font>";}
+                        }
+                    ]
+
+                }
+
                 text: "<font color='#EBEBEB'> S'INSCRIRE </font>"
                 onClicked: {
                     if ((!champPseudo.length > 3) || (!champMdp.length > 6)
@@ -249,13 +275,10 @@ Page {
                             || (!champPrenom.length > 2)
                             || (!champAge.acceptableInput))
                         console.log("Un des champs est incorrecte.")
-                    else
-                        presenterIdentification.creerCompte(champPseudo.text,
-                                                            champMdp.text,
-                                                            champMail.text,
-                                                            champNom.text,
-                                                            champPrenom.text,
-                                                            champAge.text)
+                    else {
+                        recChargementInsc.state = "chargement"
+                        presenterIdentification.creerCompte(champPseudo.text,champMdp.text,champMail.text,champNom.text,champPrenom.text,champAge.text)
+                    }
                 }
                 background: Rectangle {
                     color: "#6B6B6B"
@@ -264,17 +287,61 @@ Page {
                 }
             }
         }
+
+        Rectangle {
+            width: parent.width
+            color: "#00ffffff"
+            height: 40
+
+            Button {
+                id: boutonDejaInscrit
+                width: parent.width / 1.5
+                height: 40
+                anchors.centerIn: parent
+                font.pixelSize: 20
+                font.bold: true
+                text: "<font color='#EBEBEB'> Déjà Inscrit ? </font>"
+                onClicked: stack.pop()
+                background: Rectangle {
+                    color: "transparent"
+                    opacity: 0.9
+                    radius: 10
+                }
+            }
+        }
+
     }
 
-    Component.onCompleted: {
-        presenterIdentification.getMonController().onPostInscription.connect(
-                    gestionPostInscription)
+    Popup {
+        id: popupInsc
+        anchors.centerIn: parent
+        width: parent.width/1.2
+        height: 55
+        modal: true
+        focus: true
+        background: Rectangle {
+            border.color: "#f0c9cf"
+            color: "#f2dede"
+            radius: 5
+            Text {
+                anchors.centerIn: parent
+                text: "ERREUR lors de l'inscription !"
+                color: "#b94a48"
+            }
+        }
+
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
     }
+
+    Component.onCompleted: presenterIdentification.getMonController().onPostInscription.connect(gestionPostInscription)
 
     function gestionPostInscription(valeurReussite) {
         if (valeurReussite)
             stack.pop()
-        else
-            console.log("Erreur Inscription")
+        else {
+            recChargementInsc.state = "normal"
+            popupInsc.open()
+        }
     }
 }

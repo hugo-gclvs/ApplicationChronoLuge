@@ -48,8 +48,8 @@ Page {
 
                 anchors.centerIn: parent
                 id: champPseudoConnexion
-                width: parent.width / 2
-                height: 50
+                width: parent.width / 1.3
+                height: 40
                 selectByMouse: true
                 maximumLength: 15
                 leftPadding: 50
@@ -137,14 +137,11 @@ Page {
                     if((champPseudoConnexion.length < 3) || (champMdpConnexion.length < 2))
                         console.log("Un des champs est incorrecte.")
                     else {
-                        //console.log(recChargement.state)
                         recChargement.state = "chargement"
-                        //console.log(recChargement.state)
                         presenterIdentification.rechercherCompte(champPseudoConnexion.text, champMdpConnexion.text)
                     }
                 }
                 background: Rectangle {
-                    id: test
                     color: "#6B6B6B"
                     opacity: 0.9
                     radius: 10
@@ -209,11 +206,31 @@ Page {
 
     }
 
+    Popup {
+        id: popupConn
+        anchors.centerIn: parent
+        width: parent.width/1.2
+        height: 55
+        modal: true
+        focus: true
+        background: Rectangle {
+            border.color: "#f0c9cf"
+            color: "#f2dede"
+            radius: 5
+            Text {
+                anchors.centerIn: parent
+                text: "Pseudo ou Mot de Passe Incorrecte !"
+                color: "#b94a48"
+            }
+        }
 
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+    }
 
     Component.onCompleted: {
         presenterIdentification.getMonController().onPostConnexion.connect(gestionPostConnexion)
-        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() != "inscrit")
+        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() !== "inscrit")
             stack.push("Inscription.ui.qml", StackView.Immediate)
     }
 
@@ -222,8 +239,8 @@ Page {
             toolBar.state = "normal"
             stack.pop()
         } else {
-            console.log("Erreur lors de la connexion")
             recChargement.state = "normal"
+            popupConn.open()
         }
     }
 }
