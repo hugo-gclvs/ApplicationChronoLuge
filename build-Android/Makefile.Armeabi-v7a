@@ -806,7 +806,6 @@ armeabi-v7a\qrc_qml.cpp: ..\ChronoLuge\qml.qrc \
 		..\ChronoLuge\image\arrow-right.png \
 		..\ChronoLuge\image\chargement.gif \
 		..\ChronoLuge\image\padlock.png \
-		..\ChronoLuge\image\profil.png \
 		..\ChronoLuge\image\arrow-left.png \
 		..\ChronoLuge\image\idcard.png \
 		..\ChronoLuge\image\mail.png \
@@ -814,7 +813,10 @@ armeabi-v7a\qrc_qml.cpp: ..\ChronoLuge\qml.qrc \
 		..\ChronoLuge\image\arrow-down.png \
 		..\ChronoLuge\image\uncheck.png \
 		..\ChronoLuge\image\user.png \
-		..\ChronoLuge\image\check.png
+		..\ChronoLuge\image\check.png \
+		..\ChronoLuge\image\avatar\user-1.png \
+		..\ChronoLuge\image\avatar\profil.png \
+		..\ChronoLuge\image\avatar\user-0.png
 	C:\Qt\5.14.2\android\bin\rcc.exe -name qml ..\ChronoLuge\qml.qrc -o armeabi-v7a\qrc_qml.cpp
 
 compiler_moc_predefs_make_all: armeabi-v7a\moc_predefs.h

@@ -70,7 +70,7 @@ ApplicationWindow {
             anchors.rightMargin: 5
             clip: true
             visible: true
-            source: "../../../../image/image/profil.png"
+            source: "../../../../pdp/image/avatar/profil.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {

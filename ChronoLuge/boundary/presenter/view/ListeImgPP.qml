@@ -3,16 +3,28 @@ import QtQuick 2.0
 ListModel {
     id: fruitModel
 
-    ListElement {
-        name: "Apple"
-        cost: 2.45
+    /*ListElement {
+        monImage: Image {
+            id: testImage
+            width: 100
+            height: 100
+            source: "../../../../pdp/image/avatar/profil.png"
+        }
     }
     ListElement {
-        name: "Orange"
-        cost: 3.25
+        monImage: Image {
+            id: testImage1
+            width: 100
+            height: 100
+            source: "../../../../pdp/image/avatar/user-0.png"
+        }
     }
     ListElement {
-        name: "Banana"
-        cost: 1.95
-    }
+        monImage: Image {
+            id: testImage2
+            width: 100
+            height: 100
+            source: "../../../../pdp/image/avatar/user-1.png"
+        }
+    }*/
 }

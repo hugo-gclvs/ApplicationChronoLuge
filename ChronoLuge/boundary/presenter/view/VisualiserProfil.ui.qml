@@ -37,7 +37,7 @@ Page {
                 x: 20
                 y: 20
                 clip: true
-                source: "../../../../image/image/profil.png"
+                source: "../../../../pdp/image/avatar/profil.png"
             }
 
             Label {
@@ -494,21 +494,53 @@ Page {
             color: "#e3e3e3"
             radius: 5
 
-            ListView {
-                anchors.fill: parent
-                model: testtt
-                clip: true
-                delegate: Row {
-                    Text { text: "Fruit: " + name }
-                    Text { text: "Cost: $" + cost }
+            ListModel {
+                id: fruitModel
+
+                ListElement {
+                    Image {
+                        id: testImage
+                        width: 100
+                        height: 100
+                        source: "../../../../pdp/image/avatar/profil.png"
+                    }
+                }
+                ListElement {
+                    Image {
+                        id: testImage2
+                        width: 100
+                        height: 100
+                        source: "../../../../pdp/image/avatar/user-0.png"
+                    }
+                }
+                ListElement {
+                    Image {
+                        id: testImage3
+                        width: 100
+                        height: 100
+                        source: "../../../../pdp/image/avatar/user-1.png"
+                    }
                 }
             }
 
-        }
+            ListView {
+                anchors.fill: parent
+                clip: true
+                model: fruitModel
+                delegate: Row {
+                    Image {
+                        source: modelData.source
+                    }
+                }
 
+            }
+
+        }
         closePolicy: Popup.CloseOnPressOutside
 
+
     }
+
 
     Button {
         Rectangle {
@@ -532,4 +564,6 @@ Page {
         anchors.bottom: parent.bottom
         onClicked: stackView.pop()
     }
+
+
 }
