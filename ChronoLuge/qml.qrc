@@ -23,4 +23,7 @@
         <file>image/padlock.png</file>
         <file>image/user.png</file>
     </qresource>
+    <qresource prefix="/pdp">
+        <file>image/avatar/profil.png</file>
+    </qresource>
 </RCC>
