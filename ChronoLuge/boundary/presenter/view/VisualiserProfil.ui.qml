@@ -488,56 +488,91 @@ Page {
         height: parent.height/1.1
         modal: true
         focus: true
+        closePolicy: Popup.CloseOnPressOutside
         background: Rectangle {
             border.color: "#b2b2b2"
             border.width: 2
             color: "#e3e3e3"
             radius: 5
-
-            ListModel {
-                id: fruitModel
-
-                ListElement {
-                    Image {
-                        id: testImage
-                        width: 100
-                        height: 100
-                        source: "../../../../pdp/image/avatar/profil.png"
-                    }
-                }
-                ListElement {
-                    Image {
-                        id: testImage2
-                        width: 100
-                        height: 100
-                        source: "../../../../pdp/image/avatar/user-0.png"
-                    }
-                }
-                ListElement {
-                    Image {
-                        id: testImage3
-                        width: 100
-                        height: 100
-                        source: "../../../../pdp/image/avatar/user-1.png"
-                    }
-                }
-            }
-
-            ListView {
-                anchors.fill: parent
-                clip: true
-                model: fruitModel
-                delegate: Row {
-                    Image {
-                        source: modelData.source
-                    }
-                }
-
-            }
-
         }
-        closePolicy: Popup.CloseOnPressOutside
 
+        /*Rectangle {
+            width: parent.width
+            height: parent.height
+            anchors.fill: parent
+            anchors.centerIn: parent
+            radius: 0
+            color: "transparent"
+
+            Component {
+                id: ppDelegate
+                Item {
+                    width: grid.cellWidth; height: grid.cellHeight
+                    Column {
+                        anchors.fill: parent
+                        Image {
+                            source: pp; width: 95; height: 95; anchors.horizontalCenter: parent.horizontalCenter;
+                            Rectangle {
+                                color: GridView.isCurrentItem ? "lightsteelblue" : "transparent" ; radius: 5
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: grid.currentIndex = index
+                            }
+                        }
+                    }
+                }
+            }
+
+            GridView {
+                id: grid
+                anchors.fill: parent
+                anchors.centerIn: parent
+                cellWidth: 101; cellHeight: 101
+                clip: true
+                model: ListeImgPP {}
+                delegate: ppDelegate
+                //highlight: Rectangle { color: "lightsteelblue" ; radius: 5 }
+                focus: true
+            }
+        }*/
+
+
+        GridView {
+            id: maGrid
+            width: parent.width
+            height: parent.height
+            anchors.fill: parent
+            anchors.centerIn: parent
+            cellWidth: 101; cellHeight: 101
+
+            Component {
+                id: ppDelegate
+                Rectangle {
+                    id: wrapper
+                    width: 101
+                    height: 101
+                    radius: 5
+                    color: GridView.isCurrentItem ? "lightsteelblue" : "transparent"
+                    Image {
+                        id: ppInfo
+                        source: pp; width: 95; height: 95; anchors.horizontalCenter: parent.horizontalCenter; anchors.verticalCenter: parent.verticalCenter;
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: maGrid.currentIndex = index;
+                    }
+
+                }
+
+
+            }
+
+            model: ListeImgPP {}
+            delegate: ppDelegate
+            focus: true
+            clip: true
+        }
 
     }
 

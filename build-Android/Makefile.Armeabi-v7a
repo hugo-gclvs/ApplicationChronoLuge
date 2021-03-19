@@ -814,9 +814,31 @@ armeabi-v7a\qrc_qml.cpp: ..\ChronoLuge\qml.qrc \
 		..\ChronoLuge\image\uncheck.png \
 		..\ChronoLuge\image\user.png \
 		..\ChronoLuge\image\check.png \
-		..\ChronoLuge\image\avatar\user-1.png \
 		..\ChronoLuge\image\avatar\profil.png \
-		..\ChronoLuge\image\avatar\user-0.png
+		..\ChronoLuge\image\avatar\user-20.png \
+		..\ChronoLuge\image\avatar\user-21.png \
+		..\ChronoLuge\image\avatar\user-22.png \
+		..\ChronoLuge\image\avatar\user-23.png \
+		..\ChronoLuge\image\avatar\user-0.png \
+		..\ChronoLuge\image\avatar\user-1.png \
+		..\ChronoLuge\image\avatar\user-10.png \
+		..\ChronoLuge\image\avatar\user-2.png \
+		..\ChronoLuge\image\avatar\user-3.png \
+		..\ChronoLuge\image\avatar\user-11.png \
+		..\ChronoLuge\image\avatar\user-4.png \
+		..\ChronoLuge\image\avatar\user-12.png \
+		..\ChronoLuge\image\avatar\user-5.png \
+		..\ChronoLuge\image\avatar\user-13.png \
+		..\ChronoLuge\image\avatar\user-14.png \
+		..\ChronoLuge\image\avatar\user-6.png \
+		..\ChronoLuge\image\avatar\user-7.png \
+		..\ChronoLuge\image\avatar\user-15.png \
+		..\ChronoLuge\image\avatar\user-8.png \
+		..\ChronoLuge\image\avatar\user-16.png \
+		..\ChronoLuge\image\avatar\user-9.png \
+		..\ChronoLuge\image\avatar\user-17.png \
+		..\ChronoLuge\image\avatar\user-18.png \
+		..\ChronoLuge\image\avatar\user-19.png
 	C:\Qt\5.14.2\android\bin\rcc.exe -name qml ..\ChronoLuge\qml.qrc -o armeabi-v7a\qrc_qml.cpp
 
 compiler_moc_predefs_make_all: armeabi-v7a\moc_predefs.h
