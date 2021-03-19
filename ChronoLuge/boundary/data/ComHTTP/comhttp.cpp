@@ -270,13 +270,13 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
                 {
-                    qDebug() << "/!\\ Succès pour la nouvelle PP !";
+                    qDebug() << "/!\\ Succès de modification de PP !";
 
-                        //monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj.value("data")["idUtilisateur"].toInt());
-                        qDebug() << JsonObj.value("data")["idUtilisateur"].toString();
+                        monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj["nouvellePdp"].toInt());
+                        qDebug() << monControllerIdentification->getMonUtilisatateur()->getPdp();
 
                     // Emission du signal comme quoi la nouvelle PP est valide
-                        emit this->monControllerIdentification->postNewPP(true);
+                        emit this->monControllerTempsVitesse->postNewPP(true, monControllerIdentification->getMonUtilisatateur()->getPdp()-1);
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "getHistorique")
@@ -327,6 +327,8 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     emit this->monControllerIdentification->postInscription(false);
                 else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
                     emit this->monControllerTempsVitesse->postLierDescente(false);
+                else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
+                    emit this->monControllerTempsVitesse->postNewPP(false, -1);
                 else
                 {
                     qDebug() << "/!\\ Message d'Erreur: "  << JsonObj["message"].toString();

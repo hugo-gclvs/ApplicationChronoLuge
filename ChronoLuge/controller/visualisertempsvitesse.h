@@ -62,6 +62,8 @@ private:
 signals:
         void listeChanged();                            // Signal à émettre quand l'historique est actualisé
         void postLierDescente(const bool &etat);        // Signal à émettre pour récuperer l'etat de validation d'un liaison
+        void postNewPP(const bool &valeurReussite, const int &valeurPdp);                 // Signal à émettre pour récuperer l'etat de la nouvelle PP
+
 };
 
 #endif // VISUALISERTEMPSVITESSE_H

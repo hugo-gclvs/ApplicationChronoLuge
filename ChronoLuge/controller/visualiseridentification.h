@@ -40,9 +40,9 @@ public:
             PresenterIdentification *getPresenterIdentification() const     { return this->monPresenter; }
             QSettings *getEtatConnexion() const                             { return this->etatConnexion;}
             QSettings *getEtatInscription() const                           { return this->etatInscription;}
-
-            Statistiques *getMesStatistiques()                              { return monUtilisateur->getMesStatistiques(); }
-            Utilisateur *getMonUtilisatateur()                              { return monUtilisateur; }
+            Statistiques *getMesStatistiques() const                        { return this->monUtilisateur->getMesStatistiques(); }
+            Utilisateur *getMonUtilisatateur() const                        { return this->monUtilisateur; }
+            Q_INVOKABLE int getNumPdp() const                                           { return this->monUtilisateur->getPdp(); }
 
 private:
 
@@ -64,7 +64,6 @@ private:
 signals:
     void postConnexion(const bool &valeurReussite);             // Signal à émettre pour récuperer l'etat de connexion
     void postInscription(const bool &valeurReussite);           // Signal à émettre pour récuperer l'etat d'inscription
-    void postNewPP(const bool &valeurReussite);                 // Signal à émettre pour récuperer l'etat de la nouvelle PP
 
 };
 

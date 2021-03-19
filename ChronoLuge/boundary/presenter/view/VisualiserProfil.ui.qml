@@ -496,13 +496,37 @@ Page {
             radius: 5
         }
 
+        Button {
+            id: boutonValiderPdp
+            width: parent.width
+            height: 50
+            font.pixelSize: 20
+            font.bold: true
+            text: "<font color='#EBEBEB'> VALIDER </font>"
+            onClicked: {
+                presenterVisualiserTempsVitesse.majPP(maGrid.currentIndex+1)
+                popupModifPdP.close()
+            }
+            background: Rectangle {
+                color: "#6B6B6B"
+                opacity: 0.9
+                radius: 10
+            }
+        }
+
         GridView {
             id: maGrid
             width: parent.width
-            height: parent.height
-            anchors.fill: parent
-            anchors.centerIn: parent
+            height: parent.height-60
+            y: 60
             cellWidth: 101; cellHeight: 101
+            Rectangle {
+                anchors.fill: parent
+                border.color: "#b2b2b2"
+                border.width: 2
+                radius: 5
+                color: "transparent"
+            }
 
             Component {
                 id: ppDelegate
@@ -518,10 +542,8 @@ Page {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: {
-                            maGrid.currentIndex = index;
-                            presenterVisualiserTempsVitesse.majPP(maGrid.currentIndex)
-                        }
+                        onClicked: maGrid.currentIndex = index;
+
                     }
 
                 }
@@ -560,5 +582,39 @@ Page {
         onClicked: stackView.pop()
     }
 
+    Popup {
+        id: popupErreurPP
+        anchors.centerIn: parent
+        width: parent.width/1.2
+        height: 55
+        modal: true
+        focus: true
+        background: Rectangle {
+            border.color: "#f0c9cf"
+            color: "#f2dede"
+            radius: 5
+            Text {
+                anchors.centerIn: parent
+                text: "ERREUR de modification !"
+                color: "#b94a48"
+            }
+        }
+
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+    }
+
+    Component.onCompleted: {
+        maGrid.currentIndex = presenterIdentification.getMonController().getNumPdp()-1
+        presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostNewPP.connect(gestionPostNewProfil)
+    }
+
+
+    function gestionPostNewProfil(valeurReussite, valeurPdp) {
+        if(valeurReussite)
+            pdp.source = "../../../../pdp/image/avatar/user-" + valeurPdp + ".png";
+        else
+            popupErreurPP.open()
+    }
 
 }

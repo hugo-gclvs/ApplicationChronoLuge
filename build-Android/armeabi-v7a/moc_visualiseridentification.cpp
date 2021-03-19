@@ -37,12 +37,12 @@ QT_MOC_LITERAL(1, 25, 13), // "postConnexion"
 QT_MOC_LITERAL(2, 39, 0), // ""
 QT_MOC_LITERAL(3, 40, 14), // "valeurReussite"
 QT_MOC_LITERAL(4, 55, 15), // "postInscription"
-QT_MOC_LITERAL(5, 71, 9) // "postNewPP"
+QT_MOC_LITERAL(5, 71, 9) // "getNumPdp"
 
     },
     "VisualiserIdentification\0postConnexion\0"
     "\0valeurReussite\0postInscription\0"
-    "postNewPP"
+    "getNumPdp"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,17 +57,21 @@ static const uint qt_meta_data_VisualiserIdentification[] = {
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   29,    2, 0x06 /* Public */,
        4,    1,   32,    2, 0x06 /* Public */,
-       5,    1,   35,    2, 0x06 /* Public */,
+
+ // methods: name, argc, parameters, tag, flags
+       5,    0,   35,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
     QMetaType::Void, QMetaType::Bool,    3,
-    QMetaType::Void, QMetaType::Bool,    3,
+
+ // methods: parameters
+    QMetaType::Int,
 
        0        // eod
 };
@@ -80,7 +84,8 @@ void VisualiserIdentification::qt_static_metacall(QObject *_o, QMetaObject::Call
         switch (_id) {
         case 0: _t->postConnexion((*reinterpret_cast< const bool(*)>(_a[1]))); break;
         case 1: _t->postInscription((*reinterpret_cast< const bool(*)>(_a[1]))); break;
-        case 2: _t->postNewPP((*reinterpret_cast< const bool(*)>(_a[1]))); break;
+        case 2: { int _r = _t->getNumPdp();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -96,13 +101,6 @@ void VisualiserIdentification::qt_static_metacall(QObject *_o, QMetaObject::Call
             using _t = void (VisualiserIdentification::*)(const bool & );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&VisualiserIdentification::postInscription)) {
                 *result = 1;
-                return;
-            }
-        }
-        {
-            using _t = void (VisualiserIdentification::*)(const bool & );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&VisualiserIdentification::postNewPP)) {
-                *result = 2;
                 return;
             }
         }
@@ -161,13 +159,6 @@ void VisualiserIdentification::postInscription(const bool & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
-}
-
-// SIGNAL 2
-void VisualiserIdentification::postNewPP(const bool & _t1)
-{
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -41,7 +41,7 @@ public:
             Statistiques *getMesStatistiques() const        { return mesStatistiques; }
 
         // Muttateurs
-            bool setPdp(int pdp)                            { this->pdp = pdp; }
+            void setPdp(int pdp)                            { this->pdp = pdp; }
 
 
 private:
