@@ -34,6 +34,7 @@ public:
         bool lierDescente(QString QRCode);
         bool rechercherDescentes();
         bool rechercherStatistiques();
+        bool majPP(int numPP);
         bool initDescentes(QVector<QString> *descentes);
         bool initStatistiques(QVector<QString> *statistiques);
 

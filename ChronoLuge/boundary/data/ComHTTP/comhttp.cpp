@@ -89,6 +89,31 @@ void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString 
 
 
 /**
+ * @brief ComHTTP::majPP
+ * @param idUtilisateur
+ * @param pdp
+ */
+void ComHTTP::majPP(int idUtilisateur, int pdp)
+{
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/nouvellePdp.php"));
+
+    // Création d'objets JSON (requete de destination, pseudo, mdp, etc...) à envoyé dans la requete
+        QJsonObject obj;
+
+        obj["requeteDest"] = "postNewPdp";
+        obj["idUtilisateur"] = idUtilisateur;
+        obj["pdp"] = pdp;
+
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
+
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
+}
+
+
+/**
  * @brief ComHTTP::rechercherCompte
  * @param pseudo
  * @param mdp
@@ -149,7 +174,7 @@ void ComHTTP::rechercherStatistiques(int idUtilisateur)
         this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/statistique.php?idUtilisateur=" + QString::number(idUtilisateur)));
 
     // Appel de la méthode get la classe courante
-        this->requeteGet();
+    this->requeteGet();
 }
 
 
@@ -241,6 +266,17 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
 
                     // Emission du signal comme quoi l'inscription est valide
                         emit this->monControllerIdentification->postInscription(true);
+
+                }
+                else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
+                {
+                    qDebug() << "/!\\ Succès pour la nouvelle PP !";
+
+                        //monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj.value("data")["idUtilisateur"].toInt());
+                        qDebug() << JsonObj.value("data")["idUtilisateur"].toString();
+
+                    // Emission du signal comme quoi la nouvelle PP est valide
+                        emit this->monControllerIdentification->postNewPP(true);
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "getHistorique")

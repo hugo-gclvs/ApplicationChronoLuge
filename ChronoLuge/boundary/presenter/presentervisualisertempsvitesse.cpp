@@ -40,6 +40,11 @@ bool PresenterVisualiserTempsVitesse::rechercherStatistiques()
     return false;
 }
 
+void PresenterVisualiserTempsVitesse::majPP(int numPP)
+{
+    monController->majPP(numPP);
+}
+
 QString PresenterVisualiserTempsVitesse::getMesStatistiques(int maStat)
 {
     return monController->getMesStatistiques(maStat);

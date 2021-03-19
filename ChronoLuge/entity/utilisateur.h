@@ -18,13 +18,6 @@ class Utilisateur : public QObject
 {
     // Macro
         Q_OBJECT
-        Q_PROPERTY(QString pseudo READ getPseudo)
-        Q_PROPERTY(QString mdp READ getPrenom)
-        Q_PROPERTY(QString mail READ getMail)
-        Q_PROPERTY(QString nom READ getNom)
-        Q_PROPERTY(QString prenom READ getPrenom)
-        Q_PROPERTY(int age READ getAge)
-        Q_PROPERTY(int pdp READ getPdp)
 
 public:
 
@@ -46,6 +39,9 @@ public:
             int getIdUtilisateur() const                    { return idUtilisateur; }
 
             Statistiques *getMesStatistiques() const        { return mesStatistiques; }
+
+        // Muttateurs
+            bool setPdp(int pdp)                            { this->pdp = pdp; }
 
 
 private:

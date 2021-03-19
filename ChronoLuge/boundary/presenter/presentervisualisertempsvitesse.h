@@ -38,6 +38,7 @@ public:
         Q_INVOKABLE bool lierDescente(QString QRCode);
         Q_INVOKABLE bool rechercherHistorique();
         Q_INVOKABLE bool rechercherStatistiques();
+        Q_INVOKABLE void majPP(int numPP);
         Q_INVOKABLE QString getMesStatistiques(int maStat);
         Q_INVOKABLE QString getMonUtilisateur(int monUtilisateur);
 

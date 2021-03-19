@@ -118,6 +118,12 @@ bool VisualiserTempsVitesse::rechercherStatistiques()
         }
 }
 
+bool VisualiserTempsVitesse::majPP(int numPP)
+{
+    communicationHTTP->majPP(controllerIdentification.getIdUtilisateur(), numPP);
+    return true;
+}
+
 
 /**
  * @brief VisualiserTempsVitesse::initDescentes

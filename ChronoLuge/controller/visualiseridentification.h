@@ -64,6 +64,7 @@ private:
 signals:
     void postConnexion(const bool &valeurReussite);             // Signal à émettre pour récuperer l'etat de connexion
     void postInscription(const bool &valeurReussite);           // Signal à émettre pour récuperer l'etat d'inscription
+    void postNewPP(const bool &valeurReussite);                 // Signal à émettre pour récuperer l'etat de la nouvelle PP
 
 };
 
