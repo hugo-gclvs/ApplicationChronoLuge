@@ -27,7 +27,7 @@ public:
 
     // Constructeur - Destructeur
         explicit PresenterIdentification(QObject *parent = nullptr)  : QObject(parent), monController(nullptr) {}
-        ~PresenterIdentification() {}
+        ~PresenterIdentification() override {}
 
     // Méthodes utilisable par l'UI
         Q_INVOKABLE bool creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, QString age);

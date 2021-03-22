@@ -92,6 +92,10 @@ void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString 
  * @brief ComHTTP::majPP
  * @param idUtilisateur
  * @param pdp
+ * @desc: Méthode de modification de photo de profil
+ * - Définition de l'URL courrant de la requête (API REST)
+ * - Création d'objets JSON (requete de destination, idUtilisateur, pdp) à envoyé dans la requete
+ * - Appel de la méthode post la classe courante
  */
 void ComHTTP::majPP(int idUtilisateur, int pdp)
 {
@@ -270,14 +274,15 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
                 {
-                    qDebug() << "/!\\ Succès de modification de PP !";
+                    qDebug() << "/!\\ Succès de la demande de modification de PP !";
 
+                        qDebug() << "...initialisation de la nouvelle PP";
                         monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj["nouvellePdp"].toInt());
-                        qDebug() << monControllerIdentification->getMonUtilisatateur()->getPdp();
 
                     // Emission du signal comme quoi la nouvelle PP est valide
-                        emit this->monControllerTempsVitesse->postNewPP(true, monControllerIdentification->getMonUtilisatateur()->getPdp()-1);
+                        emit this->monControllerTempsVitesse->postNewPP(true, QString::number(monControllerIdentification->getMonUtilisatateur()->getPdp()-1));
 
+                    qDebug() << "/!\\ Succès de la modification de PP !";
                 }
                 else if (JsonObj["requeteSrc"].toString() == "getHistorique")
                 {
@@ -328,7 +333,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                 else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
                     emit this->monControllerTempsVitesse->postLierDescente(false);
                 else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
-                    emit this->monControllerTempsVitesse->postNewPP(false, -1);
+                    emit this->monControllerTempsVitesse->postNewPP(false, QString::number(-1));
                 else
                 {
                     qDebug() << "/!\\ Message d'Erreur: "  << JsonObj["message"].toString();

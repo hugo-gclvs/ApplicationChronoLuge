@@ -198,6 +198,14 @@ bool VisualiserTempsVitesse::initStatistiques(QVector<QString> *statistiques)
             return false;
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::getMesStatistiques
+ * @param maStat
+ * @return
+ * @desc: Méthode de récupération des statistiques de l'utilsateur pour l'UI
+ * - Récupération différente selon la statistique demandé
+ */
 QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
 {
     switch (maStat) {
@@ -219,6 +227,14 @@ QString VisualiserTempsVitesse::getMesStatistiques(int maStat)
     return "ERREUR";
 }
 
+
+/**
+ * @brief VisualiserTempsVitesse::getMonUtilisateur
+ * @param monUtilisateur
+ * @return
+ * @desc: Méthode de récupération des infos de l'utilsateur pour l'UI
+ * - Récupération différente selon l'info demandé
+ */
 QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
 {
     switch (monUtilisateur) {
@@ -230,6 +246,8 @@ QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
             return QString::number(controllerIdentification.getMonUtilisatateur()->getAge());
         case 4:
             return controllerIdentification.getMonUtilisatateur()->getPseudo();
+        case 5:
+            return QString::number(controllerIdentification.getMonUtilisatateur()->getPdp());
     }
     return "ERREUR";
 }

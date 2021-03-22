@@ -37,7 +37,7 @@ Page {
                 x: 20
                 y: 20
                 clip: true
-                source: "../../../../pdp/image/avatar/profil.png"
+                source: gestionPP()
             }
 
             Label {
@@ -609,12 +609,24 @@ Page {
         presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostNewPP.connect(gestionPostNewProfil)
     }
 
+    Component.onDestruction: {
+        presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostNewPP.disconnect(gestionPostNewProfil)
+    }
+
 
     function gestionPostNewProfil(valeurReussite, valeurPdp) {
-        if(valeurReussite)
+        if(valeurReussite === true)
             pdp.source = "../../../../pdp/image/avatar/user-" + valeurPdp + ".png";
         else
             popupErreurPP.open()
+    }
+
+    function gestionPP() {
+        var retourPP = parseInt(presenterVisualiserTempsVitesse.getMonUtilisateur(5))-1;
+        if(retourPP === 0)
+            pdp.source = "../../../../pdp/image/avatar/profil.png"
+        else
+            pdp.source = "../../../../pdp/image/avatar/user-" + retourPP.toString() + ".png"
     }
 
 }

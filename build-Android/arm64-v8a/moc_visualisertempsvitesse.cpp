@@ -84,7 +84,7 @@ static const uint qt_meta_data_VisualiserTempsVitesse[] = {
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,    4,
-    QMetaType::Void, QMetaType::Bool, QMetaType::Int,    6,    7,
+    QMetaType::Void, QMetaType::Bool, QMetaType::QString,    6,    7,
 
  // methods: parameters
     QMetaType::QString,
@@ -108,7 +108,7 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
         switch (_id) {
         case 0: _t->listeChanged(); break;
         case 1: _t->postLierDescente((*reinterpret_cast< const bool(*)>(_a[1]))); break;
-        case 2: _t->postNewPP((*reinterpret_cast< const bool(*)>(_a[1])),(*reinterpret_cast< const int(*)>(_a[2]))); break;
+        case 2: _t->postNewPP((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 3: { QString _r = _t->getEtatConnexion();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         case 4: { QString _r = _t->getEtatInscription();
@@ -134,7 +134,7 @@ void VisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObject::Call _
             }
         }
         {
-            using _t = void (VisualiserTempsVitesse::*)(const bool & , const int & );
+            using _t = void (VisualiserTempsVitesse::*)(bool , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&VisualiserTempsVitesse::postNewPP)) {
                 *result = 2;
                 return;
@@ -227,7 +227,7 @@ void VisualiserTempsVitesse::postLierDescente(const bool & _t1)
 }
 
 // SIGNAL 2
-void VisualiserTempsVitesse::postNewPP(const bool & _t1, const int & _t2)
+void VisualiserTempsVitesse::postNewPP(bool _t1, QString _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

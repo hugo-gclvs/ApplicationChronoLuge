@@ -105,7 +105,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostNewPP.connect(gestionPostNewPP)
-        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatConnexion() != "connecte") {
+        if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatConnexion() !== "connecte") {
             stack.push("Identification.ui.qml", StackView.Immediate)
             toolBar.state = "cacherHeader"
         }
@@ -126,5 +126,6 @@ ApplicationWindow {
             img_profil.source = "../../../../pdp/image/avatar/user-" + valeurPdp + ".png"
         }
     }
+
 
 }
