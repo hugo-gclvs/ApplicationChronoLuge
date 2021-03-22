@@ -16,13 +16,6 @@ class Statistiques : public QObject
 {
     // Macro
         Q_OBJECT
-        Q_PROPERTY(int nmbrDescente READ getNmbrDescente)
-        Q_PROPERTY(double vitesseMoye READ getVitesseMoye)
-        Q_PROPERTY(double vitesseMin READ getVitesseMin)
-        Q_PROPERTY(double vitesseMax READ getVitesseMax)
-        Q_PROPERTY(QString tempsMoye READ getTempsMoye)
-        Q_PROPERTY(QString tempsMin READ getTempsMin)
-        Q_PROPERTY(QString tempsMax READ getTempsMax)
 
 public:
 

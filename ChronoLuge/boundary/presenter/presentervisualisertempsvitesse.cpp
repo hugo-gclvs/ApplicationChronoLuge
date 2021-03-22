@@ -40,16 +40,36 @@ bool PresenterVisualiserTempsVitesse::rechercherStatistiques()
     return false;
 }
 
+
+/**
+ * @brief PresenterVisualiserTempsVitesse::majPP
+ * @param numPP
+ * @desc: Méthode de mise à jour de la photo de profil utilisateur
+ */
 void PresenterVisualiserTempsVitesse::majPP(int numPP)
 {
     monController->majPP(numPP);
 }
 
+
+/**
+ * @brief PresenterVisualiserTempsVitesse::getMesStatistiques
+ * @param maStat
+ * @return
+ * @desc: Méthode de récupération des statistiques de l'utilsateur pour l'UI
+ */
 QString PresenterVisualiserTempsVitesse::getMesStatistiques(int maStat)
 {
     return monController->getMesStatistiques(maStat);
 }
 
+
+/**
+ * @brief PresenterVisualiserTempsVitesse::getMonUtilisateur
+ * @param monUtilisateur
+ * @return
+ * @desc: Méthode de récupération des infos de l'utilsateur pour l'UI
+ */
 QString PresenterVisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
 {
     return monController->getMonUtilisateur(monUtilisateur);
