@@ -33,3 +33,8 @@ bool PresenterIdentification::rechercherCompte(QString pseudo, QString mdp)
         return true;
     return false;
 }
+
+void PresenterIdentification::setEtatInscription()
+{
+    this->monController->getEtatInscription()->setValue("etatInscription", "inscrit");
+}

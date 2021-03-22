@@ -230,7 +230,6 @@ Page {
 
     Component.onCompleted: {
         presenterIdentification.getMonController().onPostConnexion.connect(gestionPostConnexion)
-        /* temporaire!!! */presenterIdentification.rechercherCompte("admin", "Azerty*123")
         if(presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription() !== "inscrit")
             stack.push("Inscription.ui.qml", StackView.Immediate)
     }

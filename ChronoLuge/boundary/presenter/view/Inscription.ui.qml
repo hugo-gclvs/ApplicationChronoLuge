@@ -302,7 +302,7 @@ Page {
                 font.bold: true
                 text: "<font color='#EBEBEB'> Déjà Inscrit ? </font>"
                 onClicked: {
-                    //presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().getEtatInscription().setValue("etatInscription", "inscrit");
+                    presenterIdentification.setEtatInscription()
                     stack.pop()
                 }
                 background: Rectangle {

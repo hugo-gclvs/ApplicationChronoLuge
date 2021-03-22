@@ -33,6 +33,7 @@ public:
         Q_INVOKABLE bool creerCompte(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, QString age);
         Q_INVOKABLE bool rechercherCompte(QString pseudo, QString mdp);
         Q_INVOKABLE VisualiserIdentification *getMonController() const              { return this->monController; }
+        Q_INVOKABLE void setEtatInscription();
 
     // Mutateur
         void setController(VisualiserIdentification *monController)                 { this->monController = monController; }
