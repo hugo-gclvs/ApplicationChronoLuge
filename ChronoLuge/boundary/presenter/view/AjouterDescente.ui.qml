@@ -48,7 +48,7 @@ Page {
                 topMargin: 20
                 horizontalCenter: parent.horizontalCenter
             }
-            width: 400
+            width: parent.width-10
             height: 50
             font.pixelSize: 20
             font.bold: true
