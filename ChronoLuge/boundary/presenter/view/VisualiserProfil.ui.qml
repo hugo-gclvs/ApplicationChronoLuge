@@ -47,9 +47,125 @@ Page {
                 y: parent.height - 25
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: popupModifPdP.open()
+                    //onClicked: popupModifPdP.open()
                 }
+
+                Rectangle {
+                    width: 150
+                    height: 80
+                    color: "red"
+                }
+
+                /*Rectangle {
+                    id:comboBox
+                    property variant items: ["Choisir Avatar", "Prendre une Photo"]
+                    property alias selectedItem: chosenItemText.text;
+                    property alias selectedIndex: listView.currentIndex;
+                    signal comboClicked;
+                    width: 150;
+                    height: 20;
+                    z: 200;
+                    smooth:true;
+                    Rectangle {
+                        id:chosenItem
+                        radius:4;
+                        width:parent.width;
+                        height:comboBox.height;
+                        color: "lightsteelblue"
+                        smooth:true;
+                        Text {
+                            anchors.top: parent.top;
+                            anchors.left: parent.left;
+                            anchors.margins: 8;
+                            id:chosenItemText
+                            text:comboBox.items[0];
+                            font.family: "Arial"
+                            font.pointSize: 14;
+                            smooth:true
+                        }
+                        MouseArea {
+                            anchors.fill: parent;
+                            onClicked: {
+                                comboBox.state = comboBox.state==="dropDown"?"":"dropDown"
+                            }
+                        }
+                    }
+                    Rectangle {
+                        id:dropDown
+                        width:comboBox.width;
+                        height:0;
+                        clip:true;
+                        radius:4;
+                        anchors.top: chosenItem.bottom;
+                        anchors.margins: 2;
+                        color: "lightgray"
+                        ListView {
+                            id:listView
+                            height:500;
+                            model: comboBox.items
+                            currentIndex: 0
+                            delegate: Item{
+                                width:comboBox.width;
+                                height: comboBox.height;
+                                Text {
+                                    text: modelData
+                                    anchors.top: parent.top;
+                                    anchors.left: parent.left;
+                                    anchors.margins: 5;
+                                }
+                                MouseArea {
+                                    anchors.fill: parent;
+                                    onClicked: {
+                                        comboBox.state = ""
+                                        var prevSelection = chosenItemText.text
+                                        chosenItemText.text = modelData
+                                        if(chosenItemText.text != prevSelection){
+                                            comboBox.comboClicked();
+                                        }
+                                        listView.currentIndex = index;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    Component {
+                        id: highlight
+                        Rectangle {
+                            width:comboBox.width;
+                            height:comboBox.height;
+                            color: "red";
+                            radius: 4
+                        }
+                    }
+                    states: State {
+                        name: "dropDown";
+                        PropertyChanges { target: dropDown; height:40*comboBox.items.length }
+                    }
+                    transitions: Transition {
+                        NumberAnimation { target: dropDown; properties: "height"; easing.type: Easing.OutExpo; duration: 1000 }
+                    }
+                }*/
             }
+
+
+
+
+            /*ComboBox {
+                id: combo
+                editable: false
+                model: ListModel {
+                    id: model
+                    ListElement { text: "Banana"; color: "Yellow" }
+                    ListElement { text: "Apple"; color: "Green" }
+                    ListElement { text: "Coconut"; color: "Brown" }
+                    }
+                /*onAccepted: {
+                    if (combo.find(currentText) === -1) {
+                        model.append({text: editText})
+                        currentIndex = combo.find(editText)
+                    }
+                }
+            }*/
         }
 
         Rectangle {
