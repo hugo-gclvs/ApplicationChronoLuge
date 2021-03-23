@@ -47,7 +47,19 @@ void ComHTTP::lierDescente(int idUtilisateur, QString QRCode)
         QByteArray data = doc.toJson();
 
     // Appel de la méthode post la classe courante
-        this->requetePost(data);
+        //this->requetePost(data);
+
+    // /!\ DONNEES FICTIVES
+        qDebug() << "/!\\ Liaison effectuee !";
+
+        // Si QRCode valdie
+        if(QRCode == "Luge: 2")
+        // Emission du signal comme quoi la laison est valide
+            emit this->monControllerTempsVitesse->postLierDescente(true);
+        else
+            emit this->monControllerTempsVitesse->postLierDescente(false);
+
+
 }
 
 
@@ -84,7 +96,16 @@ void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString 
         QByteArray data = doc.toJson();
 
     // Appel de la méthode post la classe courante
-        this->requetePost(data);
+        //this->requetePost(data);
+
+    // /!\ DONNEES FICTIVES
+        qDebug() << "/!\\ Succès de l'inscription !";
+
+        // Initialisation de la validation d'inscription
+            this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
+
+        // Emission du signal comme quoi l'inscription est valide
+            emit this->monControllerIdentification->postInscription(true);
 }
 
 
@@ -113,7 +134,18 @@ void ComHTTP::majPP(int idUtilisateur, int pdp)
         QByteArray data = doc.toJson();
 
     // Appel de la méthode post la classe courante
-        this->requetePost(data);
+        //this->requetePost(data);
+
+    // /!\ DONNEES FICTIVES
+        qDebug() << "/!\\ Succès de la demande de modification de PP !";
+
+            qDebug() << "...initialisation de la nouvelle PP";
+            monControllerIdentification->getMonUtilisatateur()->setPdp(pdp);
+
+        // Emission du signal comme quoi la nouvelle PP est valide
+            emit this->monControllerTempsVitesse->postNewPP(true, QString::number(monControllerIdentification->getMonUtilisatateur()->getPdp()-1));
+
+        qDebug() << "/!\\ Succès de la modification de PP !";
 }
 
 
@@ -142,7 +174,40 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
         QByteArray data = doc.toJson();
 
     // Appel de la méthode post la classe courante
-        this->requetePost(data);
+        //this->requetePost(data);
+
+    // /!\ DONNEES FICTIVES
+        QVector<QString> *maReponse = new QVector<QString>;
+
+        if(pseudo == "admin" && mdp == "Azerty*123") {
+
+            // Ajout des données reçus dans le vecteur "maReponse"
+                maReponse->push_back("1");
+                maReponse->push_back(pseudo);
+                maReponse->push_back(mdp);
+                maReponse->push_back("hugo@gmail.com");
+                maReponse->push_back("Goncalves");
+                maReponse->push_back("Hugo");
+                maReponse->push_back("19");
+                maReponse->push_back("1");
+
+            qDebug() << "/!\\ Succès de la connexion !";
+
+            // Initialisation de l'utilisateur et de la validation de connexion
+                this->monControllerIdentification->initUtilisateur(maReponse);
+                this->monControllerIdentification->getEtatConnexion()->setValue("etatConnexion", "connecte");
+
+            // Emission du signal comme quoi la connexion est valide
+                emit this->monControllerIdentification->postConnexion(true);
+
+            // Recherche de l'historique de descente du nouvel utilisateur
+                this->rechercherDescentes(monControllerIdentification->getIdUtilisateur());
+
+            // Recherche des statistiques du nouvel utilisateur
+                this->rechercherStatistiques(monControllerIdentification->getIdUtilisateur());
+        }
+        else
+            emit this->monControllerIdentification->postConnexion(false);
 }
 
 
@@ -160,7 +225,20 @@ void ComHTTP::rechercherDescentes(int idUtilisateur)
         this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/historique.php?idUtilisateur=" + QString::number(idUtilisateur)));
 
     // Appel de la méthode get la classe courante
-        this->requeteGet();
+        //this->requeteGet();
+
+    // /!\ DONNEES FICTIVES
+        QVector<QString> *maReponse = new QVector<QString>;
+
+        // Récupération et ajout de l'idUtilisateur dans le but de vérifié qu'il correspond à l'utilisateur courrant
+            maReponse->push_back(QString::number(idUtilisateur));
+
+        // Ajout de chaque descente dans le vector: chaque descente est un unique qstring (concaténation de chaque valeur de la descente)
+            for (int i = 1 ; i < 4+1 ;  i++)
+                maReponse->push_back("19/10/2020 12:50 02:12:55 10.2");
+
+        // Appel de la méthode pour initialiser les descentes de l'utilisateur
+            this->monControllerTempsVitesse->initDescentes(maReponse);
 }
 
 
@@ -178,7 +256,23 @@ void ComHTTP::rechercherStatistiques(int idUtilisateur)
         this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/statistique.php?idUtilisateur=" + QString::number(idUtilisateur)));
 
     // Appel de la méthode get la classe courante
-    this->requeteGet();
+        //this->requeteGet();
+
+    // /!\ DONNEES FICTIVES
+        QVector<QString> *maReponse = new QVector<QString>;
+
+        // Ajout des données reçus dans le vecteur "maReponse"
+            maReponse->push_back(QString::number(idUtilisateur));
+            maReponse->push_back("4");
+            maReponse->push_back("12.5");
+            maReponse->push_back("10.2");
+            maReponse->push_back("19.2");
+            maReponse->push_back("124");
+            maReponse->push_back("112");
+            maReponse->push_back("156");
+
+        // Appel de la méthode pour initialiser les statistiques de l'utilisateur
+            this->monControllerTempsVitesse->initStatistiques(maReponse);
 }
 
 
@@ -235,7 +329,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
             // Traitement de la requete (récupération de la requete source, pour renvoi de la réponse)
                 if (JsonObj["requeteSrc"].toString() == "postConnexion")
                 {
-                    // Ajout des données reçus dans le vecteur "maReponse"
+                    /*// Ajout des données reçus dans le vecteur "maReponse"
                         maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
                         maReponse->push_back(JsonObj.value("data")["pseudo"].toString());
                         maReponse->push_back(JsonObj.value("data")["mdp"].toString());
@@ -258,23 +352,23 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                         this->rechercherDescentes(monControllerIdentification->getIdUtilisateur());
 
                     // Recherche des statistiques du nouvel utilisateur
-                        this->rechercherStatistiques(monControllerIdentification->getIdUtilisateur());
+                        this->rechercherStatistiques(monControllerIdentification->getIdUtilisateur());*/
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postInscription")
                 {
-                    qDebug() << "/!\\ Succès de l'inscription !";
+                    /*qDebug() << "/!\\ Succès de l'inscription !";
 
                     // Initialisation de la validation d'inscription
                         this->monControllerIdentification->getEtatInscription()->setValue("etatInscription", "inscrit");
 
                     // Emission du signal comme quoi l'inscription est valide
-                        emit this->monControllerIdentification->postInscription(true);
+                        emit this->monControllerIdentification->postInscription(true);*/
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
                 {
-                    qDebug() << "/!\\ Succès de la demande de modification de PP !";
+                    /*qDebug() << "/!\\ Succès de la demande de modification de PP !";
 
                         qDebug() << "...initialisation de la nouvelle PP";
                         monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj["nouvellePdp"].toInt());
@@ -282,11 +376,11 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     // Emission du signal comme quoi la nouvelle PP est valide
                         emit this->monControllerTempsVitesse->postNewPP(true, QString::number(monControllerIdentification->getMonUtilisatateur()->getPdp()-1));
 
-                    qDebug() << "/!\\ Succès de la modification de PP !";
+                    qDebug() << "/!\\ Succès de la modification de PP !";*/
                 }
                 else if (JsonObj["requeteSrc"].toString() == "getHistorique")
                 {
-                    // Récupération et ajout de l'idUtilisateur dans le but de vérifié qu'il correspond à l'utilisateur courrant
+                    /*// Récupération et ajout de l'idUtilisateur dans le but de vérifié qu'il correspond à l'utilisateur courrant
                         maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
 
                     // Ajout de chaque descente dans le vector: chaque descente est un unique qstring (concaténation de chaque valeur de la descente)
@@ -294,20 +388,20 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                             maReponse->push_back(JsonObj.value("data")["descente"+QString::number(i)]["date"].toString() + " " + JsonObj.value("data")["descente"+QString::number(i)]["temps"].toString() + " " + JsonObj.value("data")["descente"+QString::number(i)]["vitesse"].toString());
 
                     // Appel de la méthode pour initialiser les descentes de l'utilisateur
-                        this->monControllerTempsVitesse->initDescentes(maReponse);
+                        this->monControllerTempsVitesse->initDescentes(maReponse);*/
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
                 {
-                    qDebug() << "/!\\ Liaison effectuee !";
+                    /*qDebug() << "/!\\ Liaison effectuee !";
 
                     // Emission du signal comme quoi la laison est valide
-                        emit this->monControllerTempsVitesse->postLierDescente(true);
+                        emit this->monControllerTempsVitesse->postLierDescente(true);*/
 
                 }
                 else if (JsonObj["requeteSrc"].toString() == "getStatistique")
                 {
-                    // Ajout des données reçus dans le vecteur "maReponse"
+                    /*// Ajout des données reçus dans le vecteur "maReponse"
                         maReponse->push_back(JsonObj.value("data")["idUtilisateur"].toString());
                         maReponse->push_back(JsonObj.value("data")["nombreDescente"].toString());
                         maReponse->push_back(JsonObj.value("data")["vitesseMoy"].toString());
@@ -318,7 +412,7 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                         maReponse->push_back(JsonObj.value("data")["tempsMax"].toString());
 
                     // Appel de la méthode pour initialiser les statistiques de l'utilisateur
-                        this->monControllerTempsVitesse->initStatistiques(maReponse);
+                        this->monControllerTempsVitesse->initStatistiques(maReponse);*/
 
                 }
 
