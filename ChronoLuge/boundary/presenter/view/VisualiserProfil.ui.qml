@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
+import QtMultimedia 5.9
 import ControllerVisualiserTempsVitesse 1.0
 
 Page {
@@ -20,9 +21,11 @@ Page {
     property string tempsMax: presenterVisualiserTempsVitesse.getMesStatistiques(7)
 
     Grid {
+        id: gridPrincipaleProfil
         columns: 1
         rows: 2
         anchors.fill: parent
+        state: "normal"
 
         Rectangle {
             id: recLogo
@@ -48,124 +51,81 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     //onClicked: popupModifPdP.open()
+                    onClicked: popupChoisirModePP.open()
                 }
 
-                Rectangle {
-                    width: 150
-                    height: 80
-                    color: "red"
-                }
+                Popup {
+                    id: popupChoisirModePP
+                    width: gridPrincipaleProfil.width/2
+                    height: gridPrincipaleProfil.height/6.4
+                    x: -60
+                    modal: true
+                    focus: true
+                    background: Rectangle {
+                        color: "transparent"
+                        Grid {
+                            id: gridChoixMode
+                            columns: 1
+                            rows: 2
+                            anchors.fill: parent
 
-                /*Rectangle {
-                    id:comboBox
-                    property variant items: ["Choisir Avatar", "Prendre une Photo"]
-                    property alias selectedItem: chosenItemText.text;
-                    property alias selectedIndex: listView.currentIndex;
-                    signal comboClicked;
-                    width: 150;
-                    height: 20;
-                    z: 200;
-                    smooth:true;
-                    Rectangle {
-                        id:chosenItem
-                        radius:4;
-                        width:parent.width;
-                        height:comboBox.height;
-                        color: "lightsteelblue"
-                        smooth:true;
-                        Text {
-                            anchors.top: parent.top;
-                            anchors.left: parent.left;
-                            anchors.margins: 8;
-                            id:chosenItemText
-                            text:comboBox.items[0];
-                            font.family: "Arial"
-                            font.pointSize: 14;
-                            smooth:true
-                        }
-                        MouseArea {
-                            anchors.fill: parent;
-                            onClicked: {
-                                comboBox.state = comboBox.state==="dropDown"?"":"dropDown"
-                            }
-                        }
-                    }
-                    Rectangle {
-                        id:dropDown
-                        width:comboBox.width;
-                        height:0;
-                        clip:true;
-                        radius:4;
-                        anchors.top: chosenItem.bottom;
-                        anchors.margins: 2;
-                        color: "lightgray"
-                        ListView {
-                            id:listView
-                            height:500;
-                            model: comboBox.items
-                            currentIndex: 0
-                            delegate: Item{
-                                width:comboBox.width;
-                                height: comboBox.height;
-                                Text {
-                                    text: modelData
-                                    anchors.top: parent.top;
-                                    anchors.left: parent.left;
-                                    anchors.margins: 5;
-                                }
-                                MouseArea {
-                                    anchors.fill: parent;
+                            Rectangle {
+                                height: parent.height/2
+                                width: parent.width
+
+                                Button {
+                                    id: boutonModeAvatar
+                                    anchors.centerIn: parent
+                                    width: parent.width
+                                    height: 50
+                                    font.pixelSize: 15
+                                    font.bold: true
+                                    text: "<font color='#EBEBEB'> Choisir Avatar </font>"
                                     onClicked: {
-                                        comboBox.state = ""
-                                        var prevSelection = chosenItemText.text
-                                        chosenItemText.text = modelData
-                                        if(chosenItemText.text != prevSelection){
-                                            comboBox.comboClicked();
-                                        }
-                                        listView.currentIndex = index;
+                                        popupModifPdP.open()
+                                        popupChoisirModePP.close()
+                                    }
+                                    background: Rectangle {
+                                        color: "#6B6B6B"
+                                        opacity: 0.9
+                                        radius: 10
                                     }
                                 }
                             }
+
+                            Rectangle {
+                                height: parent.height/2
+                                width: parent.width
+
+                                Button {
+                                    id: boutonModePrisePhoto
+                                    anchors.centerIn: parent
+                                    width: parent.width
+                                    height: 50
+                                    font.pixelSize: 15
+                                    font.bold: true
+                                    text: "<font color='#EBEBEB'> Prendre une Photo </font>"
+                                    onClicked: {
+                                        popupChoisirModePP.close()
+                                        gridPrincipaleProfil.state = "prendrePhoto"
+                                    }
+                                    background: Rectangle {
+                                        color: "#6B6B6B"
+                                        opacity: 0.9
+                                        radius: 10
+                                    }
+                                }
+                            }
+
                         }
                     }
-                    Component {
-                        id: highlight
-                        Rectangle {
-                            width:comboBox.width;
-                            height:comboBox.height;
-                            color: "red";
-                            radius: 4
-                        }
-                    }
-                    states: State {
-                        name: "dropDown";
-                        PropertyChanges { target: dropDown; height:40*comboBox.items.length }
-                    }
-                    transitions: Transition {
-                        NumberAnimation { target: dropDown; properties: "height"; easing.type: Easing.OutExpo; duration: 1000 }
-                    }
-                }*/
+
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+                }
+
             }
 
-
-
-
-            /*ComboBox {
-                id: combo
-                editable: false
-                model: ListModel {
-                    id: model
-                    ListElement { text: "Banana"; color: "Yellow" }
-                    ListElement { text: "Apple"; color: "Green" }
-                    ListElement { text: "Coconut"; color: "Brown" }
-                    }
-                /*onAccepted: {
-                    if (combo.find(currentText) === -1) {
-                        model.append({text: editText})
-                        currentIndex = combo.find(editText)
-                    }
-                }
-            }*/
         }
 
         Rectangle {
@@ -591,11 +551,103 @@ Page {
                 }
             }
         }
+
+        states: [
+            State {
+                name: "normal"
+                PropertyChanges {
+                    target: gridPrincipaleProfil
+                    visible: true
+                }
+                PropertyChanges {
+                    target:  framePrendrePhoto
+                    visible: false
+                }
+            },
+            State {
+                name: "prendrePhoto"
+                PropertyChanges {
+                    target: gridPrincipaleProfil
+                    visible: false
+                }
+                PropertyChanges {
+                    target: framePrendrePhoto
+                    visible: true
+                }
+            }
+        ]
+
     }
 
-    ListeImgPP {
-        id: testtt
+
+    Frame {
+        id: framePrendrePhoto
+        visible: false
+        width: parent.width
+        height: parent.height
+
+        Camera{
+            id:appareil
+            position: Camera.FrontFace
+            exposure{
+                exposureMode: Camera.ExposureAction
+                manualIso:800
+            }
+            focus{
+                focusMode:CameraFocus.FocusContinuous
+                focusPointMode:Camera.FocusPointAuto
+            }
+            imageProcessing{
+                saturation:-1
+                contrast:1
+            }
+            flash.mode:Camera.FlashAuto
+            imageCapture.onImageCaptured:visu.source=preview
+            captureMode:Camera.CaptureStillImage
+        }
+
+        VideoOutput{
+            id:vidéo
+            source:appareil
+            anchors.fill:parent
+            orientation:appareil.orientation
+        }
+
+        Timer{
+            id:temps
+            interval:5000
+            onTriggered: visu.visible=false
+        }
+
+        Image{
+            id: visu
+            fillMode:Image.PreserveAspectCrop
+            anchors.fill:parent
+        }
+
+        ToolButton{
+            anchors{
+                bottom:parent.bottom
+                bottomMargin:8
+                horizontalCenter:parent.horizontalCenter
+            }
+            icon{
+                source: "../../../../image/image/logo.png"
+                color:"transparent"
+                width:64
+                height:64
+            }
+            onClicked:{
+                visu.visible=true
+                temps.start()
+                appareil.imageCapture.capture()
+            }
+            background:Rectangle{color:"transparent"
+            }
+        }
+
     }
+
 
     Popup {
         id: popupModifPdP
@@ -719,6 +771,7 @@ Page {
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
     }
+
 
     Component.onCompleted: {
         maGrid.currentIndex = presenterIdentification.getMonController().getNumPdp()-1
