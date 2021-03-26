@@ -181,6 +181,24 @@ void ComHTTP::rechercherStatistiques(int idUtilisateur)
     this->requeteGet();
 }
 
+void ComHTTP::test(QString test)
+{
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/test.php"));
+
+    // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
+        QJsonObject obj;
+
+        obj["requeteDest"] = "test";
+        obj["testObj"] = test;
+
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
+
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
+}
+
 
 /**
  * @brief ComHTTP::requeteGet

@@ -1,5 +1,10 @@
 #include "presentervisualisertempsvitesse.h"
 #include "controller/visualisertempsvitesse.h"
+#include <QImage>
+#include <QBuffer>
+#include <QFile>
+#include <QStandardPaths>
+#include <QFileDialog>
 
 /**
  * @brief PresenterVisualiserTempsVitesse::lierDescente
@@ -73,4 +78,21 @@ QString PresenterVisualiserTempsVitesse::getMesStatistiques(int maStat)
 QString PresenterVisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
 {
     return monController->getMonUtilisateur(monUtilisateur);
+}
+
+void PresenterVisualiserTempsVitesse::test(QString chemin)
+{
+
+    QFile fileImg(chemin);
+
+    fileImg.open(QIODevice::ReadOnly);
+    QByteArray imageData = fileImg.readAll();
+    QByteArray imageData_Base64 = imageData.toBase64();
+
+    QString imgdata(imageData_Base64);
+
+    qDebug() << "debut :" << imgdata << ": fin";
+
+    monController->test(imgdata);
+
 }

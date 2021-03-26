@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PresenterVisualiserTempsVitesse_t {
-    QByteArrayData data[14];
-    char stringdata0[228];
+    QByteArrayData data[16];
+    char stringdata0[238];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,7 +45,9 @@ QT_MOC_LITERAL(9, 163, 5), // "numPP"
 QT_MOC_LITERAL(10, 169, 18), // "getMesStatistiques"
 QT_MOC_LITERAL(11, 188, 6), // "maStat"
 QT_MOC_LITERAL(12, 195, 17), // "getMonUtilisateur"
-QT_MOC_LITERAL(13, 213, 14) // "monUtilisateur"
+QT_MOC_LITERAL(13, 213, 14), // "monUtilisateur"
+QT_MOC_LITERAL(14, 228, 4), // "test"
+QT_MOC_LITERAL(15, 233, 4) // "path"
 
     },
     "PresenterVisualiserTempsVitesse\0"
@@ -54,7 +56,7 @@ QT_MOC_LITERAL(13, 213, 14) // "monUtilisateur"
     "QRCode\0rechercherHistorique\0"
     "rechercherStatistiques\0majPP\0numPP\0"
     "getMesStatistiques\0maStat\0getMonUtilisateur\0"
-    "monUtilisateur"
+    "monUtilisateur\0test\0path"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,7 +66,7 @@ static const uint qt_meta_data_PresenterVisualiserTempsVitesse[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,13 +74,14 @@ static const uint qt_meta_data_PresenterVisualiserTempsVitesse[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,   49,    3, 0x02 /* Public */,
-       4,    1,   50,    3, 0x02 /* Public */,
-       6,    0,   53,    3, 0x02 /* Public */,
-       7,    0,   54,    3, 0x02 /* Public */,
-       8,    1,   55,    3, 0x02 /* Public */,
-      10,    1,   58,    3, 0x02 /* Public */,
-      12,    1,   61,    3, 0x02 /* Public */,
+       1,    0,   54,    3, 0x02 /* Public */,
+       4,    1,   55,    3, 0x02 /* Public */,
+       6,    0,   58,    3, 0x02 /* Public */,
+       7,    0,   59,    3, 0x02 /* Public */,
+       8,    1,   60,    3, 0x02 /* Public */,
+      10,    1,   63,    3, 0x02 /* Public */,
+      12,    1,   66,    3, 0x02 /* Public */,
+      14,    1,   69,    3, 0x02 /* Public */,
 
  // methods: parameters
     0x80000000 | 2,
@@ -88,6 +91,7 @@ static const uint qt_meta_data_PresenterVisualiserTempsVitesse[] = {
     QMetaType::Void, QMetaType::Int,    9,
     QMetaType::QString, QMetaType::Int,   11,
     QMetaType::QString, QMetaType::Int,   13,
+    QMetaType::Void, QMetaType::QString,   15,
 
        0        // eod
 };
@@ -111,6 +115,7 @@ void PresenterVisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObjec
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         case 6: { QString _r = _t->getMonUtilisateur((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 7: _t->test((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -145,13 +150,13 @@ int PresenterVisualiserTempsVitesse::qt_metacall(QMetaObject::Call _c, int _id, 
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

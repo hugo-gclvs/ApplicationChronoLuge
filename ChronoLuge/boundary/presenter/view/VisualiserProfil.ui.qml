@@ -604,7 +604,13 @@ Page {
             flash.mode:Camera.FlashAuto
             imageCapture.onImageCaptured:visu.source=preview
             captureMode:Camera.CaptureStillImage
-
+            imageCapture {
+                 onImageCaptured: {
+                 var imgPath =  appareil.imageCapture.capturedImagePath
+                     console.log(imgPath)
+                     presenterVisualiserTempsVitesse.test(imgPath)
+                 }
+            }
         }
 
 
@@ -643,7 +649,7 @@ Page {
                 visu.visible=true
                 temps.start()
                 appareil.imageCapture.capture()
-                appareil.imageCapture.captureToLocation("../../../../pdp/image/test")
+                //appareil.imageCapture.captureToLocation("../../../../image/test")
             }
             background:Rectangle{color:"transparent"}
         }

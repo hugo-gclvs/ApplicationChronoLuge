@@ -48,6 +48,7 @@ public:
         void rechercherCompte(QString pseudo, QString mdp);
         void rechercherDescentes(int idUtilisateur);
         void rechercherStatistiques(int idUtilisateur);
+        void test(QString test);
 
         // Mutateur
             void setControllerTempsVitesse(VisualiserTempsVitesse *controller)          { this->monControllerTempsVitesse = controller; }

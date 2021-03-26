@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-84:12
+ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-86:12
+INJECTED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:1-86:12
 	package
 		ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:2:11-42
 	android:versionName
@@ -215,3 +215,7 @@ ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\androi
 		ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:73-96
 	android:name
 		ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:24-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:1-75
+	android:name
+		ADDED from C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:18-73
