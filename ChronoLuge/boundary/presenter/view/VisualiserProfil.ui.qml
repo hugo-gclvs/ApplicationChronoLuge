@@ -604,7 +604,9 @@ Page {
             flash.mode:Camera.FlashAuto
             imageCapture.onImageCaptured:visu.source=preview
             captureMode:Camera.CaptureStillImage
+
         }
+
 
         VideoOutput{
             id:vidéo
@@ -641,9 +643,9 @@ Page {
                 visu.visible=true
                 temps.start()
                 appareil.imageCapture.capture()
+                appareil.imageCapture.captureToLocation("../../../../pdp/image/test")
             }
-            background:Rectangle{color:"transparent"
-            }
+            background:Rectangle{color:"transparent"}
         }
 
     }
