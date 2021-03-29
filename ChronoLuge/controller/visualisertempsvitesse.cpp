@@ -247,7 +247,7 @@ QString VisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
         case 4:
             return controllerIdentification.getMonUtilisatateur()->getPseudo();
         case 5:
-            return QString::number(controllerIdentification.getMonUtilisatateur()->getPdp());
+            return controllerIdentification.getMonUtilisatateur()->getPdp();
     }
     return "ERREUR";
 }

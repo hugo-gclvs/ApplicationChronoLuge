@@ -70,7 +70,7 @@ ApplicationWindow {
             anchors.rightMargin: 5
             clip: true
             visible: true
-            source: "../../../../pdp/image/avatar/profil.png"
+            source: "https://chronoluge.000webhostapp.com/images/avatar/profil.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -121,9 +121,9 @@ ApplicationWindow {
         }
     }
 
-    function gestionPostNewPP(valeurReussite, valeurPdp) {
+    function gestionPostNewPP(valeurReussite, lienPP) {
         if(valeurReussite) {
-            img_profil.source = "../../../../pdp/image/avatar/user-" + valeurPdp + ".png"
+            img_profil.source = lienPP
         }
     }
 

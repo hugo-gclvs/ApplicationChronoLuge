@@ -42,7 +42,7 @@ public:
             QSettings *getEtatInscription() const                           { return this->etatInscription;}
             Statistiques *getMesStatistiques() const                        { return this->monUtilisateur->getMesStatistiques(); }
             Utilisateur *getMonUtilisatateur() const                        { return this->monUtilisateur; }
-            Q_INVOKABLE int getNumPdp() const                                           { return this->monUtilisateur->getPdp(); }
+            //Q_INVOKABLE int getNumPdp() const                                           { return this->monUtilisateur->getPdp(); }
 
 private:
 

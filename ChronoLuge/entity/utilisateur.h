@@ -22,7 +22,7 @@ class Utilisateur : public QObject
 public:
 
     // Constructeur - Destructeur
-        explicit Utilisateur(QString pseudo, QString mdp, QString mail = NULL, QString nom = NULL, QString prenom = NULL, int age = 0, int pdp = 0, int idUtilisateur = 0);
+        explicit Utilisateur(QString pseudo, QString mdp, QString mail = "0", QString nom = "0", QString prenom = "0", int age = 0, QString pdp = "0", int idUtilisateur = 0);
         ~Utilisateur() override {}
 
     // Méthodes
@@ -35,13 +35,13 @@ public:
             QString getNom() const                          { return nom; }
             QString getPrenom() const                       { return prenom; }
             int getAge() const                              { return age; }
-            int getPdp() const                              { return pdp; }
+            QString getPdp() const                          { return pdp; }
             int getIdUtilisateur() const                    { return idUtilisateur; }
 
             Statistiques *getMesStatistiques() const        { return mesStatistiques; }
 
         // Muttateurs
-            void setPdp(int pdp)                            { this->pdp = pdp; }
+            void setPdp(QString pdp)                            { this->pdp = pdp; }
 
 
 private:
@@ -53,7 +53,7 @@ private:
         QString nom;
         QString prenom;
         int age;
-        int pdp;
+        QString pdp;
         int idUtilisateur;
 
         Statistiques *mesStatistiques;

@@ -8,6 +8,7 @@ Page {
     background: null
     title: qsTr("PROFIL")
 
+    property string photoDeProfile: presenterVisualiserTempsVitesse.getMonUtilisateur(5)
     property string nom: presenterVisualiserTempsVitesse.getMonUtilisateur(1)
     property string prenom: presenterVisualiserTempsVitesse.getMonUtilisateur(2)
     property string age: presenterVisualiserTempsVitesse.getMonUtilisateur(3)
@@ -40,7 +41,7 @@ Page {
                 x: 20
                 y: 20
                 clip: true
-                source: gestionPP()
+                source: photoDeProfile
             }
 
             Label {
@@ -781,7 +782,7 @@ Page {
 
 
     Component.onCompleted: {
-        maGrid.currentIndex = presenterIdentification.getMonController().getNumPdp()-1
+        //maGrid.currentIndex = presenterIdentification.getMonController().getNumPdp()-1
         presenterVisualiserTempsVitesse.getControllerVisualiserTempsVitesse().onPostNewPP.connect(gestionPostNewProfil)
     }
 
@@ -790,19 +791,19 @@ Page {
     }
 
 
-    function gestionPostNewProfil(valeurReussite, valeurPdp) {
+    function gestionPostNewProfil(valeurReussite, lienPP) {
         if(valeurReussite === true)
-            pdp.source = "../../../../pdp/image/avatar/user-" + valeurPdp + ".png";
+            photoDeProfile = lienPP;
         else
             popupErreurPP.open()
     }
 
-    function gestionPP() {
-        var retourPP = parseInt(presenterVisualiserTempsVitesse.getMonUtilisateur(5))-1;
+    /*function gestionPP() {
+        var pdp.source = parseInt(presenterVisualiserTempsVitesse.getMonUtilisateur(5))-1;
         if(retourPP === 0)
             pdp.source = "../../../../pdp/image/avatar/profil.png"
         else
             pdp.source = "../../../../pdp/image/avatar/user-" + retourPP.toString() + ".png"
-    }
+    }*/
 
 }

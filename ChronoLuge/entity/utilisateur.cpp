@@ -12,7 +12,7 @@
  * @param idUtilisateur
  * - Initialisation des différents attributs
  */
-Utilisateur::Utilisateur(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age, int pdp, int idUtilisateur) :
+Utilisateur::Utilisateur(QString pseudo, QString mdp, QString mail, QString nom, QString prenom, int age, QString pdp, int idUtilisateur) :
     pseudo(pseudo),
     mdp(mdp),
     mail(mail),

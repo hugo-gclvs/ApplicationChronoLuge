@@ -82,7 +82,7 @@ bool VisualiserIdentification::initUtilisateur(QVector<QString> *utilisateur)
     qDebug() << "...initialisation de l'utilisateur";
 
     // Initialisation de l'utilisateur avec ses informations
-        monUtilisateur = new Utilisateur(utilisateur->at(1), utilisateur->at(2), utilisateur->at(3), utilisateur->at(4), utilisateur->at(5), utilisateur->at(6).toInt(), utilisateur->at(7).toInt(), utilisateur->at(0).toInt());
+        monUtilisateur = new Utilisateur(utilisateur->at(1), utilisateur->at(2), utilisateur->at(3), utilisateur->at(4), utilisateur->at(5), utilisateur->at(6).toInt(), utilisateur->at(7), utilisateur->at(0).toInt());
 
     qDebug() << "/!\\ Succès de l'initialisation de l'utilisateur !";
 

@@ -149,7 +149,7 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 void ComHTTP::nouvellePP(QString image)
 {
     // Définition de l'URL courrant de la requête (API REST)
-        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/test.php"));
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/nouvellePdp.php"));
 
     // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
         QJsonObject obj;
@@ -291,15 +291,15 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                         emit this->monControllerIdentification->postInscription(true);
 
                 }
-                else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
+                else if (JsonObj["requeteSrc"].toString() == "postNouvellePP")
                 {
                     qDebug() << "/!\\ Succès de la demande de modification de PP !";
 
                         qDebug() << "...initialisation de la nouvelle PP";
-                        monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj["nouvellePdp"].toInt());
+                        monControllerIdentification->getMonUtilisatateur()->setPdp(JsonObj["lienPP"].toString());
 
                     // Emission du signal comme quoi la nouvelle PP est valide
-                        emit this->monControllerTempsVitesse->postNewPP(true, QString::number(monControllerIdentification->getMonUtilisatateur()->getPdp()-1));
+                        emit this->monControllerTempsVitesse->postNewPP(true, monControllerIdentification->getMonUtilisatateur()->getPdp());
 
                     qDebug() << "/!\\ Succès de la modification de PP !";
                 }
@@ -339,10 +339,6 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     // Appel de la méthode pour initialiser les statistiques de l'utilisateur
                         this->monControllerTempsVitesse->initStatistiques(maReponse);
 
-                }
-                else if (JsonObj["requeteSrc"].toString() == "postNouvellePP")
-                {
-                    qDebug() << JsonObj["lienPP"].toString();
                 }
 
         }
