@@ -80,7 +80,7 @@ QString PresenterVisualiserTempsVitesse::getMonUtilisateur(int monUtilisateur)
     return monController->getMonUtilisateur(monUtilisateur);
 }
 
-void PresenterVisualiserTempsVitesse::test(QString chemin)
+void PresenterVisualiserTempsVitesse::nouvellePP(QString chemin)
 {
 
     QFile fileImg(chemin);
@@ -91,8 +91,6 @@ void PresenterVisualiserTempsVitesse::test(QString chemin)
 
     QString imgdata(imageData_Base64);
 
-    qDebug() << "debut :" << imgdata << ": fin";
-
-    monController->test(imgdata);
+    monController->nouvellePP(imgdata);
 
 }

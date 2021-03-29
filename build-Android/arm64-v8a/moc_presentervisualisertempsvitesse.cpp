@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PresenterVisualiserTempsVitesse_t {
     QByteArrayData data[16];
-    char stringdata0[238];
+    char stringdata0[244];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,8 +46,8 @@ QT_MOC_LITERAL(10, 169, 18), // "getMesStatistiques"
 QT_MOC_LITERAL(11, 188, 6), // "maStat"
 QT_MOC_LITERAL(12, 195, 17), // "getMonUtilisateur"
 QT_MOC_LITERAL(13, 213, 14), // "monUtilisateur"
-QT_MOC_LITERAL(14, 228, 4), // "test"
-QT_MOC_LITERAL(15, 233, 4) // "path"
+QT_MOC_LITERAL(14, 228, 10), // "nouvellePP"
+QT_MOC_LITERAL(15, 239, 4) // "path"
 
     },
     "PresenterVisualiserTempsVitesse\0"
@@ -56,7 +56,7 @@ QT_MOC_LITERAL(15, 233, 4) // "path"
     "QRCode\0rechercherHistorique\0"
     "rechercherStatistiques\0majPP\0numPP\0"
     "getMesStatistiques\0maStat\0getMonUtilisateur\0"
-    "monUtilisateur\0test\0path"
+    "monUtilisateur\0nouvellePP\0path"
 };
 #undef QT_MOC_LITERAL
 
@@ -115,7 +115,7 @@ void PresenterVisualiserTempsVitesse::qt_static_metacall(QObject *_o, QMetaObjec
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         case 6: { QString _r = _t->getMonUtilisateur((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 7: _t->test((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->nouvellePP((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }

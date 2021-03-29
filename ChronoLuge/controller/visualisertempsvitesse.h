@@ -50,7 +50,7 @@ public:
             Q_INVOKABLE QString getEtatInscription()                                        { return controllerIdentification.getEtatInscription()->value("etatInscription").toString(); }
             Q_INVOKABLE VisualiserIdentification *getControllerVisualiserIdentification()   { return &controllerIdentification; }
 
-            void test(QString test) { communicationHTTP->test(test); }
+            void nouvellePP(QString image) { communicationHTTP->nouvellePP(image); }
 
 private:
 

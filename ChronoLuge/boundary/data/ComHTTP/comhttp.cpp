@@ -146,6 +146,25 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 }
 
 
+void ComHTTP::nouvellePP(QString image)
+{
+    // Définition de l'URL courrant de la requête (API REST)
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/test.php"));
+
+    // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
+        QJsonObject obj;
+
+        obj["requeteDest"] = "postNouvellePP";
+        obj["nouvellePP"] = image;
+
+        QJsonDocument doc(obj);
+        QByteArray data = doc.toJson();
+
+    // Appel de la méthode post la classe courante
+        this->requetePost(data);
+}
+
+
 /**
  * @brief ComHTTP::rechercherDescentes
  * @param idUtilisateur
@@ -179,24 +198,6 @@ void ComHTTP::rechercherStatistiques(int idUtilisateur)
 
     // Appel de la méthode get la classe courante
     this->requeteGet();
-}
-
-void ComHTTP::test(QString test)
-{
-    // Définition de l'URL courrant de la requête (API REST)
-        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/test.php"));
-
-    // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
-        QJsonObject obj;
-
-        obj["requeteDest"] = "test";
-        obj["testObj"] = test;
-
-        QJsonDocument doc(obj);
-        QByteArray data = doc.toJson();
-
-    // Appel de la méthode post la classe courante
-        this->requetePost(data);
 }
 
 
@@ -338,6 +339,10 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     // Appel de la méthode pour initialiser les statistiques de l'utilisateur
                         this->monControllerTempsVitesse->initStatistiques(maReponse);
 
+                }
+                else if (JsonObj["requeteSrc"].toString() == "postNouvellePP")
+                {
+                    qDebug() << JsonObj["lienPP"].toString();
                 }
 
         }

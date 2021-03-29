@@ -607,8 +607,7 @@ Page {
             imageCapture {
                  onImageCaptured: {
                  var imgPath =  appareil.imageCapture.capturedImagePath
-                     console.log(imgPath)
-                     presenterVisualiserTempsVitesse.test(imgPath)
+                     presenterVisualiserTempsVitesse.nouvellePP(imgPath)
                  }
             }
         }
