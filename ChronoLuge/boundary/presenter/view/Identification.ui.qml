@@ -152,7 +152,7 @@ Page {
             }
         }
 
-        Rectangle {
+        /*Rectangle {
             width: parent.width
             color: "#00ffffff"
             height: 40
@@ -202,7 +202,7 @@ Page {
                     radius: 10
                 }
             }
-        }
+        }*/
 
     }
 
