@@ -1,4 +1,4 @@
-#Mon Mar 29 10:50:58 CEST 2021
+#Tue Mar 30 17:00:57 CEST 2021
 base.0=C\:\\Users\\GoncalvesH\\Projet\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

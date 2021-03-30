@@ -50,8 +50,8 @@ Page {
                 y: parent.height - 25
                 MouseArea {
                     anchors.fill: parent
-                    //onClicked: popupModifPdP.open()
-                    onClicked: popupChoisirModePP.open()
+                    onClicked: popupModifPdP.open()
+                    //onClicked: popupChoisirModePP.open()
                 }
 
                 Popup {
@@ -552,108 +552,8 @@ Page {
             }
         }
 
-        states: [
-            State {
-                name: "normal"
-                PropertyChanges {
-                    target: gridPrincipaleProfil
-                    visible: true
-                }
-                PropertyChanges {
-                    target:  framePrendrePhoto
-                    visible: false
-                }
-            },
-            State {
-                name: "prendrePhoto"
-                PropertyChanges {
-                    target: gridPrincipaleProfil
-                    visible: false
-                }
-                PropertyChanges {
-                    target: framePrendrePhoto
-                    visible: true
-                }
-            }
-        ]
-
     }
 
-
-    Frame {
-        id: framePrendrePhoto
-        visible: false
-        width: parent.width
-        height: parent.height
-
-        Camera{
-            id:appareil
-            position: Camera.FrontFace
-            exposure{
-                exposureMode: Camera.ExposureAction
-                manualIso:800
-            }
-            focus{
-                focusMode:CameraFocus.FocusContinuous
-                focusPointMode:Camera.FocusPointAuto
-            }
-            imageProcessing{
-                saturation:-1
-                contrast:1
-            }
-            flash.mode:Camera.FlashAuto
-            imageCapture.onImageCaptured:visu.source=preview
-            captureMode:Camera.CaptureStillImage
-            imageCapture {
-                 onImageCaptured: {
-                 var imgPath =  appareil.imageCapture.capturedImagePath
-                     presenterVisualiserTempsVitesse.nouvellePP(imgPath)
-                 }
-            }
-        }
-
-
-        VideoOutput{
-            id:vidéo
-            source:appareil
-            anchors.fill:parent
-            orientation:appareil.orientation
-        }
-
-        Timer{
-            id:temps
-            interval:5000
-            onTriggered: visu.visible=false
-        }
-
-        Image{
-            id: visu
-            fillMode:Image.PreserveAspectCrop
-            anchors.fill:parent
-        }
-
-        ToolButton{
-            anchors{
-                bottom:parent.bottom
-                bottomMargin:8
-                horizontalCenter:parent.horizontalCenter
-            }
-            icon{
-                source: "../../../../image/image/logo.png"
-                color:"transparent"
-                width:64
-                height:64
-            }
-            onClicked:{
-                visu.visible=true
-                temps.start()
-                appareil.imageCapture.capture()
-                //appareil.imageCapture.captureToLocation("../../../../image/test")
-            }
-            background:Rectangle{color:"transparent"}
-        }
-
-    }
 
 
     Popup {
