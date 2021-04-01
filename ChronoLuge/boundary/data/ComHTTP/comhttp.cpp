@@ -121,7 +121,7 @@ void ComHTTP::nouveauCompte(QString pseudo, QString mdp, QString email, QString 
 void ComHTTP::majPP(int idUtilisateur, int pdp)
 {
     // Définition de l'URL courrant de la requête (API REST)
-        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/nouvellePdp.php"));
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/nouvellePdpPresentation.php"));
 
     // Création d'objets JSON (requete de destination, pseudo, mdp, etc...) à envoyé dans la requete
         QJsonObject obj;
