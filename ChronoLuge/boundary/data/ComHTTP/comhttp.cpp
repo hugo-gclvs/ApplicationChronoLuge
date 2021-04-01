@@ -149,7 +149,7 @@ void ComHTTP::rechercherCompte(QString pseudo, QString mdp)
 void ComHTTP::nouvellePP(QString image)
 {
     // Définition de l'URL courrant de la requête (API REST)
-        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/nouvellePdp.php"));
+        this->requete.setUrl(QUrl("https://chronoluge.000webhostapp.com/gestionPdp.php"));
 
     // Création d'objets JSON (requete de destination, pseudo et mdp) à envoyé dans la requete
         QJsonObject obj;
