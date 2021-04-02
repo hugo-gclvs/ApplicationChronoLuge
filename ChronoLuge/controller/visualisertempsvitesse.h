@@ -35,6 +35,7 @@ public:
         bool rechercherDescentes();
         bool rechercherStatistiques();
         bool majPP(int numPP);
+        void nouvellePP(QString image);
         bool initDescentes(QVector<QString> *descentes);
         bool initStatistiques(QVector<QString> *statistiques);
 
@@ -49,8 +50,6 @@ public:
             Q_INVOKABLE QString getEtatConnexion()                                          { return controllerIdentification.getEtatConnexion()->value("etatConnexion").toString(); }
             Q_INVOKABLE QString getEtatInscription()                                        { return controllerIdentification.getEtatInscription()->value("etatInscription").toString(); }
             Q_INVOKABLE VisualiserIdentification *getControllerVisualiserIdentification()   { return &controllerIdentification; }
-
-            void nouvellePP(QString image) { communicationHTTP->nouvellePP(image); }
 
 private:
 

@@ -42,6 +42,7 @@ public:
         Q_INVOKABLE QString getMesStatistiques(int maStat);
         Q_INVOKABLE QString getMonUtilisateur(int monUtilisateur);
         Q_INVOKABLE void nouvellePP(QString path);
+        Q_INVOKABLE void nouvellePPAvatar(QString lien);
 
     // Mutateur
         void setController(VisualiserTempsVitesse *monController)                   { this->monController = monController; }
