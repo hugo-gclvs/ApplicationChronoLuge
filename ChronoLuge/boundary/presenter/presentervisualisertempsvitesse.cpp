@@ -94,3 +94,8 @@ void PresenterVisualiserTempsVitesse::nouvellePP(QString chemin)
     monController->nouvellePP(imgdata);
 
 }
+
+void PresenterVisualiserTempsVitesse::nouvellePPAvatar(QString lien)
+{
+    monController->nouvellePP(lien);
+}

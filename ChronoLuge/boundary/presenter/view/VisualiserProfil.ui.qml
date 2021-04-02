@@ -649,7 +649,6 @@ Page {
                 visu.visible=true
                 temps.start()
                 appareil.imageCapture.capture()
-                //appareil.imageCapture.captureToLocation("../../../../image/test")
             }
             background:Rectangle{color:"transparent"}
         }
@@ -680,7 +679,7 @@ Page {
             font.bold: true
             text: "<font color='#EBEBEB'> VALIDER </font>"
             onClicked: {
-                presenterVisualiserTempsVitesse.majPP(maGrid.currentIndex+1)
+                presenterVisualiserTempsVitesse.nouvellePPAvatar(maListeImgAvatar.get(maGrid.currentIndex).pp)
                 popupModifPdP.close()
             }
             background: Rectangle {
@@ -726,8 +725,9 @@ Page {
 
             }
 
-            model: ListeImgPP {}
+            model: ListeImgPP {id: maListeImgAvatar}
             delegate: ppDelegate
+            property variant myData: model
             focus: true
             clip: true
         }

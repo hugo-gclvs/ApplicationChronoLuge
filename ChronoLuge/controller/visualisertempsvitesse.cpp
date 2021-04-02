@@ -124,6 +124,11 @@ bool VisualiserTempsVitesse::majPP(int numPP)
     return true;
 }
 
+void VisualiserTempsVitesse::nouvellePP(QString image)
+{
+    communicationHTTP->nouvellePP(controllerIdentification.getIdUtilisateur(), image);
+}
+
 
 /**
  * @brief VisualiserTempsVitesse::initDescentes
