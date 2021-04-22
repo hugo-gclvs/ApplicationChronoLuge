@@ -6,206 +6,206 @@
 6    android:versionName="1.0" >
 7
 8    <uses-sdk
-8-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:5-73
+8-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:5-73
 9        android:minSdkVersion="21"
-9-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:15-41
+9-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:15-41
 10        android:targetSdkVersion="28" />
-10-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:42-71
+10-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:3:42-71
 11
 12    <!--
 13         The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
 14         Remove the comment if you do not require these default permissions.
 15    -->
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:7:5-79
-16-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:7:22-76
+16-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:7:5-79
+16-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:7:22-76
 17    <uses-permission android:name="android.permission.INTERNET" />
-17-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:8:5-67
-17-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:8:22-64
+17-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:8:5-67
+17-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:8:22-64
 18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-18-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:5-81
-18-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:22-78
+18-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:5-81
+18-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:22-78
 19    <uses-permission android:name="android.permission.CAMERA" />
-19-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:10:5-65
-19-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:10:22-62
+19-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:10:5-65
+19-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:10:22-62
 20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-20-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:11:5-71
-20-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:11:22-68
+20-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:11:5-71
+20-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:11:22-68
 21
 22    <!--
 23         The following comment will be replaced upon deployment with default features based on the dependencies of the application.
 24         Remove the comment if you do not require these default features.
 25    -->
 26    <uses-feature
-26-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:5-85
+26-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:5-85
 27        android:name="android.hardware.camera"
-27-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:19-57
+27-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:19-57
 28        android:required="false" />
-28-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:58-82
+28-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:15:58-82
 29    <uses-feature
-29-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:5-95
+29-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:5-95
 30        android:name="android.hardware.camera.autofocus"
-30-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:19-67
+30-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:19-67
 31        android:required="false" />
-31-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:68-92
+31-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:16:68-92
 32    <uses-feature
-32-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:5-89
+32-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:5-89
 33        android:name="android.hardware.microphone"
-33-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:19-61
+33-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:19-61
 34        android:required="false" />
-34-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:62-86
+34-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:17:62-86
 35
 36    <supports-screens
-36-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:5-135
+36-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:5-135
 37        android:anyDensity="true"
-37-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:80-105
+37-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:80-105
 38        android:largeScreens="true"
-38-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:23-50
+38-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:23-50
 39        android:normalScreens="true"
-39-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:51-79
+39-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:51-79
 40        android:smallScreens="true" />
-40-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:106-133
+40-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:19:106-133
 41
 42    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-42-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:5-81
-42-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:22-78
+42-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:5-81
+42-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:9:22-78
 43    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-43-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:1-75
-43-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:18-73
+43-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:1-75
+43-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:85:18-73
 44
 45    <application
-45-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:5-82:19
+45-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:5-82:19
 46        android:name="org.qtproject.qt5.android.bindings.QtApplication"
-46-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:53-116
+46-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:53-116
 47        android:debuggable="true"
 48        android:extractNativeLibs="true"
-48-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:144-176
+48-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:144-176
 49        android:hardwareAccelerated="true"
-49-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:18-52
+49-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:18-52
 50        android:icon="@drawable/icon"
-50-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:177-206
+50-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:177-206
 51        android:label="ChronoLuge" >
-51-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:117-143
+51-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:21:117-143
 52        <activity
-52-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:9-80:20
+52-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:9-80:20
 53            android:name="org.qtproject.qt5.android.bindings.QtActivity"
-53-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:189-249
+53-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:189-249
 54            android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
-54-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:19-188
+54-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:19-188
 55            android:label="ChronoLuge"
-55-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:250-276
+55-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:250-276
 56            android:launchMode="singleTop"
-56-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:314-344
+56-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:314-344
 57            android:screenOrientation="portrait" >
-57-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-313
+57-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:22:277-313
 58            <intent-filter>
-58-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:23:13-26:29
+58-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:23:13-26:29
 59                <action android:name="android.intent.action.MAIN" />
-59-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:24:17-68
-59-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:24:25-66
+59-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:24:17-68
+59-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:24:25-66
 60
 61                <category android:name="android.intent.category.LAUNCHER" />
-61-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:25:17-76
-61-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:25:27-74
+61-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:25:17-76
+61-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:25:27-74
 62            </intent-filter>
 63            <!-- Application arguments -->
 64            <!-- meta-data android:name="android.app.arguments" android:value="arg1 arg2 arg3"/ -->
 65            <!-- Application arguments -->
 66            <meta-data
-66-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:13-88
+66-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:13-88
 67                android:name="android.app.lib_name"
-67-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:24-59
+67-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:24-59
 68                android:value="ChronoLuge" />
-68-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:60-86
+68-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:30:60-86
 69            <meta-data
-69-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:13-112
+69-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:13-112
 70                android:name="android.app.qt_sources_resource_id"
-70-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:24-73
+70-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:24-73
 71                android:resource="@array/qt_sources" />
-71-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:74-110
+71-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:31:74-110
 72            <meta-data
-72-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:13-87
+72-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:13-87
 73                android:name="android.app.repository"
-73-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:24-61
+73-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:24-61
 74                android:value="default" />
-74-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:62-85
+74-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:32:62-85
 75            <meta-data
-75-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:13-106
+75-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:13-106
 76                android:name="android.app.qt_libs_resource_id"
-76-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:24-70
+76-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:24-70
 77                android:resource="@array/qt_libs" />
-77-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:71-104
+77-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:33:71-104
 78            <meta-data
-78-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:13-116
+78-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:13-116
 79                android:name="android.app.bundled_libs_resource_id"
-79-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:24-75
+79-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:24-75
 80                android:resource="@array/bundled_libs" />
-80-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:76-114
+80-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:34:76-114
 81            <!-- Deploy Qt libs as part of package -->
 82            <meta-data
-82-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:13-91
+82-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:13-91
 83                android:name="android.app.bundle_local_qt_libs"
-83-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:24-71
+83-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:24-71
 84                android:value="1" />
-84-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:72-89
+84-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:36:72-89
 85            <!-- Run with local libs -->
 86            <meta-data
-86-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:13-88
+86-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:13-88
 87                android:name="android.app.use_local_qt_libs"
-87-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:24-68
+87-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:24-68
 88                android:value="1" />
-88-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:69-86
+88-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:38:69-86
 89            <meta-data
-89-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:13-100
+89-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:13-100
 90                android:name="android.app.libs_prefix"
-90-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:24-62
+90-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:24-62
 91                android:value="/data/local/tmp/qt/" />
-91-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:63-98
+91-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:39:63-98
 92            <meta-data
-92-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:13-122
+92-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:13-122
 93                android:name="android.app.load_local_libs_resource_id"
-93-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:24-78
+93-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:24-78
 94                android:resource="@array/load_local_libs" />
-94-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:79-120
+94-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:40:79-120
 95            <meta-data
-95-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:13-147
+95-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:13-147
 96                android:name="android.app.load_local_jars"
-96-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:24-66
+96-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:24-66
 97                android:value="jar/QtAndroidBearer.jar:jar/QtAndroid.jar:jar/QtMultimedia.jar" />
-97-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:67-145
+97-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:41:67-145
 98            <meta-data
-98-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:13-143
+98-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:13-143
 99                android:name="android.app.static_init_classes"
-99-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:24-70
+99-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:24-70
 100                android:value="org.qtproject.qt5.android.multimedia.QtMultimediaUtils" />
-100-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:71-141
+100-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:42:71-141
 101            <!-- Used to specify custom system library path to run with local system libs -->
 102            <!-- <meta-data android:name="android.app.system_libs_prefix" android:value="/system/lib/"/> -->
 103            <!-- Messages maps -->
 104            <meta-data
-104-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:13-122
+104-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:13-122
 105                android:name="android.app.ministro_not_found_msg"
-105-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:71-120
+105-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:71-120
 106                android:value="@string/ministro_not_found_msg" />
-106-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:24-70
+106-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:46:24-70
 107            <meta-data
-107-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:13-116
+107-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:13-116
 108                android:name="android.app.ministro_needed_msg"
-108-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:68-114
+108-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:68-114
 109                android:value="@string/ministro_needed_msg" />
-109-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:24-67
+109-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:47:24-67
 110            <meta-data
-110-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:13-108
+110-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:13-108
 111                android:name="android.app.fatal_error_msg"
-111-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:64-106
+111-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:64-106
 112                android:value="@string/fatal_error_msg" />
-112-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:24-63
+112-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:48:24-63
 113            <meta-data
-113-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:13-132
+113-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:13-132
 114                android:name="android.app.unsupported_android_version"
-114-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:76-130
+114-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:76-130
 115                android:value="@string/unsupported_android_version" />
-115-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:24-75
+115-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:49:24-75
 116            <!-- Messages maps -->
 117            <!-- Splash screen -->
 118            <!--
@@ -227,19 +227,19 @@
 134                          signal is sent!
 135            -->
 136            <meta-data
-136-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:13-93
+136-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:13-93
 137                android:name="android.app.background_running"
-137-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:24-69
+137-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:24-69
 138                android:value="false" />
-138-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:70-91
+138-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:66:70-91
 139            <!-- Background running -->
 140            <!-- auto screen scale factor -->
 141            <meta-data
-141-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:13-99
+141-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:13-99
 142                android:name="android.app.auto_screen_scale_factor"
-142-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:24-75
+142-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:24-75
 143                android:value="false" />
-143-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:76-97
+143-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:69:76-97
 144            <!-- auto screen scale factor -->
 145            <!-- extract android style -->
 146            <!--
@@ -250,11 +250,11 @@
 151                * none - useful for apps that don't use any of the above Qt modules
 152            -->
 153            <meta-data
-153-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:13-98
+153-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:13-98
 154                android:name="android.app.extract_android_style"
-154-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:24-72
+154-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:24-72
 155                android:value="default" />
-155-->C:\Users\GoncalvesH\Projet\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:73-96
+155-->C:\Users\hugog\Desktop\ChronoLuge\ApplicationChronoLuge\build-Android\android-build\AndroidManifest.xml:78:73-96
 156            <!-- extract android style -->
 157        </activity>
 158        <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->

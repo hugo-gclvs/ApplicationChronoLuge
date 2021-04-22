@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtMultimedia 5.9
+import QtGraphicalEffects 1.0
 import ControllerVisualiserTempsVitesse 1.0
 
 Page {
@@ -42,6 +43,19 @@ Page {
                 y: 20
                 clip: true
                 source: photoDeProfile
+                fillMode: Image.PreserveAspectCrop
+                    layer.enabled: true
+                    layer.effect: OpacityMask {
+                        maskSource: mask
+                    }
+            }
+
+            Rectangle {
+                id: mask
+                width: 500
+                height: 500
+                radius: 250
+                visible: false
             }
 
             Label {
@@ -49,6 +63,7 @@ Page {
                 color: "white"
                 x: 70
                 y: parent.height - 25
+
                 MouseArea {
                     anchors.fill: parent
                     //onClicked: popupModifPdP.open()
@@ -73,6 +88,7 @@ Page {
                             Rectangle {
                                 height: parent.height/2
                                 width: parent.width
+                                color: "transparent"
 
                                 Button {
                                     id: boutonModeAvatar
@@ -87,8 +103,9 @@ Page {
                                         popupChoisirModePP.close()
                                     }
                                     background: Rectangle {
+                                        border.color: "white"
+                                        border.width: 1
                                         color: "#6B6B6B"
-                                        opacity: 0.9
                                         radius: 10
                                     }
                                 }
@@ -97,6 +114,7 @@ Page {
                             Rectangle {
                                 height: parent.height/2
                                 width: parent.width
+                                color: "transparent"
 
                                 Button {
                                     id: boutonModePrisePhoto
@@ -111,8 +129,9 @@ Page {
                                         gridPrincipaleProfil.state = "prendrePhoto"
                                     }
                                     background: Rectangle {
+                                        border.color: "white"
+                                        border.width: 1
                                         color: "#6B6B6B"
-                                        opacity: 0.9
                                         radius: 10
                                     }
                                 }
@@ -584,63 +603,65 @@ Page {
     Frame {
         id: framePrendrePhoto
         visible: false
-        width: parent.width
-        height: parent.height
-
-        Camera{
-            id:appareil
-            position: Camera.FrontFace
-            exposure{
-                exposureMode: Camera.ExposureAction
-                manualIso:800
-            }
-            focus{
-                focusMode:CameraFocus.FocusContinuous
-                focusPointMode:Camera.FocusPointAuto
-            }
-            imageProcessing{
-                saturation:-1
-                contrast:1
-            }
-            flash.mode:Camera.FlashAuto
-            imageCapture.onImageCaptured:visu.source=preview
-            captureMode:Camera.CaptureStillImage
-            imageCapture {
-                 onImageCaptured: {
-                 var imgPath =  appareil.imageCapture.capturedImagePath
-                     presenterVisualiserTempsVitesse.nouvellePP(imgPath)
-                 }
-            }
-        }
-
+        anchors.fill: parent
 
         VideoOutput{
             id:vidéo
             source:appareil
-            anchors.fill:parent
-            orientation:appareil.orientation
+            anchors.fill: parent
+            autoOrientation: true
+
+            Camera{
+                id:appareil
+                position: Camera.FrontFace
+                exposure{
+                    exposureMode: Camera.ExposureAction
+                    manualIso:800
+                }
+                focus{
+                    focusMode:CameraFocus.FocusContinuous
+                    focusPointMode:Camera.FocusPointAuto
+                }
+                imageProcessing{
+                    saturation:-1
+                    contrast:1
+                }
+                flash.mode:Camera.FlashAuto
+                imageCapture.onImageCaptured:visu.source=preview
+                captureMode:Camera.CaptureStillImage
+                imageCapture {
+                     onImageCaptured: {
+                     var imgPath =  appareil.imageCapture.capturedImagePath
+                         presenterVisualiserTempsVitesse.nouvellePP(imgPath)
+                     }
+                }
+            }
+
         }
 
         Timer{
             id:temps
             interval:5000
-            onTriggered: visu.visible=false
+            onTriggered: {
+                gridPrincipaleProfil.state = "normal"
+                visu.visible=false
+            }
         }
 
         Image{
             id: visu
-            fillMode:Image.PreserveAspectCrop
+            fillMode: Image.PreserveAspectCrop
             anchors.fill:parent
         }
 
         ToolButton{
             anchors{
                 bottom:parent.bottom
-                bottomMargin:8
+                bottomMargin:80
                 horizontalCenter:parent.horizontalCenter
             }
             icon{
-                source: "../../../../image/image/logo.png"
+                source: "../../../../image/image/diaphragm.png"
                 color:"transparent"
                 width:64
                 height:64

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\GoncalvesH\\Projet\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\hugog\\Desktop\\ChronoLuge\\ApplicationChronoLuge\\build-Android\\android-build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\GoncalvesH\\Projet\\ApplicationChronoLuge\\build-Android\\android-build\\res\\values\\libs.xml",
+                    "source": "C:\\Users\\hugog\\Desktop\\ChronoLuge\\ApplicationChronoLuge\\build-Android\\android-build\\res\\values\\libs.xml",
                     "from": {
                         "startLines": "9,47,16,2",
                         "startColumns": "4,4,4,4",

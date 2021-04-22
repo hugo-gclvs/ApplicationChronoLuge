@@ -70,7 +70,7 @@ ApplicationWindow {
             anchors.rightMargin: 5
             clip: true
             visible: true
-            source: "https://chronoluge.000webhostapp.com/images/avatar/profil.png"
+            //source: "https://chronoluge.000webhostapp.com/images/avatar/profil.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -80,6 +80,19 @@ ApplicationWindow {
                     }
                 }
             }
+            fillMode: Image.PreserveAspectCrop
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                maskSource: maskNavBar
+            }
+        }
+
+        Rectangle {
+            id: maskNavBar
+            width: 500
+            height: 500
+            radius: 250
+            visible: false
         }
 
         states: [

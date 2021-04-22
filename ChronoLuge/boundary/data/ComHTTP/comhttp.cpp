@@ -280,6 +280,9 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     // Recherche des statistiques du nouvel utilisateur
                         this->rechercherStatistiques(monControllerIdentification->getIdUtilisateur());
 
+                    // Emission de nouvelle PP pour mettre à jour la pp header QML
+                    emit this->monControllerTempsVitesse->postNewPP(true, monControllerIdentification->getMonUtilisatateur()->getPdp());
+
                 }
                 else if (JsonObj["requeteSrc"].toString() == "postInscription")
                 {
@@ -352,8 +355,8 @@ void ComHTTP::lireReponse(QNetworkReply *reponse)
                     emit this->monControllerIdentification->postInscription(false);
                 else if (JsonObj["requeteSrc"].toString() == "postLierDescente")
                     emit this->monControllerTempsVitesse->postLierDescente(false);
-                else if (JsonObj["requeteSrc"].toString() == "postNewPdp")
-                    emit this->monControllerTempsVitesse->postNewPP(false, QString::number(-1));
+                else if (JsonObj["requeteSrc"].toString() == "postNouvellePP")
+                    emit this->monControllerTempsVitesse->postNewPP(false, JsonObj["lienPP"].toString());
                 else
                 {
                     qDebug() << "/!\\ Message d'Erreur: "  << JsonObj["message"].toString();
