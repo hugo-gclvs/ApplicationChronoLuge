@@ -55,7 +55,7 @@ ApplicationWindow {
             font.bold: true
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignLeft
-            font.pixelSize: Qt.application.font.pixelSize
+            font.pixelSize: 17
             opacity: 0.5
             anchors.fill: parent
         }
