@@ -1,7 +1,34 @@
-Application Chrono'Luge d'un projet BTS SNIR sous android 5.0:
+# Chrono'Luge Mobile Application
 
-L’entreprise CLECY GLISS propose à ses clients de s’amuser en dévalant une piste de luge monorail. Il propose un circuit de 650m qui est unique dans le Nord de la France. Pour augmenter l’amusement des clients, l’entreprise souhaite offrir à ses clients un challenge de vitesse, en chronométrant la descente.
-C’est pourquoi, l’entreprise souhaiterait disposer d’un système de chronométrage permettant la mesure du temps de la descente et donc de la vitesse moyenne, l’affichage en fin de course des résultats et l’historisation des mesures. Cela permettra de faire des challenges quotidiens et mensuels. Cela incitera également les clients à retenter leur chance dans un esprit de compétition et pourrait ainsi augmenter la fréquentation du site.
+![App Screenshot](https://github.com/Hugoreoo/Chrono-Luge/blob/main/5-Ressources/Image/logo.png)
 
-A partir du serveur, la personne en charge du système peut ajouter ou supprimer une luge. Il peut aussi modifier la longueur de la piste. Le serveur est connecté au réseau interne de l’entreprise. Pour avoir accès à son historique de course, le gérant souhaite mettre à disposition pour les clients une application mobile.
+## Description
 
+The Chrono'Luge mobile application is designed to provide customers with access to their race history and enhance their experience at the CLECY GLISS monorail sled track. The application allows users to view their previous results, compare them with other participants, and keep track of their personal records. It provides a user-friendly interface that enables seamless navigation and interaction.
+
+## Features
+
+- View previous race results.
+- Compare results with other participants.
+- Track personal records.
+- User-friendly interface for easy navigation and interaction.
+
+## Installation
+
+To install the Chrono'Luge mobile application, follow this step:
+
+- Clone the repository: `git clone https://github.com/your-username/chrono-luge-mobile.git`
+
+## Technologies Used
+
+- C++
+- QML
+- QtCreator
+
+## Contributors
+
+The Chrono'Luge mobile application is developed by the following contributors:
+
+- Hugo GONCALVES
+
+For more information, please contact the contributors.
